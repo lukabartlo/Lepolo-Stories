@@ -1,15 +1,16 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class MapData {
     
     #region Variables
     
     private CellData[,] _map;
-    private GameObject[,] _display;
     private Dictionary<ObjectType, List<GameObject>> _allMapObjectsByType =  new Dictionary<ObjectType, List<GameObject>>();
     private float _mapHeight;
     private Transform _objectsParent;
+    public bool isMapGenerated  = false;
     
     #endregion
 
@@ -17,15 +18,8 @@ public class MapData {
         _map =  new CellData[_sizeX , _sizeY];
         this._mapHeight = _mapHeight;
         this._objectsParent = _objectsParent;
-        
-        _display =  new GameObject[_sizeX, _sizeY];
-        for (int i = 0; i < _sizeX; i++) {
-            for (int j = 0; j < _sizeY; j++) {
-                GameObject obj = Object.Instantiate(_squarePrefab);
-                obj.transform.position = new Vector3(i + 0.5f, 10, j + 0.5f);
-                _display[i, j] = obj;
-            }
-        }
+        isMapGenerated = true;
+
     }
     
     #region Placing On Cells
@@ -109,8 +103,6 @@ public class MapData {
         } else {
             _allMapObjectsByType.Add(_objectType, new List<GameObject> { _objectData.buildObject });
         }
-        
-        UpdateMapCells();
     }
     
     #endregion 
@@ -143,7 +135,6 @@ public class MapData {
             
             _map[_tileCoord.x, _tileCoord.y].cellState = CellState.Empty;
         }
-        UpdateMapCells();
         return true;
     }
 
@@ -157,10 +148,16 @@ public class MapData {
     
     #endregion
 
-    public void UpdateMapCells() {
-        Debug.Log("Updating map cells");
-        for (int i = 0; i < _display.GetLength(0); i++) {
-            for (int j = 0; j < _display.GetLength(1); j++) {
+    public CellData GetCellData(int _x, int _y) {
+        if(IsCoordInMap(_x, _y)) return _map[_x, _y];
+
+        return default;
+    }
+    public void OnDrawGizmos()
+    {
+        if (!isMapGenerated) return;
+        for (int i = 0; i < _map.GetLength(0); i++) {
+            for (int j = 0; j < _map.GetLength(1); j++) {
                 Color _color = Color.white;
                 
                 switch (_map[i, j].cellState) {
@@ -174,15 +171,10 @@ public class MapData {
                         _color = Color.yellow;
                         break;
                 }
-                _display[i, j].GetComponent<MeshRenderer>().material.color = _color;
+                Gizmos.color =  _color;
+                Gizmos.DrawWireCube(new Vector3(i + 0.5f, 0, j + 0.5f),Vector3.one);
             }
         }
-    }
-
-    public CellData GetCellData(int _x, int _y) {
-        if(IsCoordInMap(_x, _y)) return _map[_x, _y];
-
-        return default;
     }
 
     #region Checks

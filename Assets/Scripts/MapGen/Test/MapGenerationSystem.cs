@@ -51,6 +51,8 @@ public class MapGenerationSystem {
     
         return true;
     }
+    
+    #region Possibilities
 
     // private IEnumerator mapGeneration(List<PreGenObjectWrapper> _objectsToPregen) {
     //     if (_objectsToPregen[0].objectType == ObjectType.Building) {
@@ -77,4 +79,6 @@ public class MapGenerationSystem {
     //     
     //     mapGenerationCoroutine = null;
     // }
+    
+    #endregion
 }

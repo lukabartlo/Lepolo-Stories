@@ -70,4 +70,10 @@ public class TestBuildManager : MonoBehaviour {
             }
         }
     }
+
+    void OnDrawGizmos()
+    {
+        if (mapData == null) return;
+        mapData.OnDrawGizmos();
+    }
 }
