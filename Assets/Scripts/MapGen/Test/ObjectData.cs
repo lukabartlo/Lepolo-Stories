@@ -1,9 +1,11 @@
 using UnityEngine;
 
+
+[System.Serializable]
 public struct ObjectData
 {
-    public int width;
-    public int height;
+    public int widthX;
+    public int widthY;
     public int padding;
     public GameObject buildObject;
 }

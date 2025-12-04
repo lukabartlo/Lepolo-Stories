@@ -1,149 +1,225 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class MapData : MonoBehaviour
-{
-    private CellData[,] map;
-    private Dictionary<ObjectType, List<GameObject>> allMapObjectsByType;
+public class MapData {
+    
+    #region Variables
+    
+    private CellData[,] _map;
+    private GameObject[,] _display;
+    private Dictionary<ObjectType, List<GameObject>> _allMapObjectsByType =  new Dictionary<ObjectType, List<GameObject>>();
+    private float _mapHeight;
+    private Transform _objectsParent;
+    
+    #endregion
 
-    MapData(int Width, int Height)
-    {
-        map =  new CellData[Width,Height];
-    }
-
-    private CellState IsSpaceOccupied(int _x, int _y)
-    {
-        if (_x < 0 || _y < 0 || _x >= map.GetLength(0) || _y >= map.GetLength(1))
-            return CellState.Undefined;
+    public MapData(int _sizeX, int _sizeY, float _mapHeight, Transform _objectsParent, GameObject _squarePrefab) {
+        _map =  new CellData[_sizeX , _sizeY];
+        this._mapHeight = _mapHeight;
+        this._objectsParent = _objectsParent;
         
-        return map[_x, _y].cellState;
+        _display =  new GameObject[_sizeX, _sizeY];
+        for (int i = 0; i < _sizeX; i++) {
+            for (int j = 0; j < _sizeY; j++) {
+                GameObject obj = Object.Instantiate(_squarePrefab);
+                obj.transform.position = new Vector3(i + 0.5f, 10, j + 0.5f);
+                _display[i, j] = obj;
+            }
+        }
     }
-
-    public bool TryBuildingOnCell(Vector2Int _buildCoord, ObjectData objectData)
+    
+    #region Placing On Cells
+    
+    public bool TryBuildingOnCell(Vector2Int _buildCoord, ObjectData _objectData)
     {
-        int _width = _buildCoord.x + objectData.width - objectData.padding;
-        int _height = _buildCoord.y + objectData.height - objectData.padding;
+        int _widthX = _buildCoord.x + _objectData.widthX - _objectData.padding;
+        int _widthY = _buildCoord.y + _objectData.widthY - _objectData.padding;
 
-        for (int i = 0; _buildCoord.x + i < _width; i++ )
+        for (int i = 0; _buildCoord.x + i < _widthX; i++ )
         {
-            for (int j = 0;  _buildCoord.y + j < _height; j++)
+            for (int j = 0;  _buildCoord.y + j < _widthY; j++)
             {
+                if (!IsCoordInMap(_buildCoord.x + i, _buildCoord.y + j)) return false;
+                
                 // If the cell on the map is full we don't want to build
-                if (map[_buildCoord.x + i, _buildCoord.y + j].cellState == CellState.Full) return false;
+                if (_map[_buildCoord.x + i, _buildCoord.y + j].cellState == CellState.Full) {
+                    return false;
+                }
             
                 // If the cell to build is not a padding and the cell on the map is a padding then we don't want to build
-                if (!(_buildCoord.x + i < _buildCoord.x + objectData.padding || _buildCoord.y + j < _buildCoord.y + objectData.padding || _buildCoord.x + i >= _width || _buildCoord.y + j >= _height) 
-                    &&  map[_buildCoord.x + i, _buildCoord.y + j].cellState == CellState.Padding) return false;
+                if (!(_buildCoord.x + i < _buildCoord.x + _objectData.padding || _buildCoord.y + j < _buildCoord.y + _objectData.padding || _buildCoord.x + i >= _widthX || _buildCoord.y + j >= _widthY) 
+                    &&  _map[_buildCoord.x + i, _buildCoord.y + j].cellState == CellState.Padding) return false;
             }
         }
         
         return true;
     }
-
-    public void PlaceObjectOnMap(Vector2Int _buildCoord, ObjectData objectData,ObjectType objectType)
+    
+    public void PlaceObjectOnMap(Vector2Int _buildCoord, ref ObjectData _objectData, ObjectType _objectType)
     {
-        int _width = _buildCoord.x + objectData.width - objectData.padding;
-        int _height = _buildCoord.y + objectData.height - objectData.padding;
+        int _widthX = _buildCoord.x + _objectData.widthX;
+        int _widthY = _buildCoord.y + _objectData.widthY;
         
-        List<Vector2Int> cellsToBuild = new List<Vector2Int>();
+        List<Vector2Int> _cellsToBuild = new List<Vector2Int>();
 
-        for (int i = 0; _buildCoord.x + i < _width; i++ )
-        {
-            for (int j = 0;  _buildCoord.y + j < _height; j++)
-            {
-                cellsToBuild.Add(new Vector2Int(_buildCoord.x + i, _buildCoord.y + j));
+        Vector2Int _coordCellToBuild = Vector2Int.zero;
+        for (int i = 0; _buildCoord.x + i < _widthX; i++ ) {
+            for (int j = 0;  _buildCoord.y + j < _widthY; j++) {
+                
+                _coordCellToBuild.x = _buildCoord.x + i;
+                _coordCellToBuild.y = _buildCoord.y + j;
+                _cellsToBuild.Add(_coordCellToBuild);
                 
                 // If is padding
-                if (_buildCoord.x + i < _buildCoord.x + objectData.padding ||
-                    _buildCoord.y + j < _buildCoord.y + objectData.padding || 
-                    _buildCoord.x + i >= _width ||
-                    _buildCoord.y + j >= _height)
+                if (_buildCoord.x + i < _buildCoord.x + _objectData.padding ||
+                    _buildCoord.y + j < _buildCoord.y + _objectData.padding || 
+                    _buildCoord.x + i >= _widthX  - _objectData.padding ||
+                    _buildCoord.y + j >= _widthY  - _objectData.padding)
                 {
-                    map[_buildCoord.x + i, _buildCoord.y + j].cellState = CellState.Padding;
-                    map[_buildCoord.x + i, _buildCoord.y + j].paddingSecurity++;
+                    _map[_buildCoord.x + i, _buildCoord.y + j].cellState = CellState.Padding;
+                    _map[_buildCoord.x + i, _buildCoord.y + j].paddingSecurity++;
                     continue;
                 }
                 
                 // if building
-                map[_buildCoord.x + i, _buildCoord.y + j].cellState = CellState.Full;
+                _map[_buildCoord.x + i, _buildCoord.y + j].cellState = CellState.Full;
             }
         }
-        
-        // Add the connected cells to the building's cell
-        foreach (Vector2Int cellToBuild in cellsToBuild)
-        {
-            if (map[cellToBuild.x, cellToBuild.y].cellState != CellState.Full)
-                return;
-                
-            map[cellToBuild.x, cellToBuild.y].connectedCells = cellsToBuild;
-            map[cellToBuild.x, cellToBuild.y].connectedCells.Remove(cellToBuild);
-            map[cellToBuild.x, cellToBuild.y].objectType = objectType;
-            map[cellToBuild.x, cellToBuild.y].sceneObject = objectData.buildObject;
 
+        // Add the connected cells to the building's cell
+        for (int i = 0; i < _cellsToBuild.Count; i++) {
+            ref CellData _cellOnGrid = ref _map[_cellsToBuild[i].x, _cellsToBuild[i].y];
+            _cellOnGrid.connectedCells = new List<Vector2Int>();
+            
+            if (_cellOnGrid.cellState != CellState.Full)
+                continue;
+            
+            for (int j = 0; j < _cellsToBuild.Count; j++) {
+                if(_cellsToBuild[j] != _cellsToBuild[i])
+                    _cellOnGrid.connectedCells.Add(_cellsToBuild[j]);
+            }
+            _cellOnGrid.objectType = _objectType;
+            _cellOnGrid.sceneObject = _objectData.buildObject;
+            _cellOnGrid.sceneObject.transform.position = new Vector3(_buildCoord.x + (float)_objectData.widthX / 2, _mapHeight, _buildCoord.y + (float)_objectData.widthY / 2);
+            
+        }
+
+        if (_allMapObjectsByType.ContainsKey(_objectType)) {
+            _allMapObjectsByType[_objectType].Add(_objectData.buildObject);
+        } else {
+            _allMapObjectsByType.Add(_objectType, new List<GameObject> { _objectData.buildObject });
         }
         
-        ////////////////////////////////////////////AJOUTER AU DICTIONNAIRE CORRESPONDANT/////////////////////////////////////
-        ///////////////////////////////////////////////AJOUTER AU DICTIONNAIRE CORRESPONDANT/////////////////////////////////////
-        ////////////////////////////////////////////AJOUTER AU DICTIONNAIRE CORRESPONDANT/////////////////////////////////////
-        ////////////////////////////////////////////AJOUTER AU DICTIONNAIRE CORRESPONDANT/////////////////////////////////////
-        ////////////////////////////////////////////AJOUTER AU DICTIONNAIRE CORRESPONDANT/////////////////////////////////////
-        ////////////////////////////////////////////AJOUTER AU DICTIONNAIRE CORRESPONDANT/////////////////////////////////////
-        ////////////////////////////////////////////AJOUTER AU DICTIONNAIRE CORRESPONDANT/////////////////////////////////////
-        
+        UpdateMapCells();
     }
+    
+    #endregion 
 
+    #region Deleting On Cells
+    
     public bool TryDeleteCell(int _x, int _y)
     {
-        if (map[_x, _y].cellState == CellState.Full) return false;
-        
-        if (!allMapObjectsByType[map[_x, _y].objectType].Contains(map[_x, _y].sceneObject)) return false;
+        if (!IsCoordInMap(_x, _y)) return false;
+        if (_map[_x, _y].cellState != CellState.Full) return false;
+        if (!_allMapObjectsByType[_map[_x, _y].objectType].Contains(_map[_x, _y].sceneObject)) return false;
 
-        allMapObjectsByType[map[_x, _y].objectType].Remove(map[_x, _y].sceneObject);
-        Destroy(map[_x, _y].sceneObject);
+        if(_allMapObjectsByType.ContainsKey(_map[_x, _y].objectType) && _allMapObjectsByType[_map[_x, _y].objectType].Count != 0)
+            _allMapObjectsByType[_map[_x, _y].objectType].Remove(_map[_x, _y].sceneObject);
         
-        map[_x, _y].cellState = CellState.Empty;
+        Object.Destroy(_map[_x, _y].sceneObject);
         
-        foreach (Vector2Int tileCoord in map[_x, _y].connectedCells)
+        _map[_x, _y].cellState = CellState.Empty;
+        
+        foreach (Vector2Int _tileCoord in _map[_x, _y].connectedCells)
         {
-            if (map[tileCoord.x, tileCoord.y].paddingSecurity > 0) {
-                map[tileCoord.x, tileCoord.y].paddingSecurity--;
+            if (_map[_tileCoord.x, _tileCoord.y].paddingSecurity > 0) {
+                _map[_tileCoord.x, _tileCoord.y].paddingSecurity--;
                 
-                if (map[tileCoord.x, tileCoord.y].paddingSecurity == 0)
-                    map[tileCoord.x, tileCoord.y].cellState = CellState.Empty;
+                if (_map[_tileCoord.x, _tileCoord.y].paddingSecurity == 0)
+                    _map[_tileCoord.x, _tileCoord.y].cellState = CellState.Empty;
                 
                 continue;
             }
             
-            map[tileCoord.x, tileCoord.y].cellState = CellState.Empty;
+            _map[_tileCoord.x, _tileCoord.y].cellState = CellState.Empty;
         }
-        
-        ////////////////////////////////////////////SUPPRIMER AU DICTIONNAIRE CORRESPONDANT/////////////////////////////////////
-        ///////////////////////////////////////////////SUPPRIMER AU DICTIONNAIRE CORRESPONDANT/////////////////////////////////////
-        ////////////////////////////////////////////SUPPRIMER AU DICTIONNAIRE CORRESPONDANT/////////////////////////////////////
-        ////////////////////////////////////////////SUPPRIMER AU DICTIONNAIRE CORRESPONDANT/////////////////////////////////////
-        ////////////////////////////////////////////SUPPRIMER AU DICTIONNAIRE CORRESPONDANT/////////////////////////////////////
-        ////////////////////////////////////////////SUPPRIMER AU DICTIONNAIRE CORRESPONDANT/////////////////////////////////////
-        ////////////////////////////////////////////SUPPRIMER AU DICTIONNAIRE CORRESPONDANT/////////////////////////////////////
-        
+        UpdateMapCells();
         return true;
     }
 
-    public GameObject GetClosestMapObject(Vector3 position, ObjectType _objectType)
-    {
-        GameObject objToReturn = null;
+    public void DeleteMap() {
+        for(int i = _objectsParent.childCount - 1; i >= 0; i--) {
+            Object.Destroy(_objectsParent.GetChild(i).gameObject);
+        }
+
+        _map = new CellData[_map.GetLength(0), _map.GetLength(1)];
+    }
+    
+    #endregion
+
+    public void UpdateMapCells() {
+        Debug.Log("Updating map cells");
+        for (int i = 0; i < _display.GetLength(0); i++) {
+            for (int j = 0; j < _display.GetLength(1); j++) {
+                Color _color = Color.white;
+                
+                switch (_map[i, j].cellState) {
+                    case CellState.Empty:
+                        _color = Color.green;
+                        break;
+                    case CellState.Full:
+                        _color = Color.red;
+                        break;
+                    case CellState.Padding:
+                        _color = Color.yellow;
+                        break;
+                }
+                _display[i, j].GetComponent<MeshRenderer>().material.color = _color;
+            }
+        }
+    }
+
+    public CellData GetCellData(int _x, int _y) {
+        if(IsCoordInMap(_x, _y)) return _map[_x, _y];
+
+        return default;
+    }
+
+    #region Checks
+    
+    private CellState IsSpaceOccupied(int _x, int _y) {
+        if (!IsCoordInMap(_x, _y))
+            return CellState.Undefined;
         
-        if (allMapObjectsByType.ContainsKey(_objectType) && allMapObjectsByType[_objectType].Count > 0)
+        return _map[_x, _y].cellState;
+    }
+
+    private bool IsCoordInMap(int _x, int _y) {
+        if (_x < 0 || _y < 0 || _x > _map.GetLength(0) -1 || _y > _map.GetLength(1) -1)
+            return false;
+        return true;
+    }
+    
+    public GameObject GetClosestMapObject(Vector3 _position, ObjectType _objectType)
+    {
+        GameObject _objToReturn = null;
+        
+        if (_allMapObjectsByType.ContainsKey(_objectType) && _allMapObjectsByType[_objectType].Count > 0)
         {
-            float minDistance = Vector3.Distance(position, allMapObjectsByType[_objectType][0].transform.position);
+            float _minDistance = Vector3.Distance(_position, _allMapObjectsByType[_objectType][0].transform.position);
             
-            foreach (GameObject obj in allMapObjectsByType[_objectType])
+            foreach (GameObject _obj in _allMapObjectsByType[_objectType])
             {
-                float distance = 0;
-                if (minDistance > (distance = Vector3.Distance(position, obj.transform.position)))
-                    minDistance = distance;
+                float _distance = 0;
+                if (_minDistance > (_distance = Vector3.Distance(_position, _obj.transform.position))) {
+                    _minDistance = _distance;
+                    _objToReturn = _obj;
+                }
             }
         }
         
-        return objToReturn;
+        return _objToReturn;
     }
+    
+    #endregion
 }
