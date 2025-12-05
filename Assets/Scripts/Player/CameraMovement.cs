@@ -1,60 +1,64 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CameraMovement : MonoBehaviour
+public class CameraTestPerso : MonoBehaviour
 {
+    private Transform _cameraPivot;
 
-    public float camSpeed = 10;
-    public float zoomSpeed = 10;
-    private Vector2 moveInput;
-    private Vector2 zoomInput;
-    [SerializeField] Transform transformCam;
-    private InputSystem_Actions cameraControl;
-    private InputAction zoomAction;
+    [Header("Movements")]
+    private Vector2 _cameraInput;
+    private Vector3 _cameraDesiredDirection = Vector3.zero;
+    [SerializeField] private float moveSpeed;
 
+    [Header("Zoom")]
+    [SerializeField] private float zoomMin;
+    [SerializeField] private float zoomMax;
+    [SerializeField] private float zoomSpeed;
+    [SerializeField] private float zoomStep;
+    private Coroutine _zoomCoroutine;
+    private float _zoomDirection;
+    private Vector3 _desiredLocalPosition;
 
-    public float panSpeed = 6;
-    private Camera _camera;
-
-    private void Awake()
+    void Start()
     {
-        _camera = GetComponentInChildren<Camera>();
+        _cameraPivot = transform.parent;
+        _desiredLocalPosition = transform.localPosition;
+    }
+    private void Update()
+    {
+        CameraZoom();
+        if (_cameraInput == Vector2.zero) return;
+        CameraMove();
     }
 
-    void Update()
+    private void CameraMove()
     {
-        //Vector2 panPosition = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-
-        //transform.position += Quaternion.Euler(0, _camera.transform.eulerAngles.y, 0)
-        //                    * new Vector3(panPosition.x, 0, panPosition.y)
-        //                    * (panSpeed * Time.deltaTime);
-
-        Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
-        transformCam.position += Quaternion.Euler(0, _camera.transform.eulerAngles.y, 0) * move * camSpeed * Time.deltaTime;
-
-        Vector3 zoom = new Vector3(0, zoomInput.x, zoomInput.y);
-        transformCam.position += Quaternion.Euler(0, _camera.transform.eulerAngles.y, 0) * zoom * zoomSpeed * Time.deltaTime;
-         
-
+        _cameraDesiredDirection.x = _cameraInput.x;
+        _cameraDesiredDirection.z = _cameraInput.y;
+        _cameraPivot.position = Vector3.Lerp(_cameraPivot.position, _cameraPivot.position + _cameraDesiredDirection, moveSpeed * Time.fixedDeltaTime);
     }
 
-    private void OnEnable()
+    private void CameraZoom()
     {
-        
+        if (_zoomDirection != 0)
+        {
+            float _cameraDistanceAfterZoom = Mathf.Clamp(
+                Vector3.Distance(_cameraPivot.position, transform.position + transform.forward * (_zoomDirection * zoomStep)),
+                zoomMin, zoomMax);
+
+            _desiredLocalPosition = transform.forward * -_cameraDistanceAfterZoom;
+        }
+        transform.localPosition = Vector3.Lerp(transform.localPosition, _desiredLocalPosition, zoomSpeed * Time.deltaTime);
     }
 
-    private void OnDisable()
+    public void AcquireCameraMoveInputs(InputAction.CallbackContext _ctx)
     {
-
+        _cameraInput = _ctx.ReadValue<Vector2>().normalized;
     }
 
-    public void moveCam(InputAction.CallbackContext context)
+    public void AcquireCameraZoomInputs(InputAction.CallbackContext _ctx)
     {
-        moveInput = context.ReadValue<Vector2>();
-    }
-
-    public void zoomCam(InputAction.CallbackContext context)
-    {
-        zoomInput = context.ReadValue<Vector2>();
+        _zoomDirection = _ctx.ReadValue<float>();
     }
 }
