@@ -780,6 +780,8 @@ MonoBehaviour:
         offsetFromOrigin: {x: 0, y: -1}
       - cellState: 2
         offsetFromOrigin: {x: -1, y: -1}
+      buildObjects:
+      - {fileID: 3705564505504780105, guid: 4c409b6241bf45040a49f0dee28dffbd, type: 3}
       buildObject: {fileID: 3064025712856020594, guid: 4744477a573e4a94baad5144b5cb7223, type: 3}
   - objectType: 1
     objectData:
@@ -802,7 +804,14 @@ MonoBehaviour:
         offsetFromOrigin: {x: 0, y: -1}
       - cellState: 2
         offsetFromOrigin: {x: -1, y: -1}
-      buildObject: {fileID: 3064025712856020594, guid: 987732fa335350b4c83f10d5231029be, type: 3}
+      buildObjects:
+      - {fileID: 3705564505504780105, guid: 253a1aba5dcab304088ea03487bdb7b2, type: 3}
+      - {fileID: 3705564505504780105, guid: 0665f4d7d235ac544874c1ed1d782dc8, type: 3}
+      - {fileID: 3705564505504780105, guid: 83a762d6574520a4cb8cbfc4956328a6, type: 3}
+      - {fileID: 3705564505504780105, guid: 6716414964a34de48910d337a77f8e96, type: 3}
+      - {fileID: 3705564505504780105, guid: 5babbeca6370f5f43b7691e7d7d9f1b9, type: 3}
+      - {fileID: 3705564505504780105, guid: e30b9c939179ce9458d5a5096b64fc38, type: 3}
+      buildObject: {fileID: 3705564505504780105, guid: 253a1aba5dcab304088ea03487bdb7b2, type: 3}
   - objectType: 2
     objectData:
       cellsOffsetFromOrigin:
@@ -1666,6 +1675,8 @@ MonoBehaviour:
         offsetFromOrigin: {x: -10, y: -1}
       - cellState: 2
         offsetFromOrigin: {x: -9, y: -1}
+      buildObjects:
+      - {fileID: 3064025712856020594, guid: 6a3dc87353e2ad74e990f47bb8ba3c4f, type: 3}
       buildObject: {fileID: 3064025712856020594, guid: 6a3dc87353e2ad74e990f47bb8ba3c4f, type: 3}
   - objectType: 3
     objectData:
@@ -1740,12 +1751,28 @@ MonoBehaviour:
         offsetFromOrigin: {x: -3, y: 0}
       - cellState: 2
         offsetFromOrigin: {x: -3, y: 1}
+      buildObjects:
+      - {fileID: 3064025712856020594, guid: 397c586c0f689c94c9d145a411af1c6f, type: 3}
+      buildObject: {fileID: 3064025712856020594, guid: 397c586c0f689c94c9d145a411af1c6f, type: 3}
+  - objectType: 4
+    objectData:
+      cellsOffsetFromOrigin:
+      - cellState: 3
+        offsetFromOrigin: {x: 0, y: 0}
+      buildObjects:
+      - {fileID: 3705564505504780105, guid: c4b1a9f22410c864b8535152c1422596, type: 3}
+      - {fileID: 3705564505504780105, guid: 06e6566b0061e9b4fac24507d5f24943, type: 3}
+      - {fileID: 3705564505504780105, guid: cb7ecde32b415eb4a989d493826c87d0, type: 3}
+      - {fileID: 3705564505504780105, guid: 0522b494732abe44f8141d9873d7d476, type: 3}
+      - {fileID: 3705564505504780105, guid: 9b941847e95da9345ae62bd35288a974, type: 3}
       buildObject: {fileID: 3064025712856020594, guid: 397c586c0f689c94c9d145a411af1c6f, type: 3}
   _objectsToPregen:
   - objectType: 2
     onPreGenAmountToSpawn: 1
   - objectType: 3
     onPreGenAmountToSpawn: 1
+  - objectType: 4
+    onPreGenAmountToSpawn: 10000
   - objectType: 1
     onPreGenAmountToSpawn: 4000
   - objectType: 0

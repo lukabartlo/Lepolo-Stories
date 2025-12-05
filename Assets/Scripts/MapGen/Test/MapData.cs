@@ -32,6 +32,11 @@ public class MapData {
                 return false;
             if (_map[coordsAfterOffset.x, coordsAfterOffset.y].cellState == CellState.Full) 
                 return false;
+            if (cell.cellState == CellState.Props) {
+                if(_map[coordsAfterOffset.x, coordsAfterOffset.y].cellState == CellState.Props ||
+                   _map[coordsAfterOffset.x, coordsAfterOffset.y].cellState == CellState.Full)
+                    return false;
+            }
             if (cell.cellState == CellState.Full && _map[coordsAfterOffset.x, coordsAfterOffset.y].cellState == CellState.Padding) 
                 return false;
         }
@@ -56,6 +61,12 @@ public class MapData {
         for (int i = 0; i < _cellsToBuild.Count; i++) {
             ref CellData _cellOnGrid = ref _map[_cellsToBuild[i].x, _cellsToBuild[i].y];
             _cellOnGrid.connectedCells = new List<Vector2Int>();
+
+            if (_cellOnGrid.cellState == CellState.Props) {
+                _cellOnGrid.sceneObject = _objectData.buildObject;
+                _cellOnGrid.sceneObject.transform.position = new Vector3(_buildCoord.x + 0.5f, _mapHeight, _buildCoord.y + 0.5f);
+                continue;
+            }
             
             if (_cellOnGrid.cellState != CellState.Full)
                 continue;
