@@ -24,63 +24,35 @@ public class MapData {
     
     #region Placing On Cells
     
-    public bool TryBuildingOnCell(Vector2Int _buildCoord, ObjectData _objectData)
-    {
-        int _widthX = _buildCoord.x + _objectData.widthX - _objectData.padding;
-        int _widthY = _buildCoord.y + _objectData.widthY - _objectData.padding;
-
-        for (int i = 0; _buildCoord.x + i < _widthX; i++ )
-        {
-            for (int j = 0;  _buildCoord.y + j < _widthY; j++)
-            {
-                if (!IsCoordInMap(_buildCoord.x + i, _buildCoord.y + j)) return false;
-                
-                // If the cell on the map is full we don't want to build
-                if (_map[_buildCoord.x + i, _buildCoord.y + j].cellState == CellState.Full) {
-                    return false;
-                }
+    public bool TryBuildingOnCell(Vector2Int _buildCoord, ObjectData _objectData) {
+        foreach (BuildingCells cell in _objectData.cellsOffsetFromOrigin) {
+            Vector2Int coordsAfterOffset = _buildCoord + cell.offsetFromOrigin;
             
-                // If the cell to build is not a padding and the cell on the map is a padding then we don't want to build
-                if (!(_buildCoord.x + i < _buildCoord.x + _objectData.padding || _buildCoord.y + j < _buildCoord.y + _objectData.padding || _buildCoord.x + i >= _widthX || _buildCoord.y + j >= _widthY) 
-                    &&  _map[_buildCoord.x + i, _buildCoord.y + j].cellState == CellState.Padding) return false;
-            }
+            if (!IsCoordInMap(coordsAfterOffset.x, coordsAfterOffset.y)) 
+                return false;
+            if (_map[coordsAfterOffset.x, coordsAfterOffset.y].cellState == CellState.Full) 
+                return false;
+            if (cell.cellState == CellState.Full && _map[coordsAfterOffset.x, coordsAfterOffset.y].cellState == CellState.Padding) 
+                return false;
         }
         
         return true;
     }
     
-    public void PlaceObjectOnMap(Vector2Int _buildCoord, ref ObjectData _objectData, ObjectType _objectType)
-    {
-        int _widthX = _buildCoord.x + _objectData.widthX;
-        int _widthY = _buildCoord.y + _objectData.widthY;
-        
+    public void PlaceObjectOnMap(Vector2Int _buildCoord, ObjectData _objectData, ObjectType _objectType) {
         List<Vector2Int> _cellsToBuild = new List<Vector2Int>();
-
         Vector2Int _coordCellToBuild = Vector2Int.zero;
-        for (int i = 0; _buildCoord.x + i < _widthX; i++ ) {
-            for (int j = 0;  _buildCoord.y + j < _widthY; j++) {
-                
-                _coordCellToBuild.x = _buildCoord.x + i;
-                _coordCellToBuild.y = _buildCoord.y + j;
-                _cellsToBuild.Add(_coordCellToBuild);
-                
-                // If is padding
-                if (_buildCoord.x + i < _buildCoord.x + _objectData.padding ||
-                    _buildCoord.y + j < _buildCoord.y + _objectData.padding || 
-                    _buildCoord.x + i >= _widthX  - _objectData.padding ||
-                    _buildCoord.y + j >= _widthY  - _objectData.padding)
-                {
-                    _map[_buildCoord.x + i, _buildCoord.y + j].cellState = CellState.Padding;
-                    _map[_buildCoord.x + i, _buildCoord.y + j].paddingSecurity++;
-                    continue;
-                }
-                
-                // if building
-                _map[_buildCoord.x + i, _buildCoord.y + j].cellState = CellState.Full;
-            }
-        }
 
-        // Add the connected cells to the building's cell
+        foreach (BuildingCells cell in _objectData.cellsOffsetFromOrigin) {
+            _coordCellToBuild.x = _buildCoord.x + cell.offsetFromOrigin.x;
+            _coordCellToBuild.y = _buildCoord.y + cell.offsetFromOrigin.y;
+            _cellsToBuild.Add(_coordCellToBuild);
+            
+            _map[_coordCellToBuild.x,  _coordCellToBuild.y].cellState = cell.cellState;
+            if (cell.cellState == CellState.Padding)
+                _map[_coordCellToBuild.x, _coordCellToBuild.y].paddingSecurity++;
+        }
+        
         for (int i = 0; i < _cellsToBuild.Count; i++) {
             ref CellData _cellOnGrid = ref _map[_cellsToBuild[i].x, _cellsToBuild[i].y];
             _cellOnGrid.connectedCells = new List<Vector2Int>();
@@ -94,15 +66,62 @@ public class MapData {
             }
             _cellOnGrid.objectType = _objectType;
             _cellOnGrid.sceneObject = _objectData.buildObject;
-            _cellOnGrid.sceneObject.transform.position = new Vector3(_buildCoord.x + (float)_objectData.widthX / 2, _mapHeight, _buildCoord.y + (float)_objectData.widthY / 2);
-            
+            _cellOnGrid.sceneObject.transform.position = new Vector3(_buildCoord.x + 0.5f, _mapHeight, _buildCoord.y + 0.5f);
         }
-
+        
         if (_allMapObjectsByType.ContainsKey(_objectType)) {
             _allMapObjectsByType[_objectType].Add(_objectData.buildObject);
         } else {
             _allMapObjectsByType.Add(_objectType, new List<GameObject> { _objectData.buildObject });
         }
+        
+        
+        // for (int i = 0; _buildCoord.x + i < _widthX; i++ ) {
+        //     for (int j = 0;  _buildCoord.y + j < _widthY; j++) {
+        //         
+        //         _coordCellToBuild.x = _buildCoord.x + i;
+        //         _coordCellToBuild.y = _buildCoord.y + j;
+        //         _cellsToBuild.Add(_coordCellToBuild);
+        //         
+        //         // If is padding
+        //         if (_buildCoord.x + i < _buildCoord.x + _objectData.padding ||
+        //             _buildCoord.y + j < _buildCoord.y + _objectData.padding || 
+        //             _buildCoord.x + i >= _widthX  - _objectData.padding ||
+        //             _buildCoord.y + j >= _widthY  - _objectData.padding)
+        //         {
+        //             _map[_buildCoord.x + i, _buildCoord.y + j].cellState = CellState.Padding;
+        //             _map[_buildCoord.x + i, _buildCoord.y + j].paddingSecurity++;
+        //             continue;
+        //         }
+        //         
+        //         // if building
+        //         _map[_buildCoord.x + i, _buildCoord.y + j].cellState = CellState.Full;
+        //     }
+        // }
+        //
+        // // Add the connected cells to the building's cell
+        // for (int i = 0; i < _cellsToBuild.Count; i++) {
+        //     ref CellData _cellOnGrid = ref _map[_cellsToBuild[i].x, _cellsToBuild[i].y];
+        //     _cellOnGrid.connectedCells = new List<Vector2Int>();
+        //     
+        //     if (_cellOnGrid.cellState != CellState.Full)
+        //         continue;
+        //     
+        //     for (int j = 0; j < _cellsToBuild.Count; j++) {
+        //         if(_cellsToBuild[j] != _cellsToBuild[i])
+        //             _cellOnGrid.connectedCells.Add(_cellsToBuild[j]);
+        //     }
+        //     _cellOnGrid.objectType = _objectType;
+        //     _cellOnGrid.sceneObject = _objectData.buildObject;
+        //     _cellOnGrid.sceneObject.transform.position = new Vector3(_buildCoord.x + (float)_objectData.widthX / 2, _mapHeight, _buildCoord.y + (float)_objectData.widthY / 2);
+        //     
+        // }
+        //
+        // if (_allMapObjectsByType.ContainsKey(_objectType)) {
+        //     _allMapObjectsByType[_objectType].Add(_objectData.buildObject);
+        // } else {
+        //     _allMapObjectsByType.Add(_objectType, new List<GameObject> { _objectData.buildObject });
+        // }
     }
     
     #endregion 

@@ -26,12 +26,10 @@ public class BuildingSystem {
         ObjectData objectData = _progressionSystem.GetObjectByType(_objectToBuild);
         if (objectData.buildObject == null) return false;
         
-        Vector2Int _realCoordsToStartBuildingAt = _coordsToBuildAt - new Vector2Int(objectData.widthX / 2, objectData.widthY / 2);
-        
-        if (!_mapData.TryBuildingOnCell(_realCoordsToStartBuildingAt, objectData)) return false;
+        if (!_mapData.TryBuildingOnCell(_coordsToBuildAt, objectData)) return false;
         
         objectData.buildObject = Object.Instantiate(objectData.buildObject, _buildParents);
-        _mapData.PlaceObjectOnMap(_realCoordsToStartBuildingAt, ref objectData, _objectToBuild);
+        _mapData.PlaceObjectOnMap(_coordsToBuildAt, objectData, _objectToBuild);
         return true;
     }
 }

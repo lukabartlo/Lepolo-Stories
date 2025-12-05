@@ -8,6 +8,8 @@ public class MapGenerationSystem {
     
     private BuildingSystem _buildingSystem;
     private Vector2Int _mapSize;
+
+    private int _firstGenChatpelleOffset = 13;
     
     Coroutine mapGenerationCoroutine = null;
     
@@ -20,25 +22,32 @@ public class MapGenerationSystem {
     
     //Generating the first map, not relevant if a save is added
     public bool PreGenerateMap(List<PreGenObjectWrapper> _objectsToPregen) {
-        if (_objectsToPregen.Count == 0) return false;
+        if (_objectsToPregen.Count <= 0) return false;
     
         // mapGenerationCoroutine ??= TestBuildManager.Instance.StartChildCoroutine(mapGeneration(_objectsToPregen));
         
-        #region Altar Pregen
-        if (_objectsToPregen[0].objectType == ObjectType.Building) {
+        #region Static Pregen
+        if (_objectsToPregen[0].objectType == ObjectType.Altar) {
             if (_buildingSystem.TryBuild(_objectsToPregen[0].objectType,
                     new Vector2Int(_mapSize.x / 2, _mapSize.y / 2)) == false) {
                 Debug.LogError("Center Autel Generation Failed Atrociously");
             }
-            
-            _objectsToPregen.RemoveAt(0);
+        }
+        
+        if (_objectsToPregen.Count <= 1) return false;
+        
+        if (_objectsToPregen[1].objectType == ObjectType.Chatpelle) {
+            if (_buildingSystem.TryBuild(_objectsToPregen[1].objectType,
+                    new Vector2Int(_mapSize.x / 2, _mapSize.y / 2 + _firstGenChatpelleOffset)) == false) {
+                Debug.LogError("Center Autel Generation Failed Atrociously");
+            }
         }
         #endregion
         
         #region Rest of the pregen
         
         foreach (PreGenObjectWrapper obj in _objectsToPregen) {
-            for (int i = 0; i < obj.onPreGenAmountToSpawn; i++) {
+            for (int i = 2; i < obj.onPreGenAmountToSpawn; i++) {
                 Vector2Int _coordsToTryAt = new Vector2Int(Random.Range(0, _mapSize.x-1), Random.Range(0, _mapSize.y-1));
                 if (_buildingSystem.TryBuild(obj.objectType, _coordsToTryAt)) {
                     continue;

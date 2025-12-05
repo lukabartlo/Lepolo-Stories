@@ -2,5 +2,6 @@ public enum ObjectType
 {
     Rock,
     Tree,
-    Building
+    Altar,
+    Chatpelle,
 }

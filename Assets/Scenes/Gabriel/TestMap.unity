@@ -565,7 +565,7 @@ Transform:
   m_GameObject: {fileID: 614951076}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 100, y: 64.7, z: -41.3}
+  m_LocalPosition: {x: 150, y: 116.3, z: -65.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -761,29 +761,995 @@ MonoBehaviour:
   _allMapableObjects:
   - objectType: 0
     objectData:
-      widthX: 3
-      widthY: 3
-      padding: 1
+      cellsOffsetFromOrigin:
+      - cellState: 1
+        offsetFromOrigin: {x: 0, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: -1}
       buildObject: {fileID: 3064025712856020594, guid: 4744477a573e4a94baad5144b5cb7223, type: 3}
   - objectType: 1
     objectData:
-      widthX: 3
-      widthY: 3
-      padding: 1
+      cellsOffsetFromOrigin:
+      - cellState: 1
+        offsetFromOrigin: {x: 0, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: -1}
       buildObject: {fileID: 3064025712856020594, guid: 987732fa335350b4c83f10d5231029be, type: 3}
   - objectType: 2
     objectData:
-      widthX: 10
-      widthY: 12
-      padding: 2
+      cellsOffsetFromOrigin:
+      - cellState: 1
+        offsetFromOrigin: {x: 0, y: 0}
+      - cellState: 1
+        offsetFromOrigin: {x: -1, y: 0}
+      - cellState: 1
+        offsetFromOrigin: {x: -1, y: 1}
+      - cellState: 1
+        offsetFromOrigin: {x: 0, y: 1}
+      - cellState: 1
+        offsetFromOrigin: {x: 1, y: 1}
+      - cellState: 1
+        offsetFromOrigin: {x: 1, y: 0}
+      - cellState: 1
+        offsetFromOrigin: {x: 1, y: -1}
+      - cellState: 1
+        offsetFromOrigin: {x: 0, y: -1}
+      - cellState: 1
+        offsetFromOrigin: {x: -1, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: -8, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: -8, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: 8}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: 8}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: 8}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 8, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: 8, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: 8, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: -8}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: -8}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: -8}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: -8, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: -11, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: -11, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: -11, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: -11, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: -10, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: -10, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: -10, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: -9, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: -8, y: 8}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: 9}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: 10}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: 10}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: 10}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: 10}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: 11}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: 11}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: 11}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: 11}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: 11}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: 11}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: 11}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: 10}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: 10}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: 10}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: 9}
+      - cellState: 2
+        offsetFromOrigin: {x: 8, y: 8}
+      - cellState: 2
+        offsetFromOrigin: {x: 9, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: 10, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: 10, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: 10, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: 11, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: 11, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 11, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: 11, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: 11, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: 11, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: 11, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: 10, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: 10, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: 10, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: 9, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: 8, y: -8}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: -9}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: -10}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: -10}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: -10}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: -11}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: -11}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: -11}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: -11}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: -11}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: -11}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: -11}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: -10}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: -10}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: -10}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: -9}
+      - cellState: 2
+        offsetFromOrigin: {x: -8, y: -8}
+      - cellState: 2
+        offsetFromOrigin: {x: -9, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: -10, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: -10, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: -10, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: -11, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: -11, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: -11, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: -10, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: -9, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: -10, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: -9, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: -10, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: -9, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: -8, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: -10, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: -9, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: -8, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: -9, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: -8, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: -9, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: -8, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: -9, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: -8, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: -8, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: 8}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: 8}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: 8}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: 8}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: 8}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: 8}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: 9}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: 9}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: 9}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: 9}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: 9}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: 9}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: 9}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: 9}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: 9}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: 9}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: 9}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: 9}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: 9}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: 10}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: 10}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: 10}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: 10}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: 10}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: 10}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: 10}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: 8}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: 8}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: 8}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: 8}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: 8}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: 8}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: 8, y: 7}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: 8, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: 9, y: 6}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: 8, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: 9, y: 5}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: 8, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: 9, y: 4}
+      - cellState: 2
+        offsetFromOrigin: {x: 8, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: 9, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: 10, y: 3}
+      - cellState: 2
+        offsetFromOrigin: {x: 8, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 9, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 10, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 9, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: 10, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: 9, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: 10, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: 9, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: 10, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: 8, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: 9, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: 10, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: 8, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: 9, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: 10, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: 8, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: 9, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: 8, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: 9, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: 8, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: 9, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: 8, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: -8}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: -8}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: -8}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: -8}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: -8}
+      - cellState: 2
+        offsetFromOrigin: {x: 7, y: -8}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: -9}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: -9}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: -9}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: -9}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: -9}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: -9}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: -9}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: -9}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: -9}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: -9}
+      - cellState: 2
+        offsetFromOrigin: {x: 4, y: -9}
+      - cellState: 2
+        offsetFromOrigin: {x: 5, y: -9}
+      - cellState: 2
+        offsetFromOrigin: {x: 6, y: -9}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: -10}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: -10}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: -10}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: -10}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: -10}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: -10}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: -10}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: -8}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: -8}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: -8}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: -8}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: -8}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: -8}
+      - cellState: 2
+        offsetFromOrigin: {x: -8, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: -4, y: -7}
+      - cellState: 2
+        offsetFromOrigin: {x: -9, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: -8, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: -5, y: -6}
+      - cellState: 2
+        offsetFromOrigin: {x: -9, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: -8, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: -6, y: -5}
+      - cellState: 2
+        offsetFromOrigin: {x: -9, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: -8, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: -7, y: -4}
+      - cellState: 2
+        offsetFromOrigin: {x: -10, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: -9, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: -8, y: -3}
+      - cellState: 2
+        offsetFromOrigin: {x: -10, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: -9, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: -8, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: -10, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: -9, y: -1}
       buildObject: {fileID: 3064025712856020594, guid: 6a3dc87353e2ad74e990f47bb8ba3c4f, type: 3}
+  - objectType: 3
+    objectData:
+      cellsOffsetFromOrigin:
+      - cellState: 1
+        offsetFromOrigin: {x: -2, y: 1}
+      - cellState: 1
+        offsetFromOrigin: {x: -1, y: 1}
+      - cellState: 1
+        offsetFromOrigin: {x: 0, y: 1}
+      - cellState: 1
+        offsetFromOrigin: {x: 1, y: 1}
+      - cellState: 1
+        offsetFromOrigin: {x: 2, y: 1}
+      - cellState: 1
+        offsetFromOrigin: {x: 2, y: 0}
+      - cellState: 1
+        offsetFromOrigin: {x: 1, y: 0}
+      - cellState: 1
+        offsetFromOrigin: {x: 0, y: 0}
+      - cellState: 1
+        offsetFromOrigin: {x: -1, y: 0}
+      - cellState: 1
+        offsetFromOrigin: {x: -2, y: 0}
+      - cellState: 1
+        offsetFromOrigin: {x: -2, y: -1}
+      - cellState: 1
+        offsetFromOrigin: {x: -1, y: -1}
+      - cellState: 1
+        offsetFromOrigin: {x: 0, y: -1}
+      - cellState: 1
+        offsetFromOrigin: {x: 1, y: -1}
+      - cellState: 1
+        offsetFromOrigin: {x: 2, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: 2}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: 1}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: 3, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: 2, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: 1, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: 0, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: -1, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: -2, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: -2}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: -1}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: 0}
+      - cellState: 2
+        offsetFromOrigin: {x: -3, y: 1}
+      buildObject: {fileID: 3064025712856020594, guid: 397c586c0f689c94c9d145a411af1c6f, type: 3}
   _objectsToPregen:
   - objectType: 2
     onPreGenAmountToSpawn: 1
+  - objectType: 3
+    onPreGenAmountToSpawn: 1
   - objectType: 1
-    onPreGenAmountToSpawn: 100
+    onPreGenAmountToSpawn: 4000
   - objectType: 0
-    onPreGenAmountToSpawn: 80
+    onPreGenAmountToSpawn: 2500
 --- !u!1 &807858867
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,11 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 
 [System.Serializable]
-public struct ObjectData
-{
-    public int widthX;
-    public int widthY;
-    public int padding;
+public struct ObjectData {
+    public List<BuildingCells> cellsOffsetFromOrigin;
     public GameObject buildObject;
 }
