@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25244a52-a82d-4b0d-8b9a-1f3daea93ab3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Algorithm/AStarPathfinding.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Algorithm/AStarPathfinding.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Algorithm/AStarPathfinding.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Algorithm/AStarPathfinding.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +112,7 @@
       <workItem from="1764774031820" duration="735000" />
       <workItem from="1764774812734" duration="1382000" />
       <workItem from="1764776346710" duration="1914000" />
+      <workItem from="1765270000260" duration="440000" />
     </task>
     <servers />
   </component>

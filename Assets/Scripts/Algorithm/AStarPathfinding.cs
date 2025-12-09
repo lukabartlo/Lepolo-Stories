@@ -109,31 +109,31 @@ public class PathGrid
 public class AStarPathfinding : MonoBehaviour
 {
     [Header("Grid Settings")]
-    [SerializeField] private int gridWidth = 50;
-    [SerializeField] private int gridHeight = 50;
-    [SerializeField] private float nodeSize = 1f;
+    [SerializeField] private int _gridWidth = 50;
+    [SerializeField] private int _gridHeight = 50;
+    [SerializeField] private float _nodeSize = 1f;
     
     [Header("Visualisation")]
-    [SerializeField] private bool drawGizmos = true;
-    [SerializeField] private bool drawGrid = true;
-    [SerializeField] private bool drawPath = true;
-    [SerializeField] private Color walkableColor = Color.white;
-    [SerializeField] private Color obstacleColor = Color.red;
-    [SerializeField] private Color pathColor = Color.green;
+    [SerializeField] private bool _drawGizmos = true;
+    [SerializeField] private bool _drawGrid = true;
+    [SerializeField] private bool _drawPath = true;
+    [SerializeField] private Color _walkableColor = Color.white;
+    [SerializeField] private Color _obstacleColor = Color.red;
+    [SerializeField] private Color _pathColor = Color.green;
     
     [Header("Obstacles (Example)")]
-    [SerializeField] private bool createExampleObstacles = true;
+    [SerializeField] private bool _createExampleObstacles = true;
     
     [Header("Pathfinding Test (Visualisation)")]
-    [SerializeField] private bool enablePathTest = true;
-    [SerializeField] private Vector2Int testStartPos = new Vector2Int(5, 5);
-    [SerializeField] private Vector2Int testEndPos = new Vector2Int(45, 45);
+    [SerializeField] private bool _enablePathTest = true;
+    [SerializeField] private Vector2Int _testStartPos = new Vector2Int(5, 5);
+    [SerializeField] private Vector2Int _testEndPos = new Vector2Int(45, 45);
 
-    private PathGrid grid;
-    private List<PathNode> currentPath;
+    private PathGrid _grid;
+    private List<PathNode> _currentPath;
     
-    private const float DIAGONAL_COST = 1.414f;
-    private const float STRAIGHT_COST = 1f;
+    private const float _diagonalCost = 1.414f;
+    private const float _straightCost = 1f;
 
     private void Awake()
     { 
@@ -142,63 +142,63 @@ public class AStarPathfinding : MonoBehaviour
 
     private void Start()
     {
-        if (enablePathTest && grid != null)
+        if (_enablePathTest && _grid != null)
         {
-            currentPath = FindPath(testStartPos.x, testStartPos.y, testEndPos.x, testEndPos.y);
+            _currentPath = FindPath(_testStartPos.x, _testStartPos.y, _testEndPos.x, _testEndPos.y);
         }
     }
 
     private void InitializeGrid()
     {
-        grid = new PathGrid(gridWidth, gridHeight, nodeSize);
+        _grid = new PathGrid(_gridWidth, _gridHeight, _nodeSize);
 
-        if (createExampleObstacles)
+        if (_createExampleObstacles)
         {
             for (int i = 15; i < 35; i++)
             {
-                grid.SetWalkable(i, 25, false);
+                _grid.SetWalkable(i, 25, false);
             }
         }
     }
 
     public void CreateGrid(int width, int height, float size = 1f)
     {
-        gridWidth = width;
-        gridHeight = height;
-        nodeSize = size;
+        _gridWidth = width;
+        _gridHeight = height;
+        _nodeSize = size;
         InitializeGrid();
     }
 
     public void SetWalkable(int x, int y, bool walkable)
     {
-        if (grid != null)
-            grid.SetWalkable(x, y, walkable);
+        if (_grid != null)
+            _grid.SetWalkable(x, y, walkable);
     }
 
     public PathGrid GetGrid()
     {
-        return grid;
+        return _grid;
     }
 
     public List<PathNode> FindPath(Vector3 startWorldPos, Vector3 endWorldPos)
     {
-        int startX = Mathf.RoundToInt(startWorldPos.x / nodeSize);
-        int startY = Mathf.RoundToInt(startWorldPos.z / nodeSize);
-        int endX = Mathf.RoundToInt(endWorldPos.x / nodeSize);
-        int endY = Mathf.RoundToInt(endWorldPos.z / nodeSize);
+        int startX = Mathf.RoundToInt(startWorldPos.x / _nodeSize);
+        int startY = Mathf.RoundToInt(startWorldPos.z / _nodeSize);
+        int endX = Mathf.RoundToInt(endWorldPos.x / _nodeSize);
+        int endY = Mathf.RoundToInt(endWorldPos.z / _nodeSize);
 
         return FindPath(startX, startY, endX, endY);
     }
 
     public List<PathNode> FindPath(int startX, int startY, int endX, int endY)
     {
-        if (grid == null)
+        if (_grid == null)
         {
             return new List<PathNode>();
         }
 
-        PathNode startNode = grid.GetNode(startX, startY);
-        PathNode endNode = grid.GetNode(endX, endY); 
+        PathNode startNode = _grid.GetNode(startX, startY);
+        PathNode endNode = _grid.GetNode(endX, endY); 
         
         if (startNode == null || endNode == null)
         {
@@ -210,7 +210,7 @@ public class AStarPathfinding : MonoBehaviour
             return new List<PathNode>();
         }
 
-        grid.Reset();
+        _grid.Reset();
 
         List<PathNode> openList = new List<PathNode>();
         HashSet<PathNode> closedList = new HashSet<PathNode>();
@@ -225,11 +225,11 @@ public class AStarPathfinding : MonoBehaviour
 
             if (currentNode == endNode)
             {
-                currentPath = RetracePath(startNode, endNode);
-                return currentPath;
+                _currentPath = RetracePath(startNode, endNode);
+                return _currentPath;
             }
 
-            List<PathNode> neighbors = grid.GetNeighbors(currentNode);
+            List<PathNode> neighbors = _grid.GetNeighbors(currentNode);
 
             foreach (PathNode neighbor in neighbors)
             {
@@ -276,15 +276,15 @@ public class AStarPathfinding : MonoBehaviour
         int dy = Mathf.Abs(a.Y - b.Y);
 
         if (dx > dy)
-            return DIAGONAL_COST * dy + STRAIGHT_COST * (dx - dy);
-        return DIAGONAL_COST * dx + STRAIGHT_COST * (dy - dx);
+            return _diagonalCost * dy + _straightCost * (dx - dy);
+        return _straightCost * dx + _straightCost * (dy - dx);
     }
 
     private float GetHeuristic(PathNode a, PathNode b)
     {
         int dx = Mathf.Abs(a.X - b.X);
         int dy = Mathf.Abs(a.Y - b.Y);
-        return STRAIGHT_COST * (dx + dy);
+        return _straightCost * (dx + dy);
     }
 
     private List<PathNode> RetracePath(PathNode startNode, PathNode endNode)
@@ -307,36 +307,36 @@ public class AStarPathfinding : MonoBehaviour
         List<Vector3> worldPath = new List<Vector3>();
         foreach (PathNode node in path)
         {
-            worldPath.Add(grid.GetWorldPosition(node.X, node.Y));
+            worldPath.Add(_grid.GetWorldPosition(node.X, node.Y));
         }
         return worldPath;
     }
 
     private void OnDrawGizmos()
     {
-        if (!drawGizmos || grid == null) 
+        if (!_drawGizmos || _grid == null) 
             return;
 
-        if (drawGrid)
+        if (_drawGrid)
             DrawGridGizmos();
 
-        if (drawPath && currentPath != null && currentPath.Count > 0)
+        if (_drawPath && _currentPath != null && _currentPath.Count > 0)
             DrawPathGizmos();
         
-        if (enablePathTest)
+        if (_enablePathTest)
             DrawTestPoints();
     }
 
     private void DrawGridGizmos()
     {
-        for (int x = 0; x < grid.Width; x++)
+        for (int x = 0; x < _grid.Width; x++)
         {
-            for (int y = 0; y < grid.Height; y++)
+            for (int y = 0; y < _grid.Height; y++)
             {
-                Vector3 pos = grid.GetWorldPosition(x, y);
-                float size = grid.NodeSize * 0.4f;
+                Vector3 pos = _grid.GetWorldPosition(x, y);
+                float size = _grid.NodeSize * 0.4f;
 
-                Gizmos.color = grid.Nodes[x, y].IsWalkable ? walkableColor : obstacleColor;
+                Gizmos.color = _grid.Nodes[x, y].IsWalkable ? _walkableColor : _obstacleColor;
                 Gizmos.DrawCube(pos, new Vector3(size, 0.1f, size));
             }
         }
@@ -344,20 +344,20 @@ public class AStarPathfinding : MonoBehaviour
 
     private void DrawPathGizmos()
     {
-        Gizmos.color = pathColor;
+        Gizmos.color = _pathColor;
         
-        for (int i = 0; i < currentPath.Count - 1; i++)
+        for (int i = 0; i < _currentPath.Count - 1; i++)
         {
-            Vector3 pos1 = grid.GetWorldPosition(currentPath[i].X, currentPath[i].Y);
-            Vector3 pos2 = grid.GetWorldPosition(currentPath[i + 1].X, currentPath[i + 1].Y);
+            Vector3 pos1 = _grid.GetWorldPosition(_currentPath[i].X, _currentPath[i].Y);
+            Vector3 pos2 = _grid.GetWorldPosition(_currentPath[i + 1].X, _currentPath[i + 1].Y);
             Gizmos.DrawLine(pos1 + Vector3.up * 0.2f, pos2 + Vector3.up * 0.2f);
             Gizmos.DrawSphere(pos1 + Vector3.up * 0.2f, 0.2f);
         }
 
-        if (currentPath.Count > 0)
+        if (_currentPath.Count > 0)
         {
-            PathNode lastNode = currentPath[currentPath.Count - 1];
-            Vector3 lastPos = grid.GetWorldPosition(lastNode.X, lastNode.Y);
+            PathNode lastNode = _currentPath[_currentPath.Count - 1];
+            Vector3 lastPos = _grid.GetWorldPosition(lastNode.X, lastNode.Y);
             Gizmos.DrawSphere(lastPos + Vector3.up * 0.2f, 0.3f);
         }
     }
@@ -365,13 +365,13 @@ public class AStarPathfinding : MonoBehaviour
     private void DrawTestPoints()
     {
         // Starting point (blue)
-        Vector3 startPos = grid.GetWorldPosition(testStartPos.x, testStartPos.y);
+        Vector3 startPos = _grid.GetWorldPosition(_testStartPos.x, _testStartPos.y);
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(startPos + Vector3.up * 0.5f, 0.5f);
         Gizmos.DrawLine(startPos, startPos + Vector3.up * 0.5f);
         
         // Ending point (cyan)
-        Vector3 endPos = grid.GetWorldPosition(testEndPos.x, testEndPos.y);
+        Vector3 endPos = _grid.GetWorldPosition(_testEndPos.x, _testEndPos.y);
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(endPos + Vector3.up * 0.5f, 0.5f);
         Gizmos.DrawLine(endPos, endPos + Vector3.up * 0.5f);
