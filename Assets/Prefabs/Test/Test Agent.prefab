@@ -162,10 +162,11 @@ MonoBehaviour:
   currentTask: {fileID: 0}
   isTaskFinished: 0
   currentTarget: {fileID: 0}
+  pathNodesExcluded: []
   pathNodeIndex: 0
   rangeToTarget: 1
   isTargetReached: 0
-  speed: 75
+  speed: 5
   timer: 0
   taskDuration: 1
   isTimerFinished: 0

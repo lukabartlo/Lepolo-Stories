@@ -140,6 +140,18 @@ public class MapData {
     #endregion 
 
     #region Deleting On Cells
+
+    public bool TryDeleteCellByObject(GameObject _object)
+    {
+        int x = (int)_object.transform.position.x;
+        int y = (int)_object.transform.position.z;
+        
+        // Debug.Log($"Trying to remove {_object} wich is in {_object.transform.position.x}, {_object.transform.position.z} ");
+        // Debug.Log($"Try to delete cell : {x},{y}");
+        // Debug.Log($"The celldata contains is {_map[x, y].cellState} and contain : {_map[x, y].sceneObject}");
+        
+        return TryDeleteCell(x,y);
+    }
     
     public bool TryDeleteCell(int _x, int _y)
     {
@@ -194,6 +206,7 @@ public class MapData {
     public List<Vector2Int> GetConnectedCellsFull(int _x, int _y)
     {
         List<Vector2Int> returnList = new List<Vector2Int>();
+        returnList.Add(new Vector2Int(_x, _y));
         
         if (IsCoordInMap(_x, _y))
         {

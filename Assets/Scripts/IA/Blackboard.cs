@@ -8,7 +8,7 @@ public class Blackboard : MonoBehaviour
     public static Action<AgentStateManager> OnAddToBlackboard;
     public static Action<AgentStateManager> OnRemoveFromBlackboard;
 
-    private void Awake()
+    private void OnEnable()
     {
         OnAddToBlackboard += AddToBlackboard;
         OnRemoveFromBlackboard += RemoveFromBlackboard;

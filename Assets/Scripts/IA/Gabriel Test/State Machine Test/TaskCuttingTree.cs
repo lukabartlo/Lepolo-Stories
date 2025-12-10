@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 
-public class TaskPraying : Task
+public class TaskCuttingTree : Task
 {
     public float taskDuration = 5f;
-    public float taskDetectionRadius = 4f;
-    public ObjectType chatpelle = ObjectType.Chatpelle;
+    public float taskDetectionRadius = 2f;
+    public ObjectType tree = ObjectType.Tree;
     
     
     #region Function to Use with TaskManager
@@ -19,9 +20,14 @@ public class TaskPraying : Task
     }
     #endregion
 
-    private void Pray()
+    private void PlayCuttingAnimation()
     {
         // lance l'animation de pray
+    }
+
+    private void CutTree(GameObject target)
+    {
+        mapData.TryDeleteCellByObject(target);
     }
     
     #region State Machine Basic Functions
@@ -33,7 +39,7 @@ public class TaskPraying : Task
         agent.taskDuration = taskDuration;
         agent.isTaskFinished = false;
 
-        if (!agent.FindNewTarget(chatpelle, mapData))
+        if (!agent.FindNewTarget(tree, mapData))
         {
             agent.isTaskFinished = true;
             return;
@@ -41,7 +47,7 @@ public class TaskPraying : Task
 
         if (!agent.HasAgentReachedTarget())
         {
-            Debug.Log("Hasn't already reached the target");
+            Debug.Log("!agent.HasAgentReachedTarget()");
             agent.FindNewPath(mapData);
         }
 
@@ -52,7 +58,7 @@ public class TaskPraying : Task
         if (agent.isTaskFinished) return;
         if (agent.currentTarget == null)
         {
-            if (!agent.FindNewTarget(chatpelle, mapData))
+            if (!agent.FindNewTarget(tree, mapData))
             {
                 agent.isTaskFinished = true;
                 return;
@@ -62,10 +68,11 @@ public class TaskPraying : Task
         if (agent.HasAgentReachedTarget())
         {
             agent.UpdateTimer();
-            Pray();
+            PlayCuttingAnimation();
             if (agent.isTimerFinished)
             {
-                Debug.Log("Give Mana To Player");
+                Debug.Log("Cut");
+                CutTree(agent.currentTarget.gameObject);
                 agent.isTaskFinished = true;
             }
         }
@@ -80,16 +87,11 @@ public class TaskPraying : Task
                     return;
                 }
             }
-            
-            if (agent.pathNodes[agent.pathNodeIndex + 1].IsWalkable ||
-                agent.pathNodesExcluded.Contains(new Vector2Int(agent.pathNodes[agent.pathNodeIndex + 1].X, agent.pathNodes[agent.pathNodeIndex + 1].Y)))
+
+            if (!agent.MoveTowardPathNode())
             {
-                agent.MoveTowardPathNode(agent.pathNodes[agent.pathNodeIndex + 1]);
-            }
-            else
-            {
-                Debug.Log("else");
-                if (!agent.FindNewPath(mapData))
+                Debug.Log("!agent.MoveTowardPathNode()");
+                if (!agent.FindNewPath(mapData) && !agent.HasAgentReachedTarget())
                 {
                     agent.isTaskFinished = true;
                     return;
@@ -102,12 +104,14 @@ public class TaskPraying : Task
     {
         agent.timer = 0;
         agent.currentTarget = null;
+        agent.isTaskFinished = false;
     }
 
     public override void OnCancel(AgentStateManager agent)
     {
         agent.timer = 0;
         agent.currentTarget = null;
+        agent.isTaskFinished = false;
     }
     
     #endregion

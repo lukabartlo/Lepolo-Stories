@@ -297,7 +297,6 @@ public class AStarPathfinding : MonoBehaviour
         }
 
         List<Vector2Int> excludePos = _mapData.GetConnectedCellsFull(endX,endY);
-        excludePos.Add(new  Vector2Int(endX, endY));
 
         // Reset all node costs from previous pathfinding
         _grid.Reset();
