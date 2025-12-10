@@ -10,13 +10,32 @@ public class TaskManager : MonoBehaviour
     [SerializeField] List<Task> guerrierList;
     [SerializeField] List<Task> pretreList;
     
+    MapData mapData;
     bool isDictionarInitialized =  false;
+    bool areTaskReady = false;
 
     
     // ref Blackboard
     public Blackboard blackboard;
 
-    public void Start()
+    public void InitializeAllTask(MapData newMapData)
+    {
+        mapData = newMapData;
+        InitializeDictionary();
+        
+        foreach (var tasks  in taskByRole)
+        {
+            foreach (var task in tasks.Value)
+            {
+                task.mapData = newMapData;
+            }
+        }
+        areTaskReady = true;
+        
+        Debug.Log("InitializeAllTask");
+    }
+
+    private void InitializeDictionary()
     {
         taskByRole = new Dictionary<Roles, List<Task>>();
         taskByRole.Add(Roles.Adepte,adepteList);
@@ -28,7 +47,7 @@ public class TaskManager : MonoBehaviour
 
     private void Update()
     {
-        if (!isDictionarInitialized) return;
+        if (!isDictionarInitialized || !areTaskReady || !mapData.isMapGenerated) return;
         
         foreach (AgentStateManager _agent in blackboard.agents)
         {

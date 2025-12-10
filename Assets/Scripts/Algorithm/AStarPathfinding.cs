@@ -50,7 +50,7 @@ public class PathNode
     }
 }
 
-/// <summary>
+ /// <summary>
 /// Manages the grid of PathNodes used for pathfinding.
 /// Handles grid creation, neighbor calculation, and world position conversion.
 /// </summary>
@@ -114,11 +114,15 @@ public class PathGrid
     {
         return new Vector3(x * NodeSize, 0, y * NodeSize);
     }
+    public Vector3 GetWorldPositionInFloat(float x, float y)
+    {
+        return new Vector3(x * NodeSize, 0, y * NodeSize);
+    }
 
     /// <summary>
     /// Returns all walkable neighbors of a given node (up to 8 directions)
     /// </summary>
-    public List<PathNode> GetNeighbors(PathNode node)
+    public List<PathNode> GetNeighbors(PathNode node, List<Vector2Int> excludeList)
     {
         List<PathNode> neighbors = new List<PathNode>(8);
 
@@ -128,8 +132,10 @@ public class PathGrid
             int newY = node.Y + _directionY[i];
             PathNode neighbor = GetNode(newX, newY);
 
-            if (neighbor != null && neighbor.IsWalkable)
+            if (neighbor != null && (neighbor.IsWalkable || excludeList.Contains(new Vector2Int(newX, newY))))
+            {
                 neighbors.Add(neighbor);
+            }
         }
 
         return neighbors;
@@ -181,10 +187,8 @@ public class AStarPathfinding : MonoBehaviour
     [SerializeField] private bool _createExampleObstacles = true;
     
     [Header("Pathfinding Test (Visualisation)")]
-    [SerializeField] private bool _enablePathTest = true;
-    [SerializeField] private Vector2Int _testStartPos = new Vector2Int(5, 5);
-    [SerializeField] private Vector2Int _testEndPos = new Vector2Int(45, 45);
-
+    [SerializeField] private bool _enableGizmo = false;
+    
     // The grid containing all pathfinding nodes
     private PathGrid _grid;
     
@@ -194,19 +198,7 @@ public class AStarPathfinding : MonoBehaviour
     // Cost constants for pathfinding (diagonal movement costs more than straight)
     private const float _diagonalCost = 1.414f;
     private const float _straightCost = 1f;
-    
-    private void Awake()
-    { 
-        InitializeGrid();
-    }
-    
-    private void Start()
-    {
-        if (_enablePathTest && _grid != null)
-        {
-            _currentPath = FindPath(_testStartPos.x, _testStartPos.y, _testEndPos.x, _testEndPos.y);
-        }
-    }
+    private MapData _mapData;
     
     private void InitializeGrid()
     {
@@ -234,6 +226,11 @@ public class AStarPathfinding : MonoBehaviour
         _gridHeight = height;
         _nodeSize = size;
         InitializeGrid();
+    }
+
+    public void SetMapDataRef(MapData mapData)
+    {
+        _mapData = mapData;
     }
 
     /// <summary>
@@ -269,7 +266,7 @@ public class AStarPathfinding : MonoBehaviour
         int startY = Mathf.RoundToInt(startWorldPos.z / _nodeSize);
         int endX = Mathf.RoundToInt(endWorldPos.x / _nodeSize);
         int endY = Mathf.RoundToInt(endWorldPos.z / _nodeSize);
-
+        
         return FindPath(startX, startY, endX, endY);
     }
 
@@ -299,11 +296,8 @@ public class AStarPathfinding : MonoBehaviour
             return new List<PathNode>();
         }
 
-        // Check if target is walkable
-        if (!endNode.IsWalkable)
-        {
-            return new List<PathNode>();
-        }
+        List<Vector2Int> excludePos = _mapData.GetConnectedCellsFull(endX,endY);
+        excludePos.Add(new  Vector2Int(endX, endY));
 
         // Reset all node costs from previous pathfinding
         _grid.Reset();
@@ -326,11 +320,12 @@ public class AStarPathfinding : MonoBehaviour
             if (currentNode == endNode)
             {
                 _currentPath = RetracePath(startNode, endNode);
+                Debug.Log("Found path");
                 return _currentPath;
             }
 
             // Evaluate all neighbors of the current node
-            List<PathNode> neighbors = _grid.GetNeighbors(currentNode);
+            List<PathNode> neighbors = _grid.GetNeighbors(currentNode, excludePos);
 
             foreach (PathNode neighbor in neighbors)
             {
@@ -357,7 +352,6 @@ public class AStarPathfinding : MonoBehaviour
                 }
             }
         }
-
         // No path found
         return new List<PathNode>();
     }
@@ -443,6 +437,8 @@ public class AStarPathfinding : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (!_enableGizmo) return;
+        
         if (!_drawGizmos || _grid == null) 
             return;
 
@@ -451,9 +447,6 @@ public class AStarPathfinding : MonoBehaviour
 
         if (_drawPath && _currentPath != null && _currentPath.Count > 0)
             DrawPathGizmos();
-        
-        if (_enablePathTest)
-            DrawTestPoints();
     }
     
     private void DrawGridGizmos()
@@ -462,7 +455,7 @@ public class AStarPathfinding : MonoBehaviour
         {
             for (int y = 0; y < _grid.Height; y++)
             {
-                Vector3 pos = _grid.GetWorldPosition(x, y);
+                Vector3 pos = _grid.GetWorldPositionInFloat(x + 0.5f, y + 0.5f);
                 float size = _grid.NodeSize * 0.4f;
 
                 // Color nodes based on walkability
@@ -495,21 +488,6 @@ public class AStarPathfinding : MonoBehaviour
             Vector3 lastPos = _grid.GetWorldPosition(lastNode.X, lastNode.Y);
             Gizmos.DrawSphere(lastPos + Vector3.up * 0.2f, 0.3f);
         }
-    }
-    
-    private void DrawTestPoints()
-    {
-        // Starting point (blue)
-        Vector3 startPos = _grid.GetWorldPosition(_testStartPos.x, _testStartPos.y);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(startPos + Vector3.up * 0.5f, 0.5f);
-        Gizmos.DrawLine(startPos, startPos + Vector3.up * 0.5f);
-        
-        // Ending point (cyan)
-        Vector3 endPos = _grid.GetWorldPosition(_testEndPos.x, _testEndPos.y);
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(endPos + Vector3.up * 0.5f, 0.5f);
-        Gizmos.DrawLine(endPos, endPos + Vector3.up * 0.5f);
     }
 }
 

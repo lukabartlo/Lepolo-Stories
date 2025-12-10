@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using System;
+using Object = UnityEngine.Object;
 
 public class MapData {
     
@@ -10,17 +12,24 @@ public class MapData {
     private Dictionary<ObjectType, List<GameObject>> _allMapObjectsByType =  new Dictionary<ObjectType, List<GameObject>>();
     private float _mapHeight;
     private Transform _objectsParent;
-    public bool isMapGenerated  = false;
+    public bool isMapGenerated = false;
+    public AStarPathfinding pathfinding;
+    private bool drawGizmo = false;
     
     #endregion
 
-    public MapData(int _sizeX, int _sizeY, float _mapHeight, Transform _objectsParent, GameObject _squarePrefab) {
+    public MapData(int _sizeX, int _sizeY, float _mapHeight, Transform _objectsParent) {
         _map =  new CellData[_sizeX , _sizeY];
         this._mapHeight = _mapHeight;
         this._objectsParent = _objectsParent;
         isMapGenerated = true;
 
+        pathfinding = this._objectsParent.AddComponent<AStarPathfinding>();
+        pathfinding.CreateGrid(_sizeX, _sizeY);
+        pathfinding.SetMapDataRef(this);
+
     }
+    
     
     #region Placing On Cells
     
@@ -49,6 +58,10 @@ public class MapData {
             _cellsToBuild.Add(_coordCellToBuild);
             
             _map[_coordCellToBuild.x,  _coordCellToBuild.y].cellState = cell.cellState;
+            
+            if (cell.cellState == CellState.Full)
+                pathfinding.SetWalkable(_coordCellToBuild.x,  _coordCellToBuild.y, false);
+            
             if (cell.cellState == CellState.Padding)
                 _map[_coordCellToBuild.x, _coordCellToBuild.y].paddingSecurity++;
         }
@@ -140,19 +153,24 @@ public class MapData {
         Object.Destroy(_map[_x, _y].sceneObject);
         
         _map[_x, _y].cellState = CellState.Empty;
+        pathfinding.SetWalkable(_x, _y, true);
         
         foreach (Vector2Int _tileCoord in _map[_x, _y].connectedCells)
         {
             if (_map[_tileCoord.x, _tileCoord.y].paddingSecurity > 0) {
                 _map[_tileCoord.x, _tileCoord.y].paddingSecurity--;
-                
+
                 if (_map[_tileCoord.x, _tileCoord.y].paddingSecurity == 0)
+                {
                     _map[_tileCoord.x, _tileCoord.y].cellState = CellState.Empty;
+                    pathfinding.SetWalkable(_tileCoord.x, _tileCoord.y, true);
+                }
                 
                 continue;
             }
             
             _map[_tileCoord.x, _tileCoord.y].cellState = CellState.Empty;
+            pathfinding.SetWalkable(_tileCoord.x, _tileCoord.y, true);
         }
         return true;
     }
@@ -172,8 +190,26 @@ public class MapData {
 
         return default;
     }
+
+    public List<Vector2Int> GetConnectedCellsFull(int _x, int _y)
+    {
+        List<Vector2Int> returnList = new List<Vector2Int>();
+        
+        if (IsCoordInMap(_x, _y))
+        {
+            foreach (Vector2Int pos in _map[_x, _y].connectedCells)
+            {
+                if (GetCellData(pos.x, pos.y).cellState == CellState.Full)
+                    returnList.Add(new Vector2Int(pos.x, pos.y));
+            }
+        }
+        
+        return returnList;
+    }
+    
     public void OnDrawGizmos()
     {
+        if (!drawGizmo) return;
         if (!isMapGenerated) return;
         for (int i = 0; i < _map.GetLength(0); i++) {
             for (int j = 0; j < _map.GetLength(1); j++) {
@@ -218,6 +254,7 @@ public class MapData {
         if (_allMapObjectsByType.ContainsKey(_objectType) && _allMapObjectsByType[_objectType].Count > 0)
         {
             float _minDistance = Vector3.Distance(_position, _allMapObjectsByType[_objectType][0].transform.position);
+            _objToReturn = _allMapObjectsByType[_objectType][0];
             
             foreach (GameObject _obj in _allMapObjectsByType[_objectType])
             {
@@ -228,7 +265,6 @@ public class MapData {
                 }
             }
         }
-        
         return _objToReturn;
     }
     

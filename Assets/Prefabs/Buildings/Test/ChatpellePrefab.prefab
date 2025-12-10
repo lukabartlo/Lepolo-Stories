@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7369160674605016129}
   - component: {fileID: 8613690142049353947}
   - component: {fileID: 4611857768520943193}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3071102007377890432}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ChatpellePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}

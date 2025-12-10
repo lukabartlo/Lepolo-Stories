@@ -12,7 +12,6 @@ public class TestBuildManager : MonoBehaviour {
     [Header("Map Data")] 
     [SerializeField] private Vector2Int _mapSize;
     [SerializeField] private float _mapHeight;
-    public GameObject _squarePrefab;
 
     [Header("Progression System")] 
     [SerializeField] private List<ObjectWrapper> _allMapableObjects = new();
@@ -27,6 +26,7 @@ public class TestBuildManager : MonoBehaviour {
     public TestBuildProgression progressionSystem;
     public BuildingSystem buildingSystem;
     public MapGenerationSystem mapGenerationSystem;
+    public TaskManager taskManager;
 
     private void Awake() {
         if (Instance != null) return;
@@ -34,7 +34,8 @@ public class TestBuildManager : MonoBehaviour {
         
         _buildParents = new GameObject("BuildingParents").transform;
         
-        mapData = new MapData(_mapSize.x, _mapSize.y, _mapHeight, _buildParents, _squarePrefab);
+        mapData = new MapData(_mapSize.x, _mapSize.y, _mapHeight, _buildParents);
+        taskManager.InitializeAllTask(mapData);
         progressionSystem = new TestBuildProgression(_allMapableObjects);
         buildingSystem = new BuildingSystem(ref mapData, ref  progressionSystem, ref _buildParents);
         mapGenerationSystem = new MapGenerationSystem(ref buildingSystem, _mapSize);
