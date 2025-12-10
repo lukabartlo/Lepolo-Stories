@@ -3,7 +3,6 @@ using UnityEngine;
 public class SpellManager : MonoBehaviour
 {
     public static SpellManager Instance;
-    [SerializeField] private GameManager gm;
 
     private SpellData activeSpell;
     private SpellBehavior spellBehavior;
@@ -55,8 +54,7 @@ public class SpellManager : MonoBehaviour
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                spellBehavior.CastSpell(hit.collider.gameObject);
-                spellBehavior.ConsumeMana(gm);
+                spellBehavior.CastSpell(hit);
                 CancelSpell();
             }
         }

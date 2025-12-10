@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class EnnemyBehaviour : MonoBehaviour
+public class EnnemyBehaviour : MonoBehaviour, IDamageable
 {
 
     private Vector3 ennemyPos = new Vector3(1, 0, 0);

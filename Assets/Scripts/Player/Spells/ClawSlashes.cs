@@ -1,25 +1,26 @@
 using UnityEngine;
 
-public class ClawSlashes : SpellBehavior
+public class ClawSlashes : SingleSpell
 {
-    public override void CastSpell(GameObject target)
+    public override void UseSpell(IDamageable target)
     {
-        if (target.layer == 6)
+        GameObject go = ((MonoBehaviour)target).gameObject;
+
+        if (gm.currentMana < data.spellCost)
+            return;
+
+        ConsumeMana(gm);
+
+        if (data.spellEffectPrefab)
         {
-            if (data.spellEffectPrefab)
-            {
-                GameObject fx = Instantiate(
-                    data.spellEffectPrefab,
-                    target.transform.position + Vector3.up * 1f,
-                    Quaternion.identity
-                );
-                ParticleSystem ps = fx.GetComponent<ParticleSystem>();
-                if (ps != null)
-                    Destroy(fx, ps.main.duration + ps.main.startLifetime.constantMax);
-                else
-                    Destroy(fx, 3f);
-            }
-            Destroy(target);
+            GameObject fx = Instantiate(
+                data.spellEffectPrefab,
+                go.transform.position + Vector3.up,
+                Quaternion.identity
+            );
+            Destroy(fx, 3f);
         }
+
+        Destroy(go);
     }
 }

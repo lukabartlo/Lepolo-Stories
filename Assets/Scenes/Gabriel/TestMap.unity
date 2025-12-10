@@ -207,7 +207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 78193838}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnnemyTypeSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +442,7 @@ GameObject:
   - component: {fileID: 485340636}
   - component: {fileID: 485340635}
   - component: {fileID: 485340634}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 607861547}
   - component: {fileID: 607861549}
   - component: {fileID: 607861548}
-  m_Layer: 5
+  m_Layer: 6
   m_Name: ValueMadness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2822,7 +2822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5aa7050da94ae4cb7f3f3649748508, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpellManager
-  gm: {fileID: 1366224540}
 --- !u!1 &1605810874
 GameObject:
   m_ObjectHideFlags: 0
@@ -3250,11 +3249,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9788f4b4b8a948c4fac800b95a546186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnnemyBehaviour
-  speed: 50
+  speed: 25
   currentMadness: 0
   maxMadness: 100
   minMadness: 0
-  TMPcurrentMadness: {fileID: 0}
+  TMPcurrentMadness: {fileID: 607861548}
 --- !u!1 &1938559671
 GameObject:
   m_ObjectHideFlags: 0
