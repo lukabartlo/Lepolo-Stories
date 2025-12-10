@@ -33,6 +33,9 @@ public class SpellManager : MonoBehaviour
             case SpellEnum.clawSlashes:
                 spellBehavior = gameObject.AddComponent<ClawSlashes>();
                 break;
+            case SpellEnum.catNip:
+                spellBehavior = gameObject.AddComponent<Catnip>();
+                break;
         }
 
         spellBehavior.data = activeSpell;
