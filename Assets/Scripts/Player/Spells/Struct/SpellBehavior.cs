@@ -6,8 +6,6 @@ public abstract class SpellBehavior : MonoBehaviour
     
     protected GameManager gm;
 
-    [SerializeField] protected GameObject visualAoePrefab;
-
     protected virtual void Awake()
     {
         gm = FindFirstObjectByType<GameManager>();
