@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+[System.Serializable]
 public struct CellData {
     public CellState cellState;
     public int paddingSecurity;

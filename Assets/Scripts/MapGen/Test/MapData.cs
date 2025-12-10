@@ -2,24 +2,38 @@ using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 
-public class MapData {
+
+public class MapData : GameData {
     
     #region Variables
     
-    private CellData[,] _map;
-    private Dictionary<ObjectType, List<GameObject>> _allMapObjectsByType =  new Dictionary<ObjectType, List<GameObject>>();
-    private float _mapHeight;
-    private Transform _objectsParent;
+    public CellData[,] _map;
+    public Dictionary<ObjectType, List<GameObject>> _allMapObjectsByType =  new Dictionary<ObjectType, List<GameObject>>();
+    public float _mapHeight;
+    public Transform _objectsParent;
     public bool isMapGenerated  = false;
+    
+    public List<CellData> cells;
+    public Vector2Int mapSize;
     
     #endregion
 
     public MapData(int _sizeX, int _sizeY, float _mapHeight, Transform _objectsParent, GameObject _squarePrefab) {
+        mapSize = new Vector2Int(_sizeX, _sizeY);
         _map =  new CellData[_sizeX , _sizeY];
         this._mapHeight = _mapHeight;
         this._objectsParent = _objectsParent;
         isMapGenerated = true;
 
+    }
+    
+    public void Load() {
+        _map = new CellData[mapSize.x, mapSize.y];
+        for (int i = 0; i < mapSize.y; i++) {
+            for (int j = 0; j < mapSize.x; j++) {
+                _map[j, i] = cells[j * mapSize.y + i];
+            }
+        }
     }
     
     #region Placing On Cells
@@ -194,6 +208,15 @@ public class MapData {
                 Gizmos.DrawWireCube(new Vector3(i + 0.5f, 0, j + 0.5f),Vector3.one);
             }
         }
+    }
+
+    public MapData SaveData() {
+        cells = new List<CellData>();
+        foreach (CellData _cellData in _map) {
+            cells.Add(_cellData);
+        }
+        
+        return this;
     }
 
     #region Checks
