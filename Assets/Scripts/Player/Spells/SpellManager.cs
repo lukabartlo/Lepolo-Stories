@@ -3,6 +3,7 @@ using UnityEngine;
 public class SpellManager : MonoBehaviour
 {
     public static SpellManager Instance;
+    [SerializeField] private GameManager gm;
 
     private SpellData activeSpell;
     private SpellBehavior spellBehavior;
@@ -55,6 +56,7 @@ public class SpellManager : MonoBehaviour
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 spellBehavior.CastSpell(hit.collider.gameObject);
+                spellBehavior.ConsumeMana(gm);
                 CancelSpell();
             }
         }
