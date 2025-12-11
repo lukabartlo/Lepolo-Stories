@@ -23,7 +23,7 @@ public class CameraTestPerso : MonoBehaviour
     void Start()
     {
         _cameraPivot = transform.parent;
-        _desiredLocalPosition = transform.localPosition;
+        _desiredLocalPosition = new Vector3(0, 35, -50);
     }
     private void Update()
     {
