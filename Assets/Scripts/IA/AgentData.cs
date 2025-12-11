@@ -7,7 +7,7 @@ public class AgentData
     [SerializeField] private int health;
     [SerializeField] private int maxHealth;
 
-    [Range(0f, 1f)]   
+    [Range(0f, 100f)]   
     [SerializeField] private float madness;
     
     public Roles role;
@@ -28,7 +28,7 @@ public class AgentData
 
     public void SetMadness(float newMadness)
     {
-        madness = Mathf.Clamp01(newMadness);
+        madness = Mathf.Clamp(newMadness, 0f, 100f);
     }
 
     public float GetMadness()
