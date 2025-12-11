@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 
+
 public class MapData {
     
     #region Variables
@@ -10,16 +11,17 @@ public class MapData {
     private Dictionary<ObjectType, List<GameObject>> _allMapObjectsByType =  new Dictionary<ObjectType, List<GameObject>>();
     private float _mapHeight;
     private Transform _objectsParent;
-    public bool isMapGenerated  = false;
+    private bool isMapGenerated  = false;
+    
+    public CellData[,] Map => _map;
     
     #endregion
 
-    public MapData(int _sizeX, int _sizeY, float _mapHeight, Transform _objectsParent, GameObject _squarePrefab) {
+    public MapData(int _sizeX, int _sizeY, float _mapHeight, Transform _objectsParent) {
         _map =  new CellData[_sizeX , _sizeY];
         this._mapHeight = _mapHeight;
         this._objectsParent = _objectsParent;
         isMapGenerated = true;
-
     }
     
     #region Placing On Cells
@@ -43,6 +45,8 @@ public class MapData {
         List<Vector2Int> _cellsToBuild = new List<Vector2Int>();
         Vector2Int _coordCellToBuild = Vector2Int.zero;
 
+        _map[_buildCoord.x, _buildCoord.y].isOrigin = true;
+        
         foreach (BuildingCells cell in _objectData.cellsOffsetFromOrigin) {
             _coordCellToBuild.x = _buildCoord.x + cell.offsetFromOrigin.x;
             _coordCellToBuild.y = _buildCoord.y + cell.offsetFromOrigin.y;
@@ -140,6 +144,7 @@ public class MapData {
         Object.Destroy(_map[_x, _y].sceneObject);
         
         _map[_x, _y].cellState = CellState.Empty;
+        _map[_x, _y].isOrigin = false;
         
         foreach (Vector2Int _tileCoord in _map[_x, _y].connectedCells)
         {
@@ -153,6 +158,7 @@ public class MapData {
             }
             
             _map[_tileCoord.x, _tileCoord.y].cellState = CellState.Empty;
+            _map[_tileCoord.x, _tileCoord.y].isOrigin = false;
         }
         return true;
     }
