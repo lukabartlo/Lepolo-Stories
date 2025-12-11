@@ -56,24 +56,12 @@ public class SpellManager : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            // --- DEBUG VISUEL ---
             Debug.DrawLine(ray.origin, ray.GetPoint(100f), Color.green, 20f);
-
-            // --- DEBUG CONSOLE ---
-            Debug.Log($"[RAYCAST] Origin: {ray.origin}  Direction: {ray.direction}");
-
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                Debug.Log($"[RAYCAST HIT] {hit.collider.gameObject.name} at {hit.point}");
-
                 spellBehavior.CastSpell(hit);
                 CancelSpell();
             }
-            else
-            {
-                Debug.Log("[RAYCAST] No hit detected");
-            }
         }
     }
-
 }

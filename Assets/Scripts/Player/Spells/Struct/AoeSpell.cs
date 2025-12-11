@@ -5,7 +5,7 @@ public abstract class AoeSpell : SpellBehavior
     protected float radius;
 
     private GameObject previewSphere;
-    private LayerMask terrainLayer = 1 << 7;
+    private LayerMask terrainLayer = 1 << 0;
 
     private void Start()
     {
@@ -25,8 +25,10 @@ public abstract class AoeSpell : SpellBehavior
 
     void CreatePreview()
     {
+        Vector3 spawnPos = new Vector3(0, -1000, 0);
+
         if (data.aoePreviewPrefab != null)
-            previewSphere = Instantiate(data.aoePreviewPrefab);
+            previewSphere = Instantiate(data.aoePreviewPrefab, spawnPos, Quaternion.identity);
         else
             previewSphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 
