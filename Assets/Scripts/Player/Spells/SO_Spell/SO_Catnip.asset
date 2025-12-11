@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e026402596a771046aebc167a9a511ce, type: 3}
+  m_Name: SO_Catnip
+  m_EditorClassIdentifier: Assembly-CSharp::SpellData
+  spellID: 1
+  spellCost: 5
+  spellName: Catnip
+  type: 1
+  spellEffectPrefab: {fileID: 7904898002847524615, guid: a2ccf81a1d5b163448ebdf66b5e746d6, type: 3}
+  cursorTexture: {fileID: 2800000, guid: e9c90f0d80ba4034fbf4a2509273d0da, type: 3}
+  aoeRadius: 20
+  aoePreviewPrefab: {fileID: 735195259951271565, guid: eb739d02bc313b04e9af36b97580cb0d, type: 3}
