@@ -4,4 +4,5 @@ public enum ObjectType
     Tree,
     Altar,
     Chatpelle,
+    Props,
 }
