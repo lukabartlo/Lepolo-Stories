@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class AgentStateManager : MonoBehaviour, IDamageable
 {
-    public AgentData agentData;
+    public AgentData agentData = new AgentData();
 
     #region Variables for Task
 
@@ -33,7 +33,6 @@ public class AgentStateManager : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        agentData = new AgentData();
         rb = GetComponent<Rigidbody>();
         agentTransform = GetComponent<Transform>();
         AddToBlackboard();

@@ -158,6 +158,7 @@ MonoBehaviour:
   agentData:
     health: 5
     maxHealth: 5
+    spriteRenderer: {fileID: 0}
     madness: 0
     role: 1
   currentTask: {fileID: 0}
