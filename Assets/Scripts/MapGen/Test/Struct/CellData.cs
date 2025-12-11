@@ -8,4 +8,6 @@ public struct CellData {
     public ObjectType objectType;
     public GameObject sceneObject;
     public List<Vector2Int> connectedCells;
+
+    public bool isOrigin;
 }

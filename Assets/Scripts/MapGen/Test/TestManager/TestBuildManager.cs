@@ -39,25 +39,21 @@ public class TestBuildManager : MonoBehaviour {
         _buildParents = new GameObject("BuildingParents").transform;
         
         saveHandler = new SaveHandler();
-        saveHandler.LoadData(filePath, out MapData _mapData);
-        if (_mapData != null) {
-            Debug.Log("Loaded MapData");
-            mapData = _mapData;
-            mapData.Load();
-            progressionSystem = new TestBuildProgression(_allMapableObjects);
-            buildingSystem = new BuildingSystem(ref mapData, ref  progressionSystem, ref _buildParents);
-            mapGenerationSystem = new MapGenerationSystem(ref buildingSystem, _mapSize);
-            return;
-        }
+        saveHandler.LoadData(filePath, out MapSave _mapSave);
         
-        mapData = new MapData(_mapSize.x, _mapSize.y, _mapHeight, _buildParents, _squarePrefab);
+        mapData = new MapData(_mapSize.x, _mapSize.y, _mapHeight, _buildParents);
         progressionSystem = new TestBuildProgression(_allMapableObjects);
         buildingSystem = new BuildingSystem(ref mapData, ref  progressionSystem, ref _buildParents);
         mapGenerationSystem = new MapGenerationSystem(ref buildingSystem, _mapSize);
 
-        if (mapGenerationSystem.PreGenerateMap(_objectsToPregen)) {
-            Debug.Log("Pre generate map is a success");
+        string generationCallback = "Map Generation is ";
+        if (_mapSave != null) {
+            generationCallback += mapGenerationSystem.SavedMapGeneration(_mapSave.SavedObjects).ToString();
+        } else {
+            generationCallback += mapGenerationSystem.RandomMapGeneration(_objectsToPregen).ToString();
         }
+        
+        Debug.Log(generationCallback);
     }
     
     public Coroutine StartChildCoroutine(IEnumerator _coroutineMethod) {
@@ -70,12 +66,15 @@ public class TestBuildManager : MonoBehaviour {
 
     public void GenerateMap() {
         mapData.DeleteMap();
-        mapGenerationSystem.PreGenerateMap(_objectsToPregen);
+        mapGenerationSystem.RandomMapGeneration(_objectsToPregen);
     }
 
     public void OnAttack(InputAction.CallbackContext _context) {
         if (_context.started) {
-            saveHandler.Save(filePath, mapData.SaveData());
+            MapSave _save = new MapSave(mapData);
+            Debug.Log(_save._savedObjects.Count);
+            saveHandler.Save(filePath, _save);
+            
             Debug.Log("Clicked");
             // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             // RaycastHit hit;
