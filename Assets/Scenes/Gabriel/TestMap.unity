@@ -2275,9 +2275,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f366e1b6728fbd4eb7f88e0f115682b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
-  audioList:
-  - {fileID: 8300000, guid: ffe1c107c389bd84db83265f540d2c64, type: 3}
-  audioSource: {fileID: 0}
+  soundList:
+  - name: AMBIANT
+    sounds:
+    - {fileID: 8300000, guid: ffe1c107c389bd84db83265f540d2c64, type: 3}
+  - name: SPELL
+    sounds:
+    - {fileID: 8300000, guid: 28d5bd77e478ba544b1282b7e48fe0ef, type: 3}
+  - name: BUTTON
+    sounds:
+    - {fileID: 8300000, guid: 7c43e2e6f6e2d10449d5c00f8af31743, type: 3}
+  - name: ACTION
+    sounds:
+    - {fileID: 8300000, guid: 5c9de8631ea921c40a718c64d6265df0, type: 3}
+  - name: ATTACK
+    sounds:
+    - {fileID: 8300000, guid: ec395be31779043479aa44ccf2d4a67b, type: 3}
 --- !u!1 &1131639352
 GameObject:
   m_ObjectHideFlags: 0
