@@ -1,3 +1,4 @@
+using Unity.Burst.Intrinsics;
 using UnityEngine;
 
 public class Catnip : AoeSpell
@@ -23,7 +24,12 @@ public class Catnip : AoeSpell
             Destroy(fx, 3f);
         }
 
-        go.GetComponent<EnnemyBehaviour>().currentMadness -= 50;
+        AgentStateManager asm = go.GetComponent<AgentStateManager>();
+        if (asm != null)
+        {
+            AgentData agentData = asm.agentData;
+            agentData.SetMadness(agentData.GetMadness() - 20f);
+        }
 
 
     }

@@ -66,6 +66,12 @@ public class TaskPraying : Task
             if (agent.isTimerFinished)
             {
                 Debug.Log("Give Mana To Player");
+                GameManager.Instance.currentMana += 5;
+
+                Debug.Log("Give Madness To AI");
+                float newMadness = agent.agentData.GetMadness() + 5f;
+                agent.agentData.SetMadness(newMadness);
+
                 agent.isTaskFinished = true;
             }
         }
