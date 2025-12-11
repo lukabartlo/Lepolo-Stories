@@ -705,6 +705,12 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 1700066508}
+    - target: {fileID: 4064893977520837244, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_text
+      value: 'Claw
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 5341541303010676441, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
       propertyPath: m_Name
       value: Button Spell Claw
@@ -1226,11 +1232,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TaskManager
   adepteList:
   - {fileID: 1152943317}
-  - {fileID: 1152943316}
   guerrierList:
   - {fileID: 1152943315}
   pretreList:
-  - {fileID: 1152943316}
   - {fileID: 1152943314}
   blackboard: {fileID: 1082222682}
 --- !u!114 &1082222682
