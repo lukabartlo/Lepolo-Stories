@@ -897,6 +897,8 @@ MonoBehaviour:
         offsetFromOrigin: {x: 0, y: -1}
       - cellState: 2
         offsetFromOrigin: {x: -1, y: -1}
+      buildObjects:
+      - {fileID: 3705564505504780105, guid: 4c409b6241bf45040a49f0dee28dffbd, type: 3}
       buildObject: {fileID: 3064025712856020594, guid: 4744477a573e4a94baad5144b5cb7223, type: 3}
   - objectType: 1
     objectData:
@@ -919,6 +921,13 @@ MonoBehaviour:
         offsetFromOrigin: {x: 0, y: -1}
       - cellState: 2
         offsetFromOrigin: {x: -1, y: -1}
+      buildObjects:
+      - {fileID: 3705564505504780105, guid: 83a762d6574520a4cb8cbfc4956328a6, type: 3}
+      - {fileID: 3705564505504780105, guid: 0665f4d7d235ac544874c1ed1d782dc8, type: 3}
+      - {fileID: 3705564505504780105, guid: 5babbeca6370f5f43b7691e7d7d9f1b9, type: 3}
+      - {fileID: 3705564505504780105, guid: 253a1aba5dcab304088ea03487bdb7b2, type: 3}
+      - {fileID: 3705564505504780105, guid: e30b9c939179ce9458d5a5096b64fc38, type: 3}
+      - {fileID: 3705564505504780105, guid: 6716414964a34de48910d337a77f8e96, type: 3}
       buildObject: {fileID: 3064025712856020594, guid: 987732fa335350b4c83f10d5231029be, type: 3}
   - objectType: 2
     objectData:
@@ -1783,6 +1792,8 @@ MonoBehaviour:
         offsetFromOrigin: {x: -10, y: -1}
       - cellState: 2
         offsetFromOrigin: {x: -9, y: -1}
+      buildObjects:
+      - {fileID: 3064025712856020594, guid: 6a3dc87353e2ad74e990f47bb8ba3c4f, type: 3}
       buildObject: {fileID: 3064025712856020594, guid: 6a3dc87353e2ad74e990f47bb8ba3c4f, type: 3}
   - objectType: 3
     objectData:
@@ -1857,6 +1868,8 @@ MonoBehaviour:
         offsetFromOrigin: {x: -3, y: 0}
       - cellState: 2
         offsetFromOrigin: {x: -3, y: 1}
+      buildObjects:
+      - {fileID: 3064025712856020594, guid: 397c586c0f689c94c9d145a411af1c6f, type: 3}
       buildObject: {fileID: 3064025712856020594, guid: 397c586c0f689c94c9d145a411af1c6f, type: 3}
   _objectsToPregen:
   - objectType: 2
@@ -1864,9 +1877,9 @@ MonoBehaviour:
   - objectType: 3
     onPreGenAmountToSpawn: 1
   - objectType: 1
-    onPreGenAmountToSpawn: 4000
+    onPreGenAmountToSpawn: 100
   - objectType: 0
-    onPreGenAmountToSpawn: 2500
+    onPreGenAmountToSpawn: 100
   taskManager: {fileID: 1082222681}
 --- !u!1001 &788471729
 PrefabInstance:
@@ -2039,34 +2052,6 @@ MonoBehaviour:
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 6b444451-8a00-4d00-a97e-f47457f736a8
-    m_ActionName: 'Player/Look[/Mouse/delta,/Pen/delta]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 696538793}
-        m_TargetAssemblyTypeName: TestBuildManager, Assembly-CSharp
-        m_MethodName: OnAttack
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 6c2ab1b8-8984-453a-af3d-a3c78ae1679a
-    m_ActionName: 'Player/Attack[/Mouse/leftButton,/Keyboard/enter]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 852140f2-7766-474d-8707-702459ba45f3
-    m_ActionName: 'Player/Interact[/Keyboard/e]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 641cd816-40e6-41b4-8c3d-04687c349290
-    m_ActionName: 'Player/Sprint[/Keyboard/leftShift]'
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: c95b2375-e6d9-4b88-9c4c-c5e76515df4b
     m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
@@ -2105,6 +2090,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8eb3a3c0-0d56-4b4b-bedf-8173381070ba
+    m_ActionName: 'Player/Zoom[/Mouse/scroll/y]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
