@@ -21,7 +21,7 @@ public class MapGenerationSystem {
     }
     
     //Generating the first map, not relevant if a save is added
-    public bool RandomMapGeneration(List<PreGenObjectWrapper> _objectsToPregen) {
+    public bool PreGenerateMap(List<PreGenObjectWrapper> _objectsToPregen) {
         if (_objectsToPregen.Count <= 0) return false;
     
         // mapGenerationCoroutine ??= TestBuildManager.Instance.StartChildCoroutine(mapGeneration(_objectsToPregen));
@@ -58,17 +58,6 @@ public class MapGenerationSystem {
         }
         #endregion
     
-        return true;
-    }
-
-    public bool SavedMapGeneration(List<MapSaveWrapper> _objectsToGenerate) {
-        foreach (MapSaveWrapper obj in _objectsToGenerate) {
-            if (!_buildingSystem.TryBuild(obj.savedObject, obj.savedObjectCoords)) {
-                Debug.LogError("Map Generation Failed Atrociously");
-                return false;
-            }
-        }
-        
         return true;
     }
     
