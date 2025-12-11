@@ -1,14 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Save;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class TestBuildManager : MonoBehaviour {
     public static TestBuildManager Instance = null;
-    
-    public string filePath;
     
     public TestBuildManagerWindow window;
 
@@ -26,34 +23,25 @@ public class TestBuildManager : MonoBehaviour {
     [Header("Map Generation System")] 
     [SerializeField] private List<PreGenObjectWrapper> _objectsToPregen = new ();
     
-    public SaveHandler saveHandler;
     public MapData mapData;
     public TestBuildProgression progressionSystem;
     public BuildingSystem buildingSystem;
     public MapGenerationSystem mapGenerationSystem;
 
-    private void Start() {
+    private void Awake() {
         if (Instance != null) return;
         Instance = this;
         
         _buildParents = new GameObject("BuildingParents").transform;
         
-        saveHandler = new SaveHandler();
-        saveHandler.LoadData(filePath, out MapSave _mapSave);
-        
-        mapData = new MapData(_mapSize.x, _mapSize.y, _mapHeight, _buildParents);
+        mapData = new MapData(_mapSize.x, _mapSize.y, _mapHeight, _buildParents, _squarePrefab);
         progressionSystem = new TestBuildProgression(_allMapableObjects);
         buildingSystem = new BuildingSystem(ref mapData, ref  progressionSystem, ref _buildParents);
         mapGenerationSystem = new MapGenerationSystem(ref buildingSystem, _mapSize);
 
-        string generationCallback = "Map Generation is ";
-        if (_mapSave != null) {
-            generationCallback += mapGenerationSystem.SavedMapGeneration(_mapSave.SavedObjects).ToString();
-        } else {
-            generationCallback += mapGenerationSystem.RandomMapGeneration(_objectsToPregen).ToString();
+        if (mapGenerationSystem.PreGenerateMap(_objectsToPregen)) {
+            Debug.Log("Pre generate map is a success");
         }
-        
-        Debug.Log(generationCallback);
     }
     
     public Coroutine StartChildCoroutine(IEnumerator _coroutineMethod) {
@@ -66,24 +54,20 @@ public class TestBuildManager : MonoBehaviour {
 
     public void GenerateMap() {
         mapData.DeleteMap();
-        mapGenerationSystem.RandomMapGeneration(_objectsToPregen);
+        mapGenerationSystem.PreGenerateMap(_objectsToPregen);
     }
 
     public void OnAttack(InputAction.CallbackContext _context) {
         if (_context.started) {
-            MapSave _save = new MapSave(mapData);
-            Debug.Log(_save._savedObjects.Count);
-            saveHandler.Save(filePath, _save);
-            
             Debug.Log("Clicked");
-            // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            // RaycastHit hit;
-            //
-            // if (Physics.Raycast(ray, out hit)) {
-            //     Vector2Int coordOnMap = new Vector2Int((int)hit.collider.transform.position.x, (int)hit.collider.transform.position.z);
-            //     mapData.TryDeleteCell(coordOnMap.x, coordOnMap.y);
-            //     Debug.Log("Deleted : " +  coordOnMap);
-            // }
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit)) {
+                Vector2Int coordOnMap = new Vector2Int((int)hit.collider.transform.position.x, (int)hit.collider.transform.position.z);
+                mapData.TryDeleteCell(coordOnMap.x, coordOnMap.y);
+                Debug.Log("Deleted : " +  coordOnMap);
+            }
         }
     }
 
