@@ -897,8 +897,7 @@ MonoBehaviour:
         offsetFromOrigin: {x: 0, y: -1}
       - cellState: 2
         offsetFromOrigin: {x: -1, y: -1}
-      buildObjects:
-      - {fileID: 3705564505504780105, guid: 4c409b6241bf45040a49f0dee28dffbd, type: 3}
+      buildObjects: []
       buildObject: {fileID: 3064025712856020594, guid: 4744477a573e4a94baad5144b5cb7223, type: 3}
   - objectType: 1
     objectData:
@@ -921,13 +920,7 @@ MonoBehaviour:
         offsetFromOrigin: {x: 0, y: -1}
       - cellState: 2
         offsetFromOrigin: {x: -1, y: -1}
-      buildObjects:
-      - {fileID: 3705564505504780105, guid: 83a762d6574520a4cb8cbfc4956328a6, type: 3}
-      - {fileID: 3705564505504780105, guid: 5babbeca6370f5f43b7691e7d7d9f1b9, type: 3}
-      - {fileID: 3705564505504780105, guid: 253a1aba5dcab304088ea03487bdb7b2, type: 3}
-      - {fileID: 3705564505504780105, guid: e30b9c939179ce9458d5a5096b64fc38, type: 3}
-      - {fileID: 3705564505504780105, guid: 6716414964a34de48910d337a77f8e96, type: 3}
-      - {fileID: 3705564505504780105, guid: 0665f4d7d235ac544874c1ed1d782dc8, type: 3}
+      buildObjects: []
       buildObject: {fileID: 3064025712856020594, guid: 987732fa335350b4c83f10d5231029be, type: 3}
   - objectType: 2
     objectData:
@@ -1792,8 +1785,7 @@ MonoBehaviour:
         offsetFromOrigin: {x: -10, y: -1}
       - cellState: 2
         offsetFromOrigin: {x: -9, y: -1}
-      buildObjects:
-      - {fileID: 3064025712856020594, guid: 6a3dc87353e2ad74e990f47bb8ba3c4f, type: 3}
+      buildObjects: []
       buildObject: {fileID: 3064025712856020594, guid: 6a3dc87353e2ad74e990f47bb8ba3c4f, type: 3}
   - objectType: 3
     objectData:
@@ -1868,8 +1860,7 @@ MonoBehaviour:
         offsetFromOrigin: {x: -3, y: 0}
       - cellState: 2
         offsetFromOrigin: {x: -3, y: 1}
-      buildObjects:
-      - {fileID: 3064025712856020594, guid: 397c586c0f689c94c9d145a411af1c6f, type: 3}
+      buildObjects: []
       buildObject: {fileID: 3064025712856020594, guid: 397c586c0f689c94c9d145a411af1c6f, type: 3}
   _objectsToPregen:
   - objectType: 2
@@ -2302,15 +2293,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Blackboard
   agents: []
-  listSpriteWrapper:
-  - direction: 0
-    sprite: {fileID: 21300000, guid: b162344d4fe34a94bb9d6150932d6f13, type: 3}
-  - direction: 1
-    sprite: {fileID: 21300000, guid: dae6f51ba75df7849ab8571aa7c26457, type: 3}
-  - direction: 2
-    sprite: {fileID: 21300000, guid: ccf64eb445da69b4d940485627e08f81, type: 3}
-  - direction: 3
-    sprite: {fileID: 21300000, guid: 4cc6e6409a5d41f4b91c2f4415bd19ac, type: 3}
 --- !u!1 &1152943312
 GameObject:
   m_ObjectHideFlags: 0

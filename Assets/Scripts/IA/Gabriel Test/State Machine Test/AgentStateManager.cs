@@ -34,6 +34,7 @@ public class AgentStateManager : MonoBehaviour
 
     private void Start()
     {
+        agentData = new AgentData();
         rb = GetComponent<Rigidbody>();
         agentTransform =  GetComponent<Transform>();
         AddToBlackboard();
@@ -75,9 +76,11 @@ public class AgentStateManager : MonoBehaviour
         {
             Vector3 targetPos = new Vector3(pathNodes[pathNodeIndex].X, agentTransform.position.y, pathNodes[pathNodeIndex].Y); // get direction
             Vector3 direction = (targetPos - agentTransform.position).normalized;
-        
+
             //rb.linearVelocity = speed * Time.deltaTime * direction;
             agentTransform.position += speed * Time.deltaTime * direction;
+
+            agentData.SetSprite(direction);
 
             if (Vector3.Distance(agentTransform.position, targetPos) <= 0.2f && pathNodeIndex < pathNodes.Count) pathNodeIndex++;
             
