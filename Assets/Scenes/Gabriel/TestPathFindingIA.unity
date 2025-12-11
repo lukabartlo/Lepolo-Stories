@@ -222,6 +222,10 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: -0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 4444585816494722062, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: agentData.madness
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 161.93
@@ -559,6 +563,10 @@ PrefabInstance:
     - target: {fileID: 2393887392674652067, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6187907308879279147, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
+      propertyPath: maxMana
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6187907308879279147, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
       propertyPath: TMPcurrentMana
