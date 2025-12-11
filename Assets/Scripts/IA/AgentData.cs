@@ -21,22 +21,6 @@ public class AgentData
         spriteRenderer = _spriteRenderer;
     }
 
-    //public void SetSprite(Vector2 direction)
-    //{
-    //    if (direction.y < 0) {
-    //        spriteRenderer.sprite = sprites[EDirection.South];
-    //        return;
-    //    } else if (direction.y > 0){
-    //        spriteRenderer.sprite = sprites[EDirection.North];
-    //        return;
-    //    } else if (direction.x < 0) {
-    //        spriteRenderer.sprite = sprites[EDirection.West];
-    //        return;
-    //    } else if (direction.x > 0) {
-    //        spriteRenderer.sprite = sprites[EDirection.East];
-    //    }
-    //}
-
     public void SetSprite(Vector3 direction)
     {
         if (direction.x > -0.5 && direction.x < 0.5 && direction.z < 0) {
