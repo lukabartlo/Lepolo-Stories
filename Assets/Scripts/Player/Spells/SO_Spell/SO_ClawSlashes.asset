@@ -16,5 +16,5 @@ MonoBehaviour:
   spellCost: 3
   spellName: Claw Slashes
   type: 0
-  spellEffectPrefab: {fileID: 8307060409358143758, guid: 8f767d0b23c8e3b4cb2ead5380b1074d, type: 3}
+  spellEffectPrefab: {fileID: 2181461633249596058, guid: 06996ee02fd20444fa7b622a25574c36, type: 3}
   cursorTexture: {fileID: 2800000, guid: e9c90f0d80ba4034fbf4a2509273d0da, type: 3}
