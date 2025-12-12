@@ -6,8 +6,8 @@ public class TaskCuttingTree : Task
     public float taskDuration = 5f;
     public float taskDetectionRadius = 2f;
     public ObjectType tree = ObjectType.Tree;
-    
-    
+
+
     #region Function to Use with TaskManager
     public override float GetPriority(AgentData agentData)
     {
@@ -20,9 +20,12 @@ public class TaskCuttingTree : Task
     }
     #endregion
 
-    private void PlayCuttingAnimation()
+    private void PlayCuttingAnimation(AgentStateManager agent)
     {
         // lance l'animation de pray
+
+        //new line
+        agent.CutTreeSound(true);
     }
 
     private void CutTree(GameObject target)
@@ -68,9 +71,12 @@ public class TaskCuttingTree : Task
         if (agent.HasAgentReachedTarget())
         {
             agent.UpdateTimer();
-            PlayCuttingAnimation();
+            PlayCuttingAnimation(agent);
             if (agent.isTimerFinished)
             {
+                //new line
+                agent.CutTreeSound(false);
+
                 Debug.Log("Cut");
                 CutTree(agent.currentTarget.gameObject);
                 agent.isTaskFinished = true;

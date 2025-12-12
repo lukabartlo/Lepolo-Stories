@@ -7,6 +7,7 @@ public class AgentStateManager : MonoBehaviour
 {
     public AgentData agentData;
 
+
     #region Variables for Task
 
     public Task currentTask;
@@ -29,7 +30,10 @@ public class AgentStateManager : MonoBehaviour
     public float timer = 0;
     public float taskDuration = 1f;
     public bool isTimerFinished = false;
-    
+
+    //new line
+    private AudioSource audioSourceCutTree;
+
     #endregion
 
     private void Start()
@@ -38,7 +42,19 @@ public class AgentStateManager : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         agentTransform =  GetComponent<Transform>();
         AddToBlackboard();
+
+        //new line
+        audioSourceCutTree = GetComponent<AudioSource>();
     }
+
+    //new function
+    public void CutTreeSound(bool isCutSoundsEnabled)
+    {
+        
+            audioSourceCutTree.enabled = isCutSoundsEnabled;
+        
+    }
+
 
     private void OnEnable()
     {
