@@ -2,5 +2,6 @@ public enum Roles
 {
     Adepte,
     Pretre,
-    Guerrier
+    Guerrier,
+    Jehochat,
 }

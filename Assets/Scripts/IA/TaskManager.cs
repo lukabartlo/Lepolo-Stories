@@ -9,6 +9,7 @@ public class TaskManager : MonoBehaviour
     [SerializeField] List<Task> adepteList;
     [SerializeField] List<Task> guerrierList;
     [SerializeField] List<Task> pretreList;
+    [SerializeField] List<Task> jehochatList;
     
     MapData mapData;
     bool isDictionarInitialized =  false;
@@ -41,6 +42,7 @@ public class TaskManager : MonoBehaviour
         taskByRole.Add(Roles.Adepte,adepteList);
         taskByRole.Add(Roles.Guerrier,guerrierList);
         taskByRole.Add(Roles.Pretre,pretreList);
+        taskByRole.Add(Roles.Jehochat,jehochatList);
         
         isDictionarInitialized = true;
     }

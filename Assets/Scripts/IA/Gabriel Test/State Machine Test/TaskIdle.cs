@@ -19,7 +19,7 @@ public class TaskIdle : Task
 
     public override void OnStart(AgentStateManager agent)
     {
-        Debug.Log("Start Idle");
+        Debug.Log("Start gathering adepts");
     }
 
     public override void OnUpdate(AgentStateManager agent)

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3526301370017994069}
   - component: {fileID: 4444585816494722062}
   m_Layer: 6
-  m_Name: Test Agent
+  m_Name: Test Adept
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -158,7 +158,7 @@ MonoBehaviour:
     health: 5
     maxHealth: 5
     madness: 0
-    role: 3
+    role: 0
   currentTask: {fileID: 0}
   isTaskFinished: 0
   currentTarget: {fileID: 0}
