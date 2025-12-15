@@ -210,6 +210,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Agent
       objectReference: {fileID: 0}
+    - target: {fileID: 4827444042479703297, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827444042479703297, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827444042479703297, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4eb84f49e6143d74fb398eb2bb0fa3f4, type: 2}
     - target: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 161.93
@@ -271,6 +283,18 @@ PrefabInstance:
       propertyPath: agentData.role
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4827444042479703297, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827444042479703297, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827444042479703297, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4eb84f49e6143d74fb398eb2bb0fa3f4, type: 2}
     - target: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 126.7
@@ -513,10 +537,6 @@ MonoBehaviour:
   m_Script: {fileID: 429224399}
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.SceneObjectIDMapSceneAsset
-  m_Entries:
-  - id: 0
-    category: 0
-    gameObject: {fileID: 1535190931}
 --- !u!4 &130535050
 Transform:
   m_ObjectHideFlags: 19
@@ -1965,6 +1985,18 @@ PrefabInstance:
       propertyPath: agentData.role
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4827444042479703297, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827444042479703297, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827444042479703297, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4eb84f49e6143d74fb398eb2bb0fa3f4, type: 2}
     - target: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 160.84
@@ -2218,6 +2250,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Agent (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4827444042479703297, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827444042479703297, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827444042479703297, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4eb84f49e6143d74fb398eb2bb0fa3f4, type: 2}
     - target: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 129.25
@@ -2646,11 +2690,6 @@ MonoBehaviour:
   stateText: {fileID: 118874239}
   textParent: {fileID: 807858868}
   textPrefab: {fileID: 1060922791830098697, guid: 211401ab675021740934acfbcfaa674b, type: 3}
---- !u!1 &1535190931 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1174099740480736242, guid: ccf424587c026b34c99d3c296bbcbf15, type: 3}
-  m_PrefabInstance: {fileID: 1007088606170734832}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1535190934 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 625631532380876949, guid: ccf424587c026b34c99d3c296bbcbf15, type: 3}
@@ -2677,6 +2716,18 @@ PrefabInstance:
       propertyPath: agentData.role
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4827444042479703297, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827444042479703297, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4827444042479703297, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4eb84f49e6143d74fb398eb2bb0fa3f4, type: 2}
     - target: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 145
