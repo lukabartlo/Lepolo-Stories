@@ -62,10 +62,16 @@ public class AgentStateManager : MonoBehaviour, IDamageable
 
         if (isTargetReached)
         {
-            agentData.needToChangeSpriteToPray = true;
+            Debug.Log(currentTask.taskName);
+            if (currentTask.taskName == "Praying")
+             {
+                agentData.needToChangeSpriteToPray = true;
 
-           agentData.SetSpriteAction();
-            agentData.needToChangeSpriteToPray = false;
+               agentData.SetSpriteAction();
+                agentData.needToChangeSpriteToPray = false;
+            }
+            
+
 
         }
 

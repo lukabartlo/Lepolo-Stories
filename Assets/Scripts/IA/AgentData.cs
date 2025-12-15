@@ -97,6 +97,7 @@ public class AgentData
 
     public void SetSpriteAction()
     {
+        
         if (needToChangeSpriteToPray)
         {
             if (lastDirection.x < 0)
