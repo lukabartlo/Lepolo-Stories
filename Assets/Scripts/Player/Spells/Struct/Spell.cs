@@ -8,7 +8,7 @@ public abstract class Spell : MonoBehaviour
 
     protected virtual void Awake()
     {
-        gm = FindFirstObjectByType<GameManager>();
+        gm = GameManager.Instance;
     }
     public abstract void CastSpell(RaycastHit hit);
     public virtual void ConsumeMana(GameManager gm)

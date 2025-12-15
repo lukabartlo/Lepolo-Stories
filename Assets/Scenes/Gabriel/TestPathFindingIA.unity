@@ -735,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4444585816494722062, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
       propertyPath: speed
-      value: 7
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4444585816494722062, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
       propertyPath: agentData.role
@@ -1903,6 +1903,10 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 1700066508}
+    - target: {fileID: 4877131467185435904, guid: 9ff06b783b4ab1840acbc8560153cfe5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5392768799899080158, guid: 9ff06b783b4ab1840acbc8560153cfe5, type: 3}
       propertyPath: gm
       value: 
