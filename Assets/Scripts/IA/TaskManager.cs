@@ -10,6 +10,8 @@ public class TaskManager : MonoBehaviour
     [SerializeField] List<Task> guerrierList;
     [SerializeField] List<Task> pretreList;
     [SerializeField] List<Task> jehochatList;
+
+    [SerializeField] private TaskIdle idleTask;
     
     MapData mapData;
     bool isDictionarInitialized =  false;
@@ -50,6 +52,8 @@ public class TaskManager : MonoBehaviour
     private void Update()
     {
         if (!isDictionarInitialized || !areTaskReady || !mapData.isMapGenerated) return;
+
+        blackboard.UpdateAgentsList();
         
         foreach (AgentStateManager _agent in blackboard.agents)
         {
@@ -89,10 +93,11 @@ public class TaskManager : MonoBehaviour
             _agent.currentTask = _priorisedTask; // Set new Task
             _agent.currentTask.OnStart(_agent);
         }
-        else if (_priorisedTask != null && _priorisedTask != _agent.currentTask) // If the Task has to change
+        else if(_agent.isTaskFinished && _agent.doIdleAfterTask)            // If the next task is set to be the Idle
         {
-            _agent.currentTask.OnStop(_agent);
-            _agent.currentTask = _priorisedTask; // Set new Task
+            _agent.doIdleAfterTask  = false;
+            _agent.currentTask.OnCancel(_agent);
+            _agent.currentTask = idleTask; // Set new Task
                 
             _agent.currentTask.OnStart(_agent);
         }

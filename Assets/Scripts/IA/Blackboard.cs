@@ -5,6 +5,9 @@ using System;
 public class Blackboard : MonoBehaviour
 {
     public List<AgentStateManager> agents = new List<AgentStateManager>();
+    public List<AgentStateManager> agentsToAddAtNextFrame = new List<AgentStateManager>();
+    public List<AgentStateManager> agentsToRemoveAtNextFrame = new List<AgentStateManager>();
+    
     public static Action<AgentStateManager> OnAddToBlackboard;
     public static Action<AgentStateManager> OnRemoveFromBlackboard;
 
@@ -23,12 +26,27 @@ public class Blackboard : MonoBehaviour
 
     private void AddToBlackboard(AgentStateManager agent)
     {
-        if (!agents.Contains(agent))
-            agents.Add(agent);
+        if (!agentsToAddAtNextFrame.Contains(agent))
+            agentsToAddAtNextFrame.Add(agent);
     }
 
     private void RemoveFromBlackboard(AgentStateManager agent)
     {
-        agents.Remove(agent);
+        agentsToRemoveAtNextFrame.Remove(agent);
+    }
+
+    public void UpdateAgentsList()
+    {
+        foreach (AgentStateManager agent in agentsToAddAtNextFrame)
+        {
+            if (!agents.Contains(agent))
+                agents.Add(agent);
+        }
+
+        foreach (AgentStateManager agent in agentsToRemoveAtNextFrame)
+        {
+            if (agents.Contains(agent))
+                agents.Remove(agent);
+        }
     }
 }

@@ -2,9 +2,6 @@ using UnityEngine;
 
 public class TaskGatherAdepts : Task
 {
-    // Duration of the gathering ritual
-    public float taskDuration = 10f;
-    
     // Duration for fade in/out animations
     public float fadeDuration = 2f;
     
@@ -17,24 +14,12 @@ public class TaskGatherAdepts : Task
     // Cooldown duration before the task can be performed again (in seconds)
     public float cooldownDuration = 2f;
     
-    // Time when the task was last completed
-    private float _lastCompletionTime = -999f;
-    
-    // Enum to track the current phase of the task
-    private enum GatheringPhase
-    {
-        FadingOut,
-        Waiting,
-        FadingIn,
-        SpawningAdepts,
-        Completed
-    }
-    
     private GatheringPhase _currentPhase;
-    private float _phaseTimer;
+    
+    private float _minorPhaseDuration;
+    private float _expeditionDuration = 15f;
+    
     private Renderer _jehochatRenderer;
-    private Color _originalColor;
-    private float _originalAlpha;
     
     #region Function to Use with TaskManager
     
@@ -51,10 +36,8 @@ public class TaskGatherAdepts : Task
         {
             return false;
         }
-        
-        // Check if the cooldown has elapsed since the last completion
-        float timeSinceLastCompletion = Time.time - _lastCompletionTime;
-        return timeSinceLastCompletion >= cooldownDuration;
+
+        return true;
     }
     
     #endregion
@@ -129,21 +112,21 @@ public class TaskGatherAdepts : Task
     
     public override void OnStart(AgentStateManager agent)
     {
+        //Debug.Log("Start the Task of the JeoChat");
         // Initialize the gathering ritual
-        _currentPhase = GatheringPhase.FadingOut;
-        _phaseTimer = 0f;
-        
-        // Get the renderer component
-        _jehochatRenderer = agent.GetComponent<Renderer>();
+        agent.actualGatheringPhase = GatheringPhase.FadingOut;
+        agent.timer = 0f;
+        agent.taskDuration = fadeDuration;
+        agent.doIdleAfterTask = true;
         
         if (_jehochatRenderer != null && _jehochatRenderer.materials.Length > 0)
         {
-            _originalColor = _jehochatRenderer.materials[0].color;
-            _originalAlpha = _originalColor.a;
+            agent.originalColor = _jehochatRenderer.materials[0].color;
+            agent.originalAlpha = agent.originalColor.a;
         }
         else
         {
-            _originalAlpha = 1f;
+            agent.originalAlpha = 1f;
         }
     }
 
@@ -151,21 +134,21 @@ public class TaskGatherAdepts : Task
     {
         if (agent.isTaskFinished) return;
         
-        switch (_currentPhase)
+        switch (agent.actualGatheringPhase)
         {
             case GatheringPhase.FadingOut:
                 // Gradually fade out the Jehochat
-                _phaseTimer += Time.deltaTime;
-                float fadeOutProgress = Mathf.Clamp01(_phaseTimer / fadeDuration);
-                float currentAlpha = Mathf.Lerp(_originalAlpha, 0f, fadeOutProgress);
+                agent.timer += Time.deltaTime;
+                float fadeOutProgress = Mathf.Clamp01(agent.timer / fadeDuration);
+                float currentAlpha = Mathf.Lerp(agent.originalAlpha, 0f, fadeOutProgress);
                 UpdateJehochatAlpha(currentAlpha);
                 
                 if (fadeOutProgress >= 1f)
                 {
                     // Transition to waiting phase
-                    _currentPhase = GatheringPhase.Waiting;
-                    _phaseTimer = 0f;
+                    agent.actualGatheringPhase = GatheringPhase.Waiting;
                     agent.timer = 0f;
+                    agent.taskDuration = _expeditionDuration;
                 }
                 break;
                 
@@ -176,22 +159,24 @@ public class TaskGatherAdepts : Task
                 if (agent.isTimerFinished)
                 {
                     // Transition to fading in phase
-                    _currentPhase = GatheringPhase.FadingIn;
-                    _phaseTimer = 0f;
+                    agent.actualGatheringPhase = GatheringPhase.FadingIn;
+                    agent.timer = 0f;
+                    agent.taskDuration = fadeDuration;
+                    agent.isTimerFinished = false;
                 }
                 break;
                 
             case GatheringPhase.FadingIn:
                 // Gradually fade in the Jehochat
-                _phaseTimer += Time.deltaTime;
-                float fadeInProgress = Mathf.Clamp01(_phaseTimer / fadeDuration);
-                currentAlpha = Mathf.Lerp(0f, _originalAlpha, fadeInProgress);
+                agent.timer += Time.deltaTime;
+                float fadeInProgress = Mathf.Clamp01(agent.timer / fadeDuration);
+                currentAlpha = Mathf.Lerp(0f, agent.originalAlpha, fadeInProgress);
                 UpdateJehochatAlpha(currentAlpha);
                 
                 if (fadeInProgress >= 1f)
                 {
                     // Transition to spawning phase
-                    _currentPhase = GatheringPhase.SpawningAdepts;
+                    agent.actualGatheringPhase = GatheringPhase.SpawningAdepts;
                 }
                 break;
                 
@@ -199,16 +184,21 @@ public class TaskGatherAdepts : Task
                 // Spawn the Adept agents
                 SpawnAdepts(agent);
                 
-                // Record the completion time for cooldown tracking
-                _lastCompletionTime = Time.time;
-                
                 // Mark task as completed
-                _currentPhase = GatheringPhase.Completed;
-                agent.isTaskFinished = true;
+                agent.actualGatheringPhase = GatheringPhase.Completed;
+                agent.timer = 0f;
+                agent.taskDuration = cooldownDuration;
+                agent.isTimerFinished = false;
                 break;
                 
             case GatheringPhase.Completed:
                 // Task is finished
+                agent.UpdateTimer();
+                if (agent.isTimerFinished)
+                {
+                    agent.isTaskFinished = true;
+                }
+                
                 break;
         }
     }
@@ -219,12 +209,12 @@ public class TaskGatherAdepts : Task
         agent.timer = 0;
         agent.currentTarget = null;
         agent.isTaskFinished = false;
-        _phaseTimer = 0f;
+        
         _currentPhase = GatheringPhase.FadingOut;
         
         if (_jehochatRenderer != null)
         {
-            UpdateJehochatAlpha(_originalAlpha);
+            UpdateJehochatAlpha(agent.originalAlpha);
         }
     }
 
@@ -234,12 +224,11 @@ public class TaskGatherAdepts : Task
         agent.timer = 0;
         agent.currentTarget = null;
         agent.isTaskFinished = false;
-        _phaseTimer = 0f;
         _currentPhase = GatheringPhase.FadingOut;
         
         if (_jehochatRenderer != null)
         {
-            UpdateJehochatAlpha(_originalAlpha);
+            UpdateJehochatAlpha(agent.originalAlpha);
         }
     }
     

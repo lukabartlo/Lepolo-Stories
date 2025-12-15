@@ -11,10 +11,13 @@ public class AgentStateManager : MonoBehaviour
 
     public Task currentTask;
     public bool isTaskFinished = false;
+    public bool doIdleAfterTask = true;
 
     [Header("For movement")] 
     private Transform agentTransform;
     public Transform currentTarget;
+    
+    public Vector3 targetPosition;
     
     public List<PathNode> pathNodes = new List<PathNode>();
     public List<Vector2Int> pathNodesExcluded = new List<Vector2Int>();
@@ -30,12 +33,21 @@ public class AgentStateManager : MonoBehaviour
     public float taskDuration = 1f;
     public bool isTimerFinished = false;
     
+    [Space(20)] [Header("For JeoChat")]
+    public GatheringPhase actualGatheringPhase;
+    public Renderer jehochatRenderer;
+    public Color originalColor;
+    public float originalAlpha;
+
+    
     #endregion
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         agentTransform =  GetComponent<Transform>();
+        
+        jehochatRenderer = GetComponent<Renderer>();
         AddToBlackboard();
     }
 
@@ -57,9 +69,9 @@ public class AgentStateManager : MonoBehaviour
         Blackboard.OnRemoveFromBlackboard?.Invoke(this);
     }
 
-    public bool HasAgentReachedTarget()
+    public bool HasAgentReachedTarget(Vector3 position)
     {
-        isTargetReached = (Vector3.Distance(currentTarget.position, agentTransform.position) <= rangeToTarget);
+        isTargetReached = (Vector3.Distance(position, agentTransform.position) <= rangeToTarget);
         return isTargetReached;
     }
 
@@ -100,11 +112,16 @@ public class AgentStateManager : MonoBehaviour
         isTimerFinished = false;
     }
     
-    public bool FindNewPath(MapData mapData)
+    public bool FindNewPath(MapData mapData, Vector3 targetPosition)
     {
-        pathNodes = mapData.pathfinding.FindPath(agentTransform.position, currentTarget.position);
+        pathNodes = mapData.pathfinding.FindPath(agentTransform.position, targetPosition);
+
+        int x = (int)targetPosition.x;
+        int y = (int)targetPosition.z;
+
+        if (!mapData.IsCoordInMap(x, y))  return false;
         
-        pathNodesExcluded = mapData.GetConnectedCellsFull((int)currentTarget.position.x, (int)currentTarget.position.z);
+        pathNodesExcluded = mapData.GetConnectedCellsFull((int)targetPosition.x, (int)targetPosition.z);
         
         pathNodeIndex = 0;
         return pathNodes.Count > 0;
@@ -123,13 +140,15 @@ public class AgentStateManager : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (currentTarget == null ) return;
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(currentTarget.position, rangeToTarget);
+        if (currentTarget != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(currentTarget.position, rangeToTarget);
+        }
         
         Gizmos.color = Color.blue;
-        for(int i = 0 ; i < pathNodes.Count - 1; i++)
-        {
+        for(int i = 0 ; i < pathNodes.Count - 1; i++) 
+        { 
             Gizmos.DrawCube(new Vector3(pathNodes[i].X , agentTransform.position.y, pathNodes[i].Y), new Vector3(0.5f, 0.5f, 0.5f));
         }
     }

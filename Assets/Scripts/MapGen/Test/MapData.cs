@@ -206,19 +206,26 @@ public class MapData {
     public List<Vector2Int> GetConnectedCellsFull(int _x, int _y)
     {
         List<Vector2Int> returnList = new List<Vector2Int>();
+
+        if (!IsCoordInMap(_x, _y))
+            return returnList;
+
+        CellData cell = _map[_x, _y];
+        if (cell.connectedCells == null)
+            return returnList;
+
         returnList.Add(new Vector2Int(_x, _y));
-        
-        if (IsCoordInMap(_x, _y))
+
+        foreach (Vector2Int pos in cell.connectedCells)
         {
-            foreach (Vector2Int pos in _map[_x, _y].connectedCells)
-            {
-                if (GetCellData(pos.x, pos.y).cellState == CellState.Full)
-                    returnList.Add(new Vector2Int(pos.x, pos.y));
-            }
+            CellData neighbour = GetCellData(pos.x, pos.y);
+            if (neighbour.cellState == CellState.Full)
+                returnList.Add(pos);
         }
-        
+
         return returnList;
     }
+
     
     public void OnDrawGizmos()
     {
@@ -254,7 +261,7 @@ public class MapData {
         return _map[_x, _y].cellState;
     }
 
-    private bool IsCoordInMap(int _x, int _y) {
+    public bool IsCoordInMap(int _x, int _y) {
         if (_x < 0 || _y < 0 || _x > _map.GetLength(0) -1 || _y > _map.GetLength(1) -1)
             return false;
         return true;
