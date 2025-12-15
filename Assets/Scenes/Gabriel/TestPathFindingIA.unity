@@ -210,6 +210,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Agent
       objectReference: {fileID: 0}
+    - target: {fileID: 4444585816494722062, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: currentTask
+      value: 
+      objectReference: {fileID: 1152943314}
+    - target: {fileID: 4444585816494722062, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
+      propertyPath: agentData.role
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 161.93
@@ -2282,11 +2290,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TaskManager
   adepteList:
   - {fileID: 1152943317}
-  - {fileID: 1152943316}
   guerrierList:
   - {fileID: 1152943315}
   pretreList:
-  - {fileID: 1152943316}
   - {fileID: 1152943314}
   blackboard: {fileID: 1082222682}
 --- !u!114 &1082222682
@@ -2311,6 +2317,22 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ccf64eb445da69b4d940485627e08f81, type: 3}
   - direction: 3
     sprite: {fileID: 21300000, guid: 4cc6e6409a5d41f4b91c2f4415bd19ac, type: 3}
+  - direction: 4
+    sprite: {fileID: 21300000, guid: cbb61248ecf9c594fa15b6ca76842848, type: 3}
+  - direction: 5
+    sprite: {fileID: 21300000, guid: c4068f65fbad1e041953eb0b88f52f55, type: 3}
+  - direction: 6
+    sprite: {fileID: 21300000, guid: ae5243ae0a5d85f448a130ffff11d45d, type: 3}
+  - direction: 7
+    sprite: {fileID: 21300000, guid: 85e7c322531e12a4ca8fdbcd985ec5da, type: 3}
+  - direction: 8
+    sprite: {fileID: 21300000, guid: d78fd16c9a13f8a4496bd0ecc83a8de2, type: 3}
+  - direction: 9
+    sprite: {fileID: 21300000, guid: 6c39376045c3b1b44a85b447de98a19f, type: 3}
+  - direction: 10
+    sprite: {fileID: 21300000, guid: e45d0e645f49418408523b98922322e3, type: 3}
+  - direction: 11
+    sprite: {fileID: 21300000, guid: 8ed7ec40241edac4cbb85791b289e13e, type: 3}
 --- !u!1 &1152943312
 GameObject:
   m_ObjectHideFlags: 0

@@ -61,6 +61,16 @@ public class AgentStateManager : MonoBehaviour
     public bool HasAgentReachedTarget()
     {
         isTargetReached = (Vector3.Distance(currentTarget.position, agentTransform.position) <= rangeToTarget);
+
+        if (isTargetReached)
+        {
+            agentData.needToChangeSpriteToPray = true;
+
+           agentData.SetSpriteAction();
+            agentData.needToChangeSpriteToPray = false;
+
+        }
+
         return isTargetReached;
     }
 
@@ -87,7 +97,8 @@ public class AgentStateManager : MonoBehaviour
             return true;
 
         }
-        return false;
+        
+            return false;
 
     }
 
