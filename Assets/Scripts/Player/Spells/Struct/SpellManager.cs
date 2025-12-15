@@ -36,6 +36,9 @@ public class SpellManager : MonoBehaviour
             case SpellEnum.catNip:
                 spellBehavior = gameObject.AddComponent<Catnip>();
                 break;
+            case SpellEnum.changeRole:
+                spellBehavior = gameObject.AddComponent<ChangeRole>();
+                break;
         }
 
         spellBehavior.data = activeSpell;

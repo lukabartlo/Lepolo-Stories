@@ -12,6 +12,7 @@ public class SpellData : ScriptableObject
     public Texture2D cursorTexture;
     public float aoeRadius;
     public GameObject aoePreviewPrefab;
+    public Roles roles;
 }
 
 
