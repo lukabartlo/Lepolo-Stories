@@ -12,7 +12,11 @@ public class AgentData
 
     [Range(0f, 100f)]   
     [SerializeField] private float madness;
-    
+
+    //new line
+    public Vector3 lastDirection;
+    public bool needToChangeSpriteToPray = false;
+
     public Roles role;
 
     public void AssignSprites(ref Dictionary<EDirection, Sprite> _sprites, SpriteRenderer _spriteRenderer)
@@ -23,17 +27,86 @@ public class AgentData
 
     public void SetSprite(Vector3 direction)
     {
-        if (direction.x > -0.5 && direction.x < 0.5 && direction.z < 0) {
-            spriteRenderer.sprite = sprites[EDirection.South];
-            return;
-        } else if (direction.x > -0.5 && direction.x < 0.5 && direction.z > 0) {
-            spriteRenderer.sprite = sprites[EDirection.North];
-            return;
-        } else if (direction.x < -0.5) {
-            spriteRenderer.sprite = sprites[EDirection.West];
-            return;
-        } else if (direction.x > 0.5) {
-            spriteRenderer.sprite = sprites[EDirection.East];
+        lastDirection = direction;
+
+        if (madness < 0.5f)
+        {
+            if (direction.x > -0.5 && direction.x < 0.5 && direction.z < 0) {
+                spriteRenderer.sprite = sprites[EDirection.South];
+
+                return;
+            } else if (direction.x > -0.5 && direction.x < 0.5 && direction.z > 0) {
+                spriteRenderer.sprite = sprites[EDirection.North];
+                return;
+            } else if (direction.x < -0.5) {
+                spriteRenderer.sprite = sprites[EDirection.West];
+                return;
+            } else if (direction.x > 0.5) {
+                spriteRenderer.sprite = sprites[EDirection.East];
+            }
+        }
+        else
+        {
+            if ( madness > 0.99f)
+            {
+              
+                if (direction.x > -0.5 && direction.x < 0.5 && direction.z < 0)
+                {
+                    spriteRenderer.sprite = sprites[EDirection.SouthCrazy];
+                    return;
+                }
+                else if (direction.x > -0.5 && direction.x < 0.5 && direction.z > 0)
+                {
+                    spriteRenderer.sprite = sprites[EDirection.North];
+                    return;
+                }
+                else if (direction.x < -0.5)
+                {
+                    spriteRenderer.sprite = sprites[EDirection.WestCrazy];
+                    return;
+                }
+                else if (direction.x > 0.5)
+                {
+                    spriteRenderer.sprite = sprites[EDirection.EastCrazy];
+                }
+            }
+            else
+            {
+                if (direction.x > -0.5 && direction.x < 0.5 && direction.z < 0)
+                {
+                    spriteRenderer.sprite = sprites[EDirection.SouthHalfCrazy];
+                    return;
+                }
+                else if (direction.x > -0.5 && direction.x < 0.5 && direction.z > 0)
+                {
+                    spriteRenderer.sprite = sprites[EDirection.North];
+                    return;
+                }
+                else if (direction.x < -0.5)
+                {
+                    spriteRenderer.sprite = sprites[EDirection.WestHalfCrazy];
+                    return;
+                }
+                else if (direction.x > 0.5)
+                {
+                    spriteRenderer.sprite = sprites[EDirection.EastHalfCrazy];
+                }
+            }
+        }
+    }
+
+    public void SetSpriteAction()
+    {
+        if (needToChangeSpriteToPray)
+        {
+            if (lastDirection.x < 0)
+            {
+                spriteRenderer.sprite = sprites[EDirection.PrayLeft];
+            }
+            else
+            {
+                spriteRenderer.sprite = sprites[EDirection.PrayRight];
+            }
         }
     }
 

@@ -3,5 +3,14 @@
     North,
     East,
     South,
-    West
+    West,
+    EastHalfCrazy,
+    SouthHalfCrazy,
+    WestHalfCrazy,
+    EastCrazy,
+    SouthCrazy,
+    WestCrazy,
+
+    PrayLeft,
+    PrayRight
 }

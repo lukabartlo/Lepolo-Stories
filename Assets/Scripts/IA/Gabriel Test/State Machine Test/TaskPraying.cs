@@ -5,8 +5,8 @@ public class TaskPraying : Task
     public float taskDuration = 5f;
     public float taskDetectionRadius = 4f;
     public ObjectType chatpelle = ObjectType.Chatpelle;
-    
-    
+
+
     #region Function to Use with TaskManager
     public override float GetPriority(AgentData agentData)
     {
@@ -22,6 +22,7 @@ public class TaskPraying : Task
     private void Pray()
     {
         // lance l'animation de pray
+
     }
     
     #region State Machine Basic Functions
@@ -61,10 +62,12 @@ public class TaskPraying : Task
 
         if (agent.HasAgentReachedTarget())
         {
-            agent.UpdateTimer();
             Pray();
+            agent.UpdateTimer();
             if (agent.isTimerFinished)
             {
+            
+
                 Debug.Log("Give Mana To Player");
                 GameManager.Instance.currentMana += 5;
 
