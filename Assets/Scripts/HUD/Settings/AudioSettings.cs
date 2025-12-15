@@ -18,7 +18,22 @@ public class AudioSettings : MonoBehaviour {
     }
     
     public void ChangeMusicVolume(string _audioName) {
-        mainAudioMixer.SetFloat(_audioName, Mathf.Log10(musicVol.value) * 20);
+        Slider slider = null;
+        
+        switch (_audioName) {
+            case "Master":
+                slider = masterVol;
+                break;
+            case "Music":
+                slider = musicVol;
+                break;
+            case "Sfx":
+                slider = sfxVol;
+                break;
+        }
+        
+        if(slider != null)
+            mainAudioMixer.SetFloat(_audioName, Mathf.Log10(slider.value) * 20);
     }
     
 }
