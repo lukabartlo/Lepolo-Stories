@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ClawSlashes : SingleSpell
 {
-    public override void UseSpell(IDamageable target)
+    protected override void UseSpell(IDamageable target)
     {
         GameObject go = ((MonoBehaviour)target).gameObject;
 

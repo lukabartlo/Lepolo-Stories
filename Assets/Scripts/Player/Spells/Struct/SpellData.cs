@@ -44,6 +44,11 @@ public class SpellData : ScriptableObject
     [Header("Change Role")]
     [Tooltip("Assigned another Role when this spell is used")]
     public Roles roles;
+
+    // Spawn Object
+    [Header("Spawn Object")]
+    [Tooltip("Spawn a Object on the grid map when this spell is used")]
+    public ObjectType obj;
 }
 
 
