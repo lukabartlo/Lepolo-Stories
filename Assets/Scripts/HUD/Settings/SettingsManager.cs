@@ -6,24 +6,28 @@ public class SettingsManager : MonoBehaviour {
     [SerializeField] private ScrollRect scrollView;
     [SerializeField] private List<SettingsWrapper> settings;
     
-    private Dictionary<ESettingType, GameObject> _settingDict;
+    private Dictionary<ESettingType, GameObject> _settingDict =  new ();
     private GameObject _currentSettings;
 
     private void Awake() {
-        _settingDict = new Dictionary<ESettingType, GameObject>();
         foreach (SettingsWrapper settingWrapper in settings)
             _settingDict.TryAdd(settingWrapper.type, settingWrapper.settings);
     }
 
-    public void SwitchControls(ESettingType _type) {
-        if (!_settingDict.TryGetValue(_type, out var _value)) return;
+    public void ResetSettingsPanel() {
+        SwitchControls((int)ESettingType.Video);
+    }
+
+    public void SwitchControls(int _type) {
+        if (!_settingDict.TryGetValue((ESettingType)_type, out var _value)) return;
         if (_value == _currentSettings) return;
         
-        _currentSettings.SetActive(false);
+        if(_currentSettings != null)
+            _currentSettings.SetActive(false);
         
         scrollView.verticalNormalizedPosition = 0;
         
-        _currentSettings = _settingDict[_type];
+        _currentSettings = _settingDict[(ESettingType)_type];
         _currentSettings.SetActive(true);
     }
 }
