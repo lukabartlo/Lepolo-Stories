@@ -41,5 +41,7 @@ public class CreditsButton : MonoBehaviour {
             _elapsedTime +=  Time.deltaTime;
             yield return null;
         }
+        
+        buttontext.alpha = _end;
     }
 }

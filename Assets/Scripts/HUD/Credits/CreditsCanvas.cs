@@ -7,11 +7,23 @@ public class CreditsCanvas : MonoBehaviour {
     [SerializeField] private ScrollRect scrollRect;
     [SerializeField] private float duration;
     [SerializeField] private float waitDurationBeforeStartingCredits;
+    [SerializeField] private LinksPanel linksPanel;
+    [SerializeField] private CanvasGroup linksGroup;
+
+    [SerializeField] private float afterAnimationFadeDuration;
     
     public AnimationCurve animationCurve;
     private Coroutine _scrollCoroutine;
+
+    private bool _didAnimate = false;
     
-    private void OnEnable() {
+    public void StartCredits() {
+        if (_didAnimate) {
+            OnAnimFinished();
+            return;
+        } 
+        _didAnimate = true;
+        
         if(_scrollCoroutine != null) StopCoroutine(_scrollCoroutine);
         
         scrollRect.verticalNormalizedPosition = 1;
@@ -20,6 +32,12 @@ public class CreditsCanvas : MonoBehaviour {
 
     private void OnAnimFinished() {
         scrollRect.gameObject.SetActive(false);
+        
+        linksPanel.OnOpenPanel(
+            linksGroup,
+            1,
+            afterAnimationFadeDuration,
+            true);
     }
 
     private IEnumerator PlayCreditsAnimation() {

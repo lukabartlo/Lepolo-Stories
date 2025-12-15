@@ -17,7 +17,7 @@ public class LinksPanel : MonoBehaviour {
     
     private Coroutine _coroutine;
     
-    private GameObject _connectedGameObject; 
+    private GameObject _connectedGameObject;
 
     private void Start() {
         _urlSpriteDico = new Dictionary<UrlType, Sprite>();
@@ -27,7 +27,13 @@ public class LinksPanel : MonoBehaviour {
     }
 
     public void OnOpenPanel(List<LinkWrapper> _links, GameObject _sender) {
-        if (_connectedGameObject == _sender) return;
+        if (_connectedGameObject != null) {
+            if (_connectedGameObject == _sender) return;
+            _connectedGameObject = null;
+            OnClosePanel();
+            OnOpenPanel(_links, _sender);
+            return;
+        }
         _connectedGameObject = _sender;
         
         foreach (LinkWrapper link in _links) {
@@ -52,6 +58,11 @@ public class LinksPanel : MonoBehaviour {
         _connectedGameObject = null;
     }
 
+    public void OnOpenPanel(CanvasGroup _canvasGroup, float _endValue, float _duration, bool _activate) {
+        if(_coroutine !=  null) StopCoroutine(_coroutine);
+        _coroutine = StartCoroutine(FadeCanvas(_canvasGroup, _endValue, _duration, _activate));
+    }
+
     private IEnumerator FadeCanvas(CanvasGroup _canvasGroup, float _endValue, float _duration, bool _activate) {
         float _elapsedTime = 0f;
 
@@ -63,6 +74,8 @@ public class LinksPanel : MonoBehaviour {
         
         _canvasGroup.blocksRaycasts = _activate;
         _canvasGroup.interactable = _activate;
+        
+        _canvasGroup.alpha = _endValue;
         
         _coroutine = null;
     }
