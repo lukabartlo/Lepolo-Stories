@@ -19,10 +19,15 @@ public class AgentData
 
     public Roles role;
 
-    public void AssignSprites(ref Dictionary<EDirection, Sprite> _sprites, SpriteRenderer _spriteRenderer)
+    public void AssignSprites(ref Dictionary<EDirection, Sprite> _sprites)
     {
         sprites = _sprites;
-        spriteRenderer = _spriteRenderer;
+    }
+
+    public SpriteRenderer spriteRendererRef => spriteRenderer;
+    public void SetNewAlpha(float  alpha)
+    {
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, alpha);
     }
 
     public void SetSprite(Vector3 direction)

@@ -10,39 +10,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10daafb12f895f34784ece15b92ab357, type: 3}
-  m_Name: Hunger
+  m_Name: Idle
   m_EditorClassIdentifier: Assembly-CSharp::TestCurve
   PriorityCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
-      inSlope: -3.1655204
-      outSlope: Infinity
-      tangentMode: 97
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.025422296
-    - serializedVersion: 3
-      time: 0.6
-      value: 1
-      inSlope: -0.6181479
-      outSlope: -0.6181479
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0
-      inSlope: -0.19337048
-      outSlope: -0.19337048
+      value: 1
+      inSlope: 0
+      outSlope: 0
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.03338957
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  valueChecked: 0.597
   boolTest: 1

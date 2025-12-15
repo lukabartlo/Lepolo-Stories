@@ -46,7 +46,10 @@ public class Blackboard : MonoBehaviour
         foreach (AgentStateManager agent in agentsToAddAtNextFrame)
         {
             if (!agents.Contains(agent))
+            {
+                agent.agentData.AssignSprites(ref sprites);
                 agents.Add(agent);
+            }
         }
 
         foreach (AgentStateManager agent in agentsToRemoveAtNextFrame)

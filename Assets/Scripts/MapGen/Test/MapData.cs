@@ -277,7 +277,16 @@ public class MapData {
             return false;
         return true;
     }
-    
+    public bool IsCoordInMap(Vector3 target)
+    {
+        int _x = Mathf.RoundToInt(target.x);
+        int _y = Mathf.RoundToInt(target.z);
+
+        if (_x < 0 || _y < 0 || _x > _map.GetLength(0) - 1 || _y > _map.GetLength(1) - 1)
+            return false;
+        return true;
+    }
+
     public GameObject GetClosestMapObject(Vector3 _position, ObjectType _objectType)
     {
         GameObject _objToReturn = null;

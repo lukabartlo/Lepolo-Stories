@@ -40,7 +40,8 @@ public class TestBuildManager : MonoBehaviour {
         buildingSystem = new BuildingSystem(ref mapData, ref  progressionSystem, ref _buildParents);
         mapGenerationSystem = new MapGenerationSystem(ref buildingSystem, _mapSize);
 
-        if (mapGenerationSystem.PreGenerateMap(_objectsToPregen)) {
+        if (mapGenerationSystem.PreGenerateMap(_objectsToPregen))
+        {
             Debug.Log("Pre generate map is a success");
         }
     }

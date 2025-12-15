@@ -19,8 +19,6 @@ public class TaskGatherAdepts : Task
     private float _minorPhaseDuration;
     private float _expeditionDuration = 15f;
     
-    private Renderer _jehochatRenderer;
-    
     #region Function to Use with TaskManager
     
     public override float GetPriority(AgentData agentData)
@@ -82,30 +80,9 @@ public class TaskGatherAdepts : Task
     /// <summary>
     /// Updates the alpha value of the Jehochat's materials for fade effect
     /// </summary>
-    private void UpdateJehochatAlpha(float alpha)
+    private void UpdateJehochatAlpha(AgentStateManager agent ,float alpha)
     {
-        if (_jehochatRenderer == null) return;
-        
-        // Update all materials
-        foreach (Material mat in _jehochatRenderer.materials)
-        {
-            Color color = mat.color;
-            color.a = alpha;
-            mat.color = color;
-            
-            // Enable transparency if needed
-            if (alpha < 1f)
-            {
-                mat.SetFloat("_Mode", 3); // Transparent mode
-                mat.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-                mat.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-                mat.SetInt("_ZWrite", 0);
-                mat.DisableKeyword("_ALPHATEST_ON");
-                mat.EnableKeyword("_ALPHABLEND_ON");
-                mat.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-                mat.renderQueue = 3000;
-            }
-        }
+        agent.agentData.SetNewAlpha(alpha);
     }
     
     #region State Machine Basic Functions
@@ -118,16 +95,9 @@ public class TaskGatherAdepts : Task
         agent.timer = 0f;
         agent.taskDuration = fadeDuration;
         agent.doIdleAfterTask = true;
-        
-        if (_jehochatRenderer != null && _jehochatRenderer.materials.Length > 0)
-        {
-            agent.originalColor = _jehochatRenderer.materials[0].color;
-            agent.originalAlpha = agent.originalColor.a;
-        }
-        else
-        {
-            agent.originalAlpha = 1f;
-        }
+
+        agent.originalColor = agent.agentData.spriteRendererRef.color;
+        agent.originalAlpha = agent.originalColor.a;
     }
 
     public override void OnUpdate(AgentStateManager agent)
@@ -141,7 +111,7 @@ public class TaskGatherAdepts : Task
                 agent.timer += Time.deltaTime;
                 float fadeOutProgress = Mathf.Clamp01(agent.timer / fadeDuration);
                 float currentAlpha = Mathf.Lerp(agent.originalAlpha, 0f, fadeOutProgress);
-                UpdateJehochatAlpha(currentAlpha);
+                UpdateJehochatAlpha(agent,currentAlpha);
                 
                 if (fadeOutProgress >= 1f)
                 {
@@ -171,7 +141,7 @@ public class TaskGatherAdepts : Task
                 agent.timer += Time.deltaTime;
                 float fadeInProgress = Mathf.Clamp01(agent.timer / fadeDuration);
                 currentAlpha = Mathf.Lerp(0f, agent.originalAlpha, fadeInProgress);
-                UpdateJehochatAlpha(currentAlpha);
+                UpdateJehochatAlpha(agent,currentAlpha);
                 
                 if (fadeInProgress >= 1f)
                 {
@@ -211,11 +181,8 @@ public class TaskGatherAdepts : Task
         agent.isTaskFinished = false;
         
         _currentPhase = GatheringPhase.FadingOut;
-        
-        if (_jehochatRenderer != null)
-        {
-            UpdateJehochatAlpha(agent.originalAlpha);
-        }
+
+         UpdateJehochatAlpha(agent ,agent.originalAlpha);
     }
 
     public override void OnCancel(AgentStateManager agent)
@@ -225,11 +192,8 @@ public class TaskGatherAdepts : Task
         agent.currentTarget = null;
         agent.isTaskFinished = false;
         _currentPhase = GatheringPhase.FadingOut;
-        
-        if (_jehochatRenderer != null)
-        {
-            UpdateJehochatAlpha(agent.originalAlpha);
-        }
+
+        UpdateJehochatAlpha(agent, agent.originalAlpha);
     }
     
     #endregion

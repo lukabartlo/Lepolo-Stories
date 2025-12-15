@@ -158,12 +158,16 @@ MonoBehaviour:
   agentData:
     health: 5
     maxHealth: 5
-    spriteRenderer: {fileID: 0}
+    spriteRenderer: {fileID: 4827444042479703297}
     madness: 0
-    role: 3
+    lastDirection: {x: 0, y: 0, z: 0}
+    needToChangeSpriteToPray: 0
+    role: 0
   currentTask: {fileID: 0}
   isTaskFinished: 0
+  doIdleAfterTask: 1
   currentTarget: {fileID: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
   pathNodesExcluded: []
   pathNodeIndex: 0
   rangeToTarget: 1
@@ -172,6 +176,10 @@ MonoBehaviour:
   timer: 0
   taskDuration: 1
   isTimerFinished: 0
+  actualGatheringPhase: 0
+  jehochatRenderer: {fileID: 0}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
+  originalAlpha: 0
 --- !u!1 &2959796917443233447
 GameObject:
   m_ObjectHideFlags: 0

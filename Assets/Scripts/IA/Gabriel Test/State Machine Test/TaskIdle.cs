@@ -26,7 +26,7 @@ public class TaskIdle : Task
         
         Vector3 target = agent.transform.position;
         target = GetATargetByDirection(target, dir, moveOpportunity);
-        if (mapData.pathfinding.IsTargetWalkable(target)) return target;   
+        if (mapData.pathfinding.IsTargetWalkable(target) && mapData.IsCoordInMap(target)) return target;   
         
         while (!mapData.pathfinding.IsTargetWalkable(target))
         {
@@ -35,7 +35,7 @@ public class TaskIdle : Task
                 dir++;
                 if (dir > 3) dir = 0;
                 target = GetATargetByDirection(agent.transform.position, dir, moveOpportunity);
-                if (mapData.pathfinding.IsTargetWalkable(target)) return target;
+                if (mapData.pathfinding.IsTargetWalkable(target) && mapData.IsCoordInMap(target)) return target;
             }
             moveOpportunity++;
         }
@@ -93,7 +93,7 @@ public class TaskIdle : Task
         {
             if (agent.pathNodes.Count == 0)
             {
-                //Debug.Log("agent.pathNodes.Count == 0");
+                Debug.Log("agent.pathNodes.Count == 0");
                 if (!agent.FindNewPath(mapData, agent.targetPosition))
                 {
                     agent.isTaskFinished = true;
@@ -103,7 +103,7 @@ public class TaskIdle : Task
             
             if (!agent.MoveTowardPathNode())
             {
-                //Debug.Log("!agent.MoveTowardPathNode()");
+                Debug.Log("!agent.MoveTowardPathNode()");
                 if (!agent.FindNewPath(mapData, agent.targetPosition) && !agent.HasAgentReachedTarget(agent.targetPosition))
                 {
                     agent.isTaskFinished = true;

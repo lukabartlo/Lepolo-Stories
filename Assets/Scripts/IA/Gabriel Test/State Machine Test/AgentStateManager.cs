@@ -38,7 +38,11 @@ public class AgentStateManager : MonoBehaviour, IDamageable
     public Color originalColor;
     public float originalAlpha;
 
-    
+    [Space(20)]
+    [Header("For Debug")]
+    public bool showGizmo = false;
+
+
     #endregion
 
     private void Start()
@@ -157,6 +161,7 @@ public class AgentStateManager : MonoBehaviour, IDamageable
 
     private void OnDrawGizmos()
     {
+        if (!showGizmo) return;
         if (currentTarget != null)
         {
             Gizmos.color = Color.red;
