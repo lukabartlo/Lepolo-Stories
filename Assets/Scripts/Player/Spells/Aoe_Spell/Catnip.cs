@@ -28,7 +28,7 @@ public class Catnip : AoeSpell
         if (asm != null)
         {
             AgentData agentData = asm.agentData;
-            agentData.SetMadness(agentData.GetMadness() - 20f);
+            agentData.SetMadness(agentData.GetMadness() - data.madnessValue);
         }
 
 
