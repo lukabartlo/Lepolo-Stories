@@ -1,50 +1,79 @@
-//using UnityEngine;
+using System;
+using System.Collections.Generic;
+using UnityEngine;
 
-//public enum SoundType // only one sound per type
-//{
-//    AMBIANT,
-//    SPELL,
-//    BUTTON,
-//    ACTION,
-//    ATTACK
-//}
+public struct AudioByEnum
+{
+    public SoundName SoundName;
+    public AudioClip audioClip;
+}
 
-//[RequireComponent(typeof(AudioSource))]
+public struct AudioSourceByType
+{
+    public SoundOrigin origin;
+    public List<AudioSource> sources;
+}
 
-//public class SoundManager : MonoBehaviour
-//{
-//    [SerializeField] private AudioClip[] soundList;
-//    [SerializeField] private static SoundManager instance;
-//    private AudioSource audioSource;
+public class SoundManager : MonoBehaviour
+{
+    [SerializeField] private List<AudioByEnum> soundList;
+    private Dictionary<SoundName, AudioClip> soundDict;
+    [SerializeField] private static SoundManager instance;
+    
+    public static Action<SoundName, Vector3> OnSoundSpatializedPlayed;
+    public static Action<SoundName> OnSoundPlayed;
+    
+    private AudioSource audioSource;
 
-//    private void Awake()
-//    {
-//        instance = this;
-//    }
+    [SerializeField] private List<AudioSourceByType> audioList;
+    private Dictionary<SoundOrigin, List<AudioSource>> audioDict;
 
-//    private void Start()
-//    {
-//        audioSource = GetComponent<AudioSource>();
-//    }
+    private void Awake()
+    {
+        instance = this; // Ajouter la logique d'une instance
+        InitializeDictionary();
+    }
 
-//    private void Update()
-//    {
-//        if (Input.GetKeyDown(KeyCode.F))
-//        {
-//            PlaySound(SoundType.BUTTON);
-//        }
-//        if (Input.GetKeyDown(KeyCode.G))
-//        {
-//            PlaySound(SoundType.SPELL);
-//        }
-//        if (Input.GetKeyDown(KeyCode.H))
-//        {
-//            PlaySound(SoundType.ATTACK);
-//        }
-//    }
+    private void InitializeDictionary()
+    {
+        foreach (AudioByEnum sound in soundList)
+        {
+            if (soundDict.ContainsKey(sound.SoundName)) continue;
+            soundDict.Add(sound.SoundName, sound.audioClip);
+        }
+        
+        foreach (AudioSourceByType audio in audioList)
+        {
+            if (audioDict.ContainsKey(audio.origin)) continue;
+            audioDict.Add(audio.origin, audio.sources);
+        }
+    }
 
-//    public static void PlaySound(SoundType sound, float volume = 1f)
-//    {
-//        instance.audioSource.PlayOneShot(instance.soundList[(int)sound], volume);
-//    }
-//}
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void OnEnable()
+    {
+        OnSoundPlayed += PlaySoundGlobal;
+        OnSoundSpatializedPlayed += PlaySoundSpatialized;
+    }
+
+    private void OnDisable()
+    {
+        OnSoundPlayed -= PlaySoundGlobal;
+        OnSoundSpatializedPlayed -= PlaySoundSpatialized;
+    }
+
+    private void PlaySoundGlobal(SoundName sound)
+    {
+        Debug.Log("PlaySoundGlobal: " + sound);
+        audioSource.PlayOneShot(soundDict[sound], 1f); // change volume by channel
+    }
+    private void PlaySoundSpatialized(SoundName sound ,Vector3 position)
+    {
+        Debug.Log("PlaySoundSpatialized: " + sound);
+        audioSource.PlayOneShot(soundDict[sound], 1f); // change volume by channel
+    }
+}
