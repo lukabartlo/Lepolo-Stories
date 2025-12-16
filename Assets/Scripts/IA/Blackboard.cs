@@ -48,6 +48,7 @@ public class Blackboard : MonoBehaviour
             if (!agents.Contains(agent))
             {
                 agent.agentData.AssignSprites(ref sprites);
+                agent.agentData.SetSprite(agent.agentData.lastDirection);
                 agents.Add(agent);
             }
         }
