@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public struct AudioByEnum
 {
     public SoundName SoundName;
     public AudioClip audioClip;
 }
 
+[Serializable]
 public struct AudioSourceByType
 {
     public SoundOrigin origin;
@@ -16,42 +18,51 @@ public struct AudioSourceByType
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField] private List<AudioByEnum> soundList;
-    private Dictionary<SoundName, AudioClip> soundDict;
-    [SerializeField] private static SoundManager instance;
-    
-    public static Action<SoundName, Vector3> OnSoundSpatializedPlayed;
-    public static Action<SoundName> OnSoundPlayed;
-    
-    private AudioSource audioSource;
+    public static SoundManager Instance { get; private set; }
 
+    [Header("Sounds")]
+    [SerializeField] private List<AudioByEnum> soundList;
+
+    [Header("Audio Sources")]
     [SerializeField] private List<AudioSourceByType> audioList;
+
+    private Dictionary<SoundName, AudioClip> soundDict;
     private Dictionary<SoundOrigin, List<AudioSource>> audioDict;
+
+    public static Action<SoundName> OnSoundPlayed;
+    public static Action<SoundName, AudioSource> OnSoundSpatializedPlayed;
 
     private void Awake()
     {
-        instance = this; // Ajouter la logique d'une instance
-        InitializeDictionary();
+        // Singleton sécurisé
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        InitializeDictionaries();
     }
 
-    private void InitializeDictionary()
+    private void InitializeDictionaries()
     {
-        foreach (AudioByEnum sound in soundList)
-        {
-            if (soundDict.ContainsKey(sound.SoundName)) continue;
-            soundDict.Add(sound.SoundName, sound.audioClip);
-        }
-        
-        foreach (AudioSourceByType audio in audioList)
-        {
-            if (audioDict.ContainsKey(audio.origin)) continue;
-            audioDict.Add(audio.origin, audio.sources);
-        }
-    }
+        soundDict = new Dictionary<SoundName, AudioClip>();
+        audioDict = new Dictionary<SoundOrigin, List<AudioSource>>();
 
-    private void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
+        foreach (var sound in soundList)
+        {
+            if (!soundDict.ContainsKey(sound.SoundName))
+                soundDict.Add(sound.SoundName, sound.audioClip);
+        }
+
+        foreach (var audio in audioList)
+        {
+            if (!audioDict.ContainsKey(audio.origin))
+                audioDict.Add(audio.origin, audio.sources);
+        }
     }
 
     private void OnEnable()
@@ -68,12 +79,33 @@ public class SoundManager : MonoBehaviour
 
     private void PlaySoundGlobal(SoundName sound)
     {
-        Debug.Log("PlaySoundGlobal: " + sound);
-        audioSource.PlayOneShot(soundDict[sound], 1f); // change volume by channel
+        if (!soundDict.TryGetValue(sound, out AudioClip clip))
+        {
+            Debug.LogWarning($"Sound {sound} not found");
+            return;
+        }
+
+        AudioSource source = GetAvailableAudioSource();
+        source.PlayOneShot(clip);
     }
-    private void PlaySoundSpatialized(SoundName sound ,Vector3 position)
+
+    private void PlaySoundSpatialized(SoundName sound, AudioSource source)
     {
-        Debug.Log("PlaySoundSpatialized: " + sound);
-        audioSource.PlayOneShot(soundDict[sound], 1f); // change volume by channel
+        if (source == null)
+            return;
+
+        if (!soundDict.TryGetValue(sound, out AudioClip clip))
+        {
+            Debug.LogWarning($"Sound {sound} not found");
+            return;
+        }
+
+        source.PlayOneShot(clip);
+    }
+
+    private AudioSource GetAvailableAudioSource() //       <================= A CHANGER
+    {
+        // Simple fallback : premier AudioSource global
+        return audioDict[SoundOrigin.Global][0];
     }
 }
