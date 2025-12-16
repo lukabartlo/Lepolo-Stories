@@ -11,7 +11,7 @@ public class AgentData
     [SerializeField] Dictionary<EDirection, Sprite> sprites;
 
     [Range(0f, 100f)]   
-    [SerializeField] private float madness;
+    public float madness;
 
     //new line
     public Vector3 lastDirection;

@@ -10966,10 +10966,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TaskManager
   adepteList:
   - {fileID: 1152943317}
+  - {fileID: 1152943319}
   guerrierList:
   - {fileID: 1152943315}
   pretreList:
   - {fileID: 1152943314}
+  - {fileID: 1152943319}
   jehochatList:
   - {fileID: 1152943318}
   idleTask: {fileID: 1152943315}
@@ -11169,6 +11171,7 @@ GameObject:
   - component: {fileID: 1152943314}
   - component: {fileID: 1152943317}
   - component: {fileID: 1152943318}
+  - component: {fileID: 1152943319}
   m_Layer: 0
   m_Name: Task Container
   m_TagString: Untagged
@@ -11260,6 +11263,26 @@ MonoBehaviour:
   adeptPrefab: {fileID: 95628040202359716, guid: 93249584b622bfe4e93498ef836fa49d, type: 3}
   spawnRadius: 3
   cooldownDuration: 2
+--- !u!114 &1152943319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152943312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee9fe61300f93346a701b9f456bc465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaskInsanity
+  taskName: Task Insanity
+  priorityCurve: {fileID: 0}
+  _minMaxRange: {x: 3, y: 10}
+  _targetRange: 0.25
+  _insanityvalue: 0.15
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1001 &1168622426
 PrefabInstance:
   m_ObjectHideFlags: 0
