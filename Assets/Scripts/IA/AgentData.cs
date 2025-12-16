@@ -28,6 +28,7 @@ public class AgentData
     public void SetNewAlpha(float  alpha)
     {
         spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, alpha);
+        //Debug.Log(spriteRenderer.color);
     }
 
     public void SetSprite(Vector3 direction)

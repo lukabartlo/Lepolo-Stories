@@ -184,6 +184,7 @@ MonoBehaviour:
   originalAlpha: 0
   showGizmo: 0
   audioSource: {fileID: 4742608619142017484}
+  isPlayingSound: 0
 --- !u!82 &4742608619142017484
 AudioSource:
   m_ObjectHideFlags: 0
@@ -193,10 +194,10 @@ AudioSource:
   m_GameObject: {fileID: 95628040202359716}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5638454311520796181, guid: e71bdd6a4ef9e5a4396273e29e77d336, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

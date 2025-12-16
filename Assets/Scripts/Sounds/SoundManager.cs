@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [Serializable]
 public struct AudioByEnum
@@ -25,6 +26,7 @@ public class SoundManager : MonoBehaviour
 
     [Header("Audio Sources")]
     [SerializeField] private List<AudioSourceByType> audioList;
+    [SerializeField] private AudioMixerGroup audioMixerGroup;
 
     [Header("Pooling")]
     [SerializeField] private int maxGlobalSources = 10;
@@ -51,6 +53,11 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         InitializeDictionaries();
+    }
+
+    private void Start()
+    {
+        PlaySoundGlobal(SoundName.Wind, true);
     }
 
     private void OnEnable()
@@ -102,6 +109,7 @@ public class SoundManager : MonoBehaviour
     {
         AudioSource source = audioContainer.AddComponent<AudioSource>();
 
+        source.outputAudioMixerGroup = audioMixerGroup;
         source.playOnAwake = false;
         source.loop = false;
         source.volume = volume;
@@ -139,6 +147,24 @@ public class SoundManager : MonoBehaviour
         // Petit pitch aléatoire clean
         source.pitch = UnityEngine.Random.Range(0.90f, 1.1f);
         source.PlayOneShot(clip);
+        Debug.Log($"Play sound : {sound}");
+    }
+    
+    private void PlaySoundGlobal(SoundName sound, bool isLooping)
+    {
+        if (!soundDict.TryGetValue(sound, out AudioClip clip))
+        {
+            Debug.LogWarning($"[SoundManager] Sound {sound} not found");
+            return;
+        }
+
+        AudioSource source = GetAvailableAudioSource(SoundOrigin.Global);
+
+        // Petit pitch aléatoire clean
+        source.loop = isLooping;
+        source.pitch = UnityEngine.Random.Range(0.90f, 1.1f);
+        source.PlayOneShot(clip);
+        Debug.Log($"Play sound : {sound}");
     }
 
     private void PlaySoundSpatialized(SoundName sound, AudioSource source)
@@ -154,6 +180,7 @@ public class SoundManager : MonoBehaviour
 
         source.pitch = UnityEngine.Random.Range(0.90f, 1.1f);
         source.PlayOneShot(clip);
+        Debug.Log($"Play sound : {sound}");
     }
 
     #endregion
