@@ -13007,7 +13007,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e27e01409d32fd489157a86c1ef0372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpellButton
-  spellData: {fileID: 11400000, guid: 7dc1493b98056074ab8e990d6333272c, type: 2}
+  spellData: {fileID: 11400000, guid: 5fc14a97e249bde4c8a4bfd8d7cea0b3, type: 2}
   gm: {fileID: 1700066508}
   button: {fileID: 1655589292}
 --- !u!114 &1655589292

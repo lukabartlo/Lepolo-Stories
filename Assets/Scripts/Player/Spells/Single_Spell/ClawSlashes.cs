@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ClawSlashes : SingleSpell
 {
-    public override void UseSpell(IDamageable target)
+    protected override void UseSpell(IDamageable target)
     {
         GameObject go = ((MonoBehaviour)target).gameObject;
 
@@ -20,7 +20,9 @@ public class ClawSlashes : SingleSpell
             );
             Destroy(fx, 3f);
         }
-
-        Destroy(go);
+        AgentStateManager agentStateManager = go.GetComponent<AgentStateManager>();
+        Debug.Log(agentStateManager);
+        Blackboard.OnRemoveFromBlackboard?.Invoke(agentStateManager);
+        Debug.Log(agentStateManager);
     }
 }

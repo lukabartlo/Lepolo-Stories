@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e026402596a771046aebc167a9a511ce, type: 3}
-  m_Name: SO_Catnip
+  m_Name: SO_SpawnTree
   m_EditorClassIdentifier: Assembly-CSharp::SpellData
-  spellID: 1
-  spellName: Catnip
-  type: 1
+  spellID: 4
+  spellName: Spawn Tree
+  type: 3
   spellCost: 5
-  madnessValue: 10
-  spellEffectPrefab: {fileID: 7904898002847524615, guid: a2ccf81a1d5b163448ebdf66b5e746d6, type: 3}
+  madnessValue: 0
+  spellEffectPrefab: {fileID: 0}
   cursorTexture: {fileID: 2800000, guid: e9c90f0d80ba4034fbf4a2509273d0da, type: 3}
-  aoeRadius: 3
-  aoePreviewPrefab: {fileID: 735195259951271565, guid: eb739d02bc313b04e9af36b97580cb0d, type: 3}
+  aoeRadius: 0
+  aoePreviewPrefab: {fileID: 0}
   roles: 0
-  obj: 0
+  obj: 1

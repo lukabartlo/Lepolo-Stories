@@ -13,10 +13,10 @@ public class Blackboard : MonoBehaviour
 
     Dictionary<EDirection, Sprite> sprites = new();
     [SerializeField] private List<SpriteWrapper> listSpriteWrapper;
-    
+
     private List<float> _allMadness;
     private InGameHUD _hud;
-
+    
     private void OnEnable()
     {
         foreach (var item in listSpriteWrapper)
@@ -25,7 +25,7 @@ public class Blackboard : MonoBehaviour
         OnAddToBlackboard += AddToBlackboard;
         OnRemoveFromBlackboard += RemoveFromBlackboard;
     }
-
+    
     private void Start() {
         _hud = InGameHUD.Instance;
     }
@@ -45,13 +45,15 @@ public class Blackboard : MonoBehaviour
 
     private void RemoveFromBlackboard(AgentStateManager agent)
     {
-        agentsToRemoveAtNextFrame.Remove(agent);
+        agentsToRemoveAtNextFrame.Add(agent);
     }
 
     public void UpdateAgentsList()
     {
-        foreach (AgentStateManager agent in agentsToAddAtNextFrame)
+        for (int i = 0; i < agentsToAddAtNextFrame.Count; i++)
         {
+            AgentStateManager agent = agentsToAddAtNextFrame[i];
+
             if (!agents.Contains(agent))
             {
                 agent.agentData.AssignSprites(ref sprites);
@@ -60,12 +62,16 @@ public class Blackboard : MonoBehaviour
             }
         }
 
-        foreach (AgentStateManager agent in agentsToRemoveAtNextFrame)
+        for (int i = 0; i < agentsToRemoveAtNextFrame.Count; i++)
         {
-            if (agents.Contains(agent))
-                agents.Remove(agent);
-        }
+            AgentStateManager agent = agentsToRemoveAtNextFrame[i];
 
+            if (!agents.Contains(agent)) continue;
+
+            agents.Remove(agent);
+            Destroy(agent.gameObject);
+        }
+        
         _allMadness = new List<float>();
         foreach (var agent in agents) {
             _allMadness.Add(agent.agentData.GetMadness());
