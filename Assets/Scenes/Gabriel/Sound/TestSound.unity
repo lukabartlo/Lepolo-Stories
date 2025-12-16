@@ -7010,7 +7010,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
   soundList:
   - SoundName: 0
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 6c1de43e64c0ef5449d83a6c96e18f53, type: 3}
+  - SoundName: 1
+    audioClip: {fileID: 8300000, guid: ffe1c107c389bd84db83265f540d2c64, type: 3}
+  - SoundName: 2
+    audioClip: {fileID: 8300000, guid: f375f24a98a1e5b4caeacd5f78e8e152, type: 3}
+  - SoundName: 3
+    audioClip: {fileID: 8300000, guid: 6079312092553f64b96abbce2b3f45a3, type: 3}
+  - SoundName: 4
+    audioClip: {fileID: 8300000, guid: 28d5bd77e478ba544b1282b7e48fe0ef, type: 3}
+  - SoundName: 5
+    audioClip: {fileID: 8300000, guid: ec395be31779043479aa44ccf2d4a67b, type: 3}
+  - SoundName: 6
+    audioClip: {fileID: 8300000, guid: 5acb3d80e14bbc346ae6a7c54e0b3ed9, type: 3}
+  - SoundName: 7
+    audioClip: {fileID: 8300000, guid: 623e801e72a9a494f913339cb03be57b, type: 3}
+  - SoundName: 8
+    audioClip: {fileID: 8300000, guid: 22c4ec6b7197f3b4bb38dcddb682733c, type: 3}
+  - SoundName: 9
+    audioClip: {fileID: 8300000, guid: 22c4ec6b7197f3b4bb38dcddb682733c, type: 3}
   audioList:
   - origin: 0
     sources: []

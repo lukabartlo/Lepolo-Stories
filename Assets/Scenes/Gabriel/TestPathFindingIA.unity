@@ -11282,6 +11282,7 @@ MonoBehaviour:
   _minMaxRange: {x: 3, y: 10}
   _targetRange: 0.25
   _insanityvalue: 0.15
+  _insanitySpeedMult: 1.5
   _layerMask:
     serializedVersion: 2
     m_Bits: 64
