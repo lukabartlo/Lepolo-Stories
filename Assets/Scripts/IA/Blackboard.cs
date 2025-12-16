@@ -70,7 +70,9 @@ public class Blackboard : MonoBehaviour
             if (!agents.Contains(agent)) continue;
 
             agents.Remove(agent);
-            Destroy(agent.gameObject);
+            
+            if(agent)
+                Destroy(agent.gameObject);
         }
         
         _allMadness = new List<float>();

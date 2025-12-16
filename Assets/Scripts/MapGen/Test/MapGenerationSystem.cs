@@ -10,6 +10,8 @@ public class MapGenerationSystem {
     private Vector2Int _mapSize;
 
     private int _firstGenChatpelleOffset = 13;
+
+    private int[] _miniAltarOffsets = new []{ 3, -20};
     
     Coroutine mapGenerationCoroutine = null;
     
@@ -42,6 +44,21 @@ public class MapGenerationSystem {
                 Debug.LogError("Center Autel Generation Failed Atrociously");
             }
         }
+        
+        if (_objectsToPregen.Count <= 2) return false;
+        
+        if (_objectsToPregen[2].objectType == ObjectType.MiniAltar) {
+            if (_buildingSystem.TryBuild(_objectsToPregen[2].objectType,
+                    new Vector2Int(_mapSize.x / 4, _mapSize.y / 2 + _miniAltarOffsets[0])) == false) {
+                Debug.LogError("Center Autel Generation Failed Atrociously");
+            }
+            
+            if (_buildingSystem.TryBuild(_objectsToPregen[2].objectType,
+                    new Vector2Int(_mapSize.x / 5 * 4, _mapSize.y / 2 + _miniAltarOffsets[1])) == false) {
+                Debug.LogError("Center Autel Generation Failed Atrociously");
+            }
+        }
+        
         #endregion
         
         #region Rest of the pregen

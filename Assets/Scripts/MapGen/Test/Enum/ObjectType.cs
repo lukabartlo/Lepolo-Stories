@@ -5,4 +5,5 @@ public enum ObjectType
     Altar,
     Chatpelle,
     Props,
+    MiniAltar,
 }
