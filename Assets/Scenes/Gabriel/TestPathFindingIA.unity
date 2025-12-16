@@ -7789,6 +7789,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 973629205735623653, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 973629205735623653, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 973629205735623653, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 973629205735623653, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647410974132594122, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 501038482}
+    - target: {fileID: 2647410974132594122, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClosePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2647410974132594122, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224182048195608141, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 501038485}
+    - target: {fileID: 3224182048195608141, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3224182048195608141, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OpenCanvasButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3367621544551106473, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3373878529595425599, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7845,10 +7889,54 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerInGameUI
       objectReference: {fileID: 0}
+    - target: {fileID: 5994171493609629130, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5994171493609629130, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5994171493609629130, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5994171493609629130, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6998060348488315943, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
       propertyPath: mainMenuController
       value: 
-      objectReference: {fileID: 845971407}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895968435971141863, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895968435971141863, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895968435971141863, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895968435971141863, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967626804307644433, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 501038482}
+    - target: {fileID: 7967626804307644433, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7967626804307644433, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManager, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 8408077285630537544, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7969,11 +8057,61 @@ PrefabInstance:
       propertyPath: 
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4246262685027340633, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5128510168757110170, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 501038482}
+    - targetCorrespondingSourceObject: {fileID: 8935181326387042067, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 501038485}
   m_SourcePrefab: {fileID: 100100000, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+--- !u!1 &501038481 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5128510168757110170, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+  m_PrefabInstance: {fileID: 501038480}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &501038482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501038481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6fb14386f72b4d46bb5eca4ac677483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  closingDuration: 0.2
+  pausePanel: {fileID: 501038483}
+--- !u!225 &501038483 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 8845852410391284660, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+  m_PrefabInstance: {fileID: 501038480}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &501038484 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8935181326387042067, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+  m_PrefabInstance: {fileID: 501038480}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &501038485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501038484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0b7d8f4d7c5c84ca59090ed68e6c44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OpenCanvasButton
+  canvasGroup: {fileID: 805164511}
+  duration: 0.3
 --- !u!1 &553307141
 GameObject:
   m_ObjectHideFlags: 0
@@ -8668,6 +8806,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 971910263753295601, guid: b65ff70416e2aba4b8937343829a2b90, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 971910263753295601, guid: b65ff70416e2aba4b8937343829a2b90, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 971910263753295601, guid: b65ff70416e2aba4b8937343829a2b90, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 971910263753295601, guid: b65ff70416e2aba4b8937343829a2b90, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 971910263753295601, guid: b65ff70416e2aba4b8937343829a2b90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1510418112718452368, guid: b65ff70416e2aba4b8937343829a2b90, type: 3}
       propertyPath: m_Name
       value: SettingsCanvas
@@ -8759,6 +8917,10 @@ PrefabInstance:
     - target: {fileID: 2345701361243049093, guid: b65ff70416e2aba4b8937343829a2b90, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4495819134992896537, guid: b65ff70416e2aba4b8937343829a2b90, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 4766306128186363060, guid: b65ff70416e2aba4b8937343829a2b90, type: 3}
       propertyPath: m_AnchorMax.y
@@ -9410,8 +9572,8 @@ MonoBehaviour:
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 845971407}
-        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
-        m_MethodName: AcquireCancelInput
+        m_TargetAssemblyTypeName: UIController, Assembly-CSharp
+        m_MethodName: OnEscapeKey
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9452,9 +9614,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 845971404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5996d29dfc41b174baa2d64ef27f05dc, type: 3}
+  m_Script: {fileID: 11500000, guid: 199e0fef8f2aee340a4cf837ba6a042b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
+  m_EditorClassIdentifier: Assembly-CSharp::UIController
 --- !u!1 &856000361
 GameObject:
   m_ObjectHideFlags: 0
