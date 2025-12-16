@@ -1,4 +1,4 @@
-using NUnit.Framework;
+
 using TMPro;
 using UnityEngine;
 
@@ -7,8 +7,7 @@ public class VideoSettings : MonoBehaviour {
     [SerializeField] private TMP_Dropdown resolutionDropdown;
 
     private void Start() {
-        Assert.IsNotNull(fullscreenDropdown, "fullscreen dropdown is null in Settings");
-        Assert.IsNotNull(resolutionDropdown, "resolution Dropdown is null in Settings");
+
     }
     
     public void SetGraphicsSettings(string _label) {
