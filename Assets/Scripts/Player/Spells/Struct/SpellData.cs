@@ -44,6 +44,7 @@ public class SpellData : ScriptableObject
     [Header("Change Role")]
     [Tooltip("Assigned another Role when this spell is used")]
     public Roles roles;
+    public Sprite roleSprite;
 
     // Spawn Object
     [Header("Spawn Object")]

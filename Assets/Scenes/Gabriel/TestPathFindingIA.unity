@@ -11016,6 +11016,8 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: e45d0e645f49418408523b98922322e3, type: 3}
   - direction: 11
     sprite: {fileID: 21300000, guid: 8ed7ec40241edac4cbb85791b289e13e, type: 3}
+  - direction: 12
+    sprite: {fileID: 21300000, guid: 74ac39491c28b864eabc5236c0baa5ea, type: 3}
 --- !u!1001 &1098338822
 PrefabInstance:
   m_ObjectHideFlags: 0
