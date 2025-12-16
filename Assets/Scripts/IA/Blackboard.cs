@@ -1,13 +1,13 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class Blackboard : MonoBehaviour
 {
     public List<AgentStateManager> agents = new List<AgentStateManager>();
     public List<AgentStateManager> agentsToAddAtNextFrame = new List<AgentStateManager>();
     public List<AgentStateManager> agentsToRemoveAtNextFrame = new List<AgentStateManager>();
-    
+
     public static Action<AgentStateManager> OnAddToBlackboard;
     public static Action<AgentStateManager> OnRemoveFromBlackboard;
 
@@ -25,7 +25,7 @@ public class Blackboard : MonoBehaviour
 
     private void OnDisable()
     {
-        
+
         OnAddToBlackboard -= AddToBlackboard;
         OnRemoveFromBlackboard -= RemoveFromBlackboard;
     }
@@ -38,13 +38,17 @@ public class Blackboard : MonoBehaviour
 
     private void RemoveFromBlackboard(AgentStateManager agent)
     {
-        agentsToRemoveAtNextFrame.Remove(agent);
+
+        agentsToRemoveAtNextFrame.Add(agent);
+
     }
 
     public void UpdateAgentsList()
     {
-        foreach (AgentStateManager agent in agentsToAddAtNextFrame)
+        for (int i = 0; i < agentsToAddAtNextFrame.Count; i++)
         {
+            AgentStateManager agent = agentsToAddAtNextFrame[i];
+
             if (!agents.Contains(agent))
             {
                 agent.agentData.AssignSprites(ref sprites);
@@ -52,10 +56,19 @@ public class Blackboard : MonoBehaviour
             }
         }
 
-        foreach (AgentStateManager agent in agentsToRemoveAtNextFrame)
+        agentsToAddAtNextFrame.Clear();
+
+        for (int i = 0; i < agentsToRemoveAtNextFrame.Count; i++)
         {
-            if (agents.Contains(agent))
-                agents.Remove(agent);
+            AgentStateManager agent = agentsToRemoveAtNextFrame[i];
+
+            if (!agents.Contains(agent)) continue;
+
+            agents.Remove(agent);
+            Destroy(agent.gameObject);
         }
+
+        agentsToRemoveAtNextFrame.Clear();
     }
+
 }

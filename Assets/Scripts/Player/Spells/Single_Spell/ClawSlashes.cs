@@ -20,7 +20,9 @@ public class ClawSlashes : SingleSpell
             );
             Destroy(fx, 3f);
         }
-
-        Destroy(go);
+        AgentStateManager agentStateManager = go.GetComponent<AgentStateManager>();
+        Debug.Log(agentStateManager);
+        Blackboard.OnRemoveFromBlackboard?.Invoke(agentStateManager);
+        Debug.Log(agentStateManager);
     }
 }
