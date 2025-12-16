@@ -27,6 +27,8 @@ public class TestBuildManager : MonoBehaviour {
     public BuildingSystem buildingSystem;
     public MapGenerationSystem mapGenerationSystem;
     public TaskManager taskManager;
+    
+    public Vector2Int MapSize => _mapSize;
 
     private void Awake() {
         if (Instance != null) return;

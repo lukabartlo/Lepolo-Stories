@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class SingleSpell : SpellBehavior
+public abstract class SingleSpell : Spell
 {
     public override void CastSpell(RaycastHit hit)
     {
@@ -11,4 +11,5 @@ public abstract class SingleSpell : SpellBehavior
 
         UseSpell(target);
     }
+    protected abstract void UseSpell(IDamageable target);
 }

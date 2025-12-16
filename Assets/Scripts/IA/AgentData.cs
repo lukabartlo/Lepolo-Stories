@@ -11,7 +11,7 @@ public class AgentData
     [SerializeField] Dictionary<EDirection, Sprite> sprites;
 
     [Range(0f, 100f)]   
-    [SerializeField] private float madness;
+    public float madness;
 
     //new line
     public Vector3 lastDirection;
@@ -37,7 +37,7 @@ public class AgentData
         switch (role)
         {
             case Roles.Adepte:
-                if (madness < 0.5f)
+                if (madness < 50f)
                 {
                     if (direction.x > -0.5 && direction.x < 0.5 && direction.z < 0)
                     {
@@ -62,7 +62,7 @@ public class AgentData
                 }
                 else
                 {
-                    if (madness > 0.99f)
+                    if (madness >99f)
                     {
 
                         if (direction.x > -0.5 && direction.x < 0.5 && direction.z < 0)
