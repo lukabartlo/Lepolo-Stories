@@ -32,72 +32,95 @@ public class AgentData
 
     public void SetSprite(Vector3 direction)
     {
+
         lastDirection = direction;
-
-        if (madness < 50f)
+        switch (role)
         {
-            if (direction.x > -0.5 && direction.x < 0.5 && direction.z < 0) {
-                spriteRenderer.sprite = sprites[EDirection.South];
+            case Roles.Adepte:
+                if (madness < 50f)
+                {
+                    if (direction.x > -0.5 && direction.x < 0.5 && direction.z < 0)
+                    {
+                        spriteRenderer.sprite = sprites[EDirection.South];
 
-                return;
-            } else if (direction.x > -0.5 && direction.x < 0.5 && direction.z > 0) {
-                spriteRenderer.sprite = sprites[EDirection.North];
-                return;
-            } else if (direction.x < -0.5) {
-                spriteRenderer.sprite = sprites[EDirection.West];
-                return;
-            } else if (direction.x > 0.5) {
-                spriteRenderer.sprite = sprites[EDirection.East];
-            }
+                        return;
+                    }
+                    else if (direction.x > -0.5 && direction.x < 0.5 && direction.z > 0)
+                    {
+                        spriteRenderer.sprite = sprites[EDirection.North];
+                        return;
+                    }
+                    else if (direction.x < -0.5)
+                    {
+                        spriteRenderer.sprite = sprites[EDirection.West];
+                        return;
+                    }
+                    else if (direction.x > 0.5)
+                    {
+                        spriteRenderer.sprite = sprites[EDirection.East];
+                    }
+                }
+                else
+                {
+                    if (madness >99f)
+                    {
+
+                        if (direction.x > -0.5 && direction.x < 0.5 && direction.z < 0)
+                        {
+                            spriteRenderer.sprite = sprites[EDirection.SouthCrazy];
+                            return;
+                        }
+                        else if (direction.x > -0.5 && direction.x < 0.5 && direction.z > 0)
+                        {
+                            spriteRenderer.sprite = sprites[EDirection.North];
+                            return;
+                        }
+                        else if (direction.x < -0.5)
+                        {
+                            spriteRenderer.sprite = sprites[EDirection.WestCrazy];
+                            return;
+                        }
+                        else if (direction.x > 0.5)
+                        {
+                            spriteRenderer.sprite = sprites[EDirection.EastCrazy];
+                        }
+                    }
+                    else
+                    {
+                        if (direction.x > -0.5 && direction.x < 0.5 && direction.z < 0)
+                        {
+                            spriteRenderer.sprite = sprites[EDirection.SouthHalfCrazy];
+                            return;
+                        }
+                        else if (direction.x > -0.5 && direction.x < 0.5 && direction.z > 0)
+                        {
+                            spriteRenderer.sprite = sprites[EDirection.North];
+                            return;
+                        }
+                        else if (direction.x < -0.5)
+                        {
+                            spriteRenderer.sprite = sprites[EDirection.WestHalfCrazy];
+                            return;
+                        }
+                        else if (direction.x > 0.5)
+                        {
+                            spriteRenderer.sprite = sprites[EDirection.EastHalfCrazy];
+                        }
+                    }
+                }
+                break;
+
+            case Roles.Jehochat:
+                spriteRenderer.sprite = sprites[EDirection.Jehochat];
+                break;
+
+            default:
+                break;
+
         }
-        else
-        {
-            if ( madness >99f)
-            {
-              
-                if (direction.x > -0.5 && direction.x < 0.5 && direction.z < 0)
-                {
-                    spriteRenderer.sprite = sprites[EDirection.SouthCrazy];
-                    return;
-                }
-                else if (direction.x > -0.5 && direction.x < 0.5 && direction.z > 0)
-                {
-                    spriteRenderer.sprite = sprites[EDirection.North];
-                    return;
-                }
-                else if (direction.x < -0.5)
-                {
-                    spriteRenderer.sprite = sprites[EDirection.WestCrazy];
-                    return;
-                }
-                else if (direction.x > 0.5)
-                {
-                    spriteRenderer.sprite = sprites[EDirection.EastCrazy];
-                }
-            }
-            else
-            {
-                if (direction.x > -0.5 && direction.x < 0.5 && direction.z < 0)
-                {
-                    spriteRenderer.sprite = sprites[EDirection.SouthHalfCrazy];
-                    return;
-                }
-                else if (direction.x > -0.5 && direction.x < 0.5 && direction.z > 0)
-                {
-                    spriteRenderer.sprite = sprites[EDirection.North];
-                    return;
-                }
-                else if (direction.x < -0.5)
-                {
-                    spriteRenderer.sprite = sprites[EDirection.WestHalfCrazy];
-                    return;
-                }
-                else if (direction.x > 0.5)
-                {
-                    spriteRenderer.sprite = sprites[EDirection.EastHalfCrazy];
-                }
-            }
-        }
+        
+
+
     }
 
     public void SetSpriteAction()

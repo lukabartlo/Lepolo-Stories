@@ -12,5 +12,7 @@
     WestCrazy,
 
     PrayLeft,
-    PrayRight
+    PrayRight,
+
+    Jehochat
 }

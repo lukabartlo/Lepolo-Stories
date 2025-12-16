@@ -1,4 +1,4 @@
-using NUnit.Framework;
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -11,10 +11,7 @@ public class AudioSettings : MonoBehaviour {
     [SerializeField] private AudioMixer mainAudioMixer;
     
     private void Start() {
-        Assert.IsNotNull(masterVol, "master volume slider is null in Settings");
-        Assert.IsNotNull(musicVol, "music volume slider is null in Settings");
-        Assert.IsNotNull(sfxVol, "sfx volume slider is null in Settings");
-        Assert.IsNotNull(mainAudioMixer, "main audio mixer is null in Settings");
+
     }
     
     public void ChangeMusicVolume(string _audioName) {
