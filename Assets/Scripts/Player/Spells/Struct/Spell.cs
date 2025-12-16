@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class SpellBehavior : MonoBehaviour
+public abstract class Spell : MonoBehaviour
 {
     public SpellData data;
     
@@ -8,10 +8,8 @@ public abstract class SpellBehavior : MonoBehaviour
 
     protected virtual void Awake()
     {
-        gm = FindFirstObjectByType<GameManager>();
+        gm = GameManager.Instance;
     }
-
-    public abstract void UseSpell(IDamageable target);
     public abstract void CastSpell(RaycastHit hit);
     public virtual void ConsumeMana(GameManager gm)
     {
