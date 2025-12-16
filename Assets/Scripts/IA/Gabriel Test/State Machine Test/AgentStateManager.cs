@@ -24,7 +24,7 @@ public class AgentStateManager : MonoBehaviour, IDamageable
     public float rangeToTarget = 1f;
     public bool isTargetReached = false;
     private Rigidbody rb;
-    public float speed = 7f;
+    public float speed = 5f;
 
     [Space(20)]
     [Header("For Timer")]

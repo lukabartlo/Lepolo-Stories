@@ -5,7 +5,7 @@ public class SpellManager : MonoBehaviour
     public static SpellManager Instance;
 
     private SpellData activeSpell;
-    private Spell Spell;
+    private SpellBehavior spellBehavior;
 
     void Awake()
     {
@@ -31,27 +31,24 @@ public class SpellManager : MonoBehaviour
         switch (activeSpell.type)
         {
             case SpellEnum.clawSlashes:
-                Spell = gameObject.AddComponent<ClawSlashes>();
+                spellBehavior = gameObject.AddComponent<ClawSlashes>();
                 break;
             case SpellEnum.catNip:
-                Spell = gameObject.AddComponent<Catnip>();
+                spellBehavior = gameObject.AddComponent<Catnip>();
                 break;
             case SpellEnum.changeRole:
-                Spell = gameObject.AddComponent<ChangeRole>();
-                break;
-            case SpellEnum.spawnRessources:
-                Spell = gameObject.AddComponent<SpawnRessources>();
+                spellBehavior = gameObject.AddComponent<ChangeRole>();
                 break;
         }
 
-        Spell.data = activeSpell;
+        spellBehavior.data = activeSpell;
     }
 
     public void CancelSpell()
     {
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         activeSpell = null;
-        if (Spell) Destroy(Spell);
+        if (spellBehavior) Destroy(spellBehavior);
     }
 
     void Update()
@@ -65,7 +62,7 @@ public class SpellManager : MonoBehaviour
             Debug.DrawLine(ray.origin, ray.GetPoint(100f), Color.green, 20f);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                Spell.CastSpell(hit);
+                spellBehavior.CastSpell(hit);
                 CancelSpell();
             }
         }

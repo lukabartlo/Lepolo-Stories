@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class AoeSpell : Spell
+public abstract class AoeSpell : SpellBehavior
 {
     protected float radius;
 
@@ -70,5 +70,4 @@ public abstract class AoeSpell : Spell
                 UseSpell(target);
         }
     }
-    protected abstract void UseSpell(IDamageable target);
 }

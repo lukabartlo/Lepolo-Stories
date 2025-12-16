@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class SpellButton : MonoBehaviour
 {
     [SerializeField] private SpellData spellData;
-    [SerializeField] private GameManager gm;
+    [SerializeField] private GameManager gm; // for the moment
     [SerializeField] private Button button;
     private Image buttonBackground;
 

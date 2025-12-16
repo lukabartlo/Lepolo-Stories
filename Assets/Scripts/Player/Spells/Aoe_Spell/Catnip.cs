@@ -4,7 +4,7 @@ using UnityEngine;
 public class Catnip : AoeSpell
 {
 
-    protected override void UseSpell(IDamageable target)
+    public override void UseSpell(IDamageable target)
     {
         GameObject go = ((MonoBehaviour)target).gameObject;
 
