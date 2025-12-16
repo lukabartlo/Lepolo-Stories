@@ -77,17 +77,13 @@ public class AgentStateManager : MonoBehaviour, IDamageable
         isTargetReached = (Vector3.Distance(position, agentTransform.position) <= rangeToTarget);
         if (isTargetReached)
         {
-            Debug.Log(currentTask.taskName);
             if (currentTask.taskName == "Praying")
-             {
+            {
                 agentData.needToChangeSpriteToPray = true;
 
                agentData.SetSpriteAction();
                 agentData.needToChangeSpriteToPray = false;
             }
-            
-
-
         }
 
         return isTargetReached;
@@ -117,8 +113,7 @@ public class AgentStateManager : MonoBehaviour, IDamageable
 
         }
         
-            return false;
-
+        return false;
     }
 
     public void UpdateTimer()
@@ -162,6 +157,10 @@ public class AgentStateManager : MonoBehaviour, IDamageable
     private void OnDrawGizmos()
     {
         if (!showGizmo) return;
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 5f);
+
         if (currentTarget != null)
         {
             Gizmos.color = Color.red;
