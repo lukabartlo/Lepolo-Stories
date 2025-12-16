@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CreditsCanvas : MonoBehaviour {
+public class CreditsCanvas : UICanvas {
     [SerializeField] private ScrollRect scrollRect;
     [SerializeField] private float duration;
     [SerializeField] private float waitDurationBeforeStartingCredits;
@@ -17,7 +17,7 @@ public class CreditsCanvas : MonoBehaviour {
 
     private bool _didAnimate = false;
     
-    public void StartCredits() {
+    public override void OnCanvasOpen() {
         if (_didAnimate) {
             OnAnimFinished();
             return;

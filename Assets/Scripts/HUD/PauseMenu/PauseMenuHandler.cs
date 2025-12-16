@@ -10,10 +10,8 @@ public class PauseMenuHandler : MonoBehaviour {
 
     private bool _isOpen = true;
     
-    [SerializeField] private MainMenuController mainMenuController;
-    
     private void Start() {
-        mainMenuController.acquireCancelInput += HandleEscape;
+        // mainMenuController.acquireCancelInput += HandleEscape;
     }
     
     public void OpenScene(string _levelName) {

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingsManager : MonoBehaviour {
+public class SettingsManager : UICanvas {
     [SerializeField] private ScrollRect scrollView;
     [SerializeField] private List<SettingsWrapper> settings;
     
@@ -13,8 +13,8 @@ public class SettingsManager : MonoBehaviour {
         foreach (SettingsWrapper settingWrapper in settings)
             _settingDict.TryAdd(settingWrapper.type, settingWrapper.settings);
     }
-
-    public void ResetSettingsPanel() {
+    
+    public override void OnCanvasOpen() {
         SwitchControls((int)ESettingType.Video);
     }
 
