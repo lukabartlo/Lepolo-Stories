@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: SO_RoleJehochat
   m_EditorClassIdentifier: Assembly-CSharp::SpellData
   spellID: 2
-  spellCost: 10
   spellName: Change Role To Jehochat
   type: 2
+  spellCost: 10
+  madnessValue: 0
   spellEffectPrefab: {fileID: 0}
   cursorTexture: {fileID: 0}
   aoeRadius: 0
   aoePreviewPrefab: {fileID: 0}
-  roles: 1
+  roles: 3
+  obj: 0
