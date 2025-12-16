@@ -772,6 +772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4d39fe98db87840b294325d28d586f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestBuildManager
+  filePath: mapDataSave.json
   window: {fileID: 1254351567}
   _mapSize: {x: 300, y: 150}
   _mapHeight: 0
@@ -1944,6 +1945,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 8eb3a3c0-0d56-4b4b-bedf-8173381070ba
     m_ActionName: 'Player/Zoom[/Mouse/scroll/y]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 696538793}
+        m_TargetAssemblyTypeName: TestBuildManager, Assembly-CSharp
+        m_MethodName: OnAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 05cece72-7cda-43a3-922a-fda7032d8301
+    m_ActionName: 'Player/Save[/Mouse/leftButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player

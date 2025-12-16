@@ -6,14 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Kilian/MainMenuTests.unity
-    guid: b896f92f3eb220340affcb72f0c7cb69
-  - enabled: 0
-    path: Assets/Scenes/Kilian/TestPathFindingIAHUD.unity
-    guid: 0c9fea8821fe54b4398f705fd6de69eb
-  - enabled: 1
-    path: Assets/Scenes/Gabriel/TestPathFindingIA.unity
-    guid: 953aad2ad7c1eaa4cb3d89b13fdb4327
+    path: Assets/Scenes/OutdoorsScene.unity
+    guid: 8124e5870f4fd4c779e7a5f994e84ad1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
   m_UseUCBPForAssetBundles: 0

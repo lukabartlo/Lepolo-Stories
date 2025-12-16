@@ -24,14 +24,11 @@ public class BuildingSystem {
     
     public bool TryBuild(ObjectType _objectToBuild, Vector2Int _coordsToBuildAt) {
         ObjectData objectData = _progressionSystem.GetObjectByType(_objectToBuild);
-        if (objectData.buildObjects.Count <= 0) return false;
+        if (objectData.buildObject == null) return false;
         
         if (!_mapData.TryBuildingOnCell(_coordsToBuildAt, objectData)) return false;
         
-        objectData.buildObject = Object.Instantiate(
-            objectData.buildObjects[Random.Range(0, objectData.buildObjects.Count)],
-            _buildParents);
-        
+        objectData.buildObject = Object.Instantiate(objectData.buildObject, _buildParents);
         _mapData.PlaceObjectOnMap(_coordsToBuildAt, objectData, _objectToBuild);
         return true;
     }
