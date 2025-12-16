@@ -5,8 +5,8 @@ public class TaskPraying : Task
     public float taskDuration = 5f;
     public float taskDetectionRadius = 4f;
     public ObjectType chatpelle = ObjectType.Chatpelle;
-    
-    
+
+
     #region Function to Use with TaskManager
     public override float GetPriority(AgentData agentData)
     {
@@ -22,6 +22,7 @@ public class TaskPraying : Task
     private void Pray()
     {
         // lance l'animation de pray
+
     }
     
     #region State Machine Basic Functions
@@ -32,6 +33,7 @@ public class TaskPraying : Task
         agent.timer = 0;
         agent.taskDuration = taskDuration;
         agent.isTaskFinished = false;
+        agent.doIdleAfterTask = true;
 
         if (!agent.FindNewTarget(chatpelle, mapData))
         {
@@ -39,10 +41,10 @@ public class TaskPraying : Task
             return;
         }
 
-        if (!agent.HasAgentReachedTarget())
+        if (!agent.HasAgentReachedTarget(agent.currentTarget.position))
         {
-            Debug.Log("!agent.HasAgentReachedTarget()");
-            agent.FindNewPath(mapData);
+            //Debug.Log("!agent.HasAgentReachedTarget()");
+            agent.FindNewPath(mapData, agent.currentTarget.position);
         }
 
     }
@@ -59,13 +61,22 @@ public class TaskPraying : Task
             }
         }
 
-        if (agent.HasAgentReachedTarget())
+        if (agent.HasAgentReachedTarget(agent.currentTarget.position))
         {
-            agent.UpdateTimer();
             Pray();
+            agent.UpdateTimer();
             if (agent.isTimerFinished)
             {
+            
+
                 Debug.Log("Give Mana To Player");
+                GameManager.Instance.currentMana += 5;
+
+                // --------------------------MODIFY THIS, WE SHOULD NOT GIVE THEM MADNESS FOR PRAYING--------------------------
+                Debug.Log("Give Madness To AI");
+                float newMadness = agent.agentData.GetMadness() + 5f;
+                agent.agentData.SetMadness(newMadness);
+
                 agent.isTaskFinished = true;
             }
         }
@@ -73,8 +84,8 @@ public class TaskPraying : Task
         {
             if (agent.pathNodes.Count == 0)
             {
-                Debug.Log("agent.pathNodes.Count == 0");
-                if (!agent.FindNewPath(mapData))
+                //Debug.Log("agent.pathNodes.Count == 0");
+                if (!agent.FindNewPath(mapData, agent.currentTarget.position))
                 {
                     agent.isTaskFinished = true;
                     return;
@@ -83,8 +94,8 @@ public class TaskPraying : Task
             
             if (!agent.MoveTowardPathNode())
             {
-                Debug.Log("!agent.MoveTowardPathNode()");
-                if (!agent.FindNewPath(mapData) && !agent.HasAgentReachedTarget())
+                //Debug.Log("!agent.MoveTowardPathNode()");
+                if (!agent.FindNewPath(mapData, agent.currentTarget.position) && !agent.HasAgentReachedTarget(agent.currentTarget.position))
                 {
                     agent.isTaskFinished = true;
                     return;

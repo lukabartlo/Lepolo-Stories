@@ -253,6 +253,14 @@ public class AStarPathfinding : MonoBehaviour
         return _grid;
     }
 
+    public bool IsTargetWalkable(Vector3 pos)
+    {
+        int x = Mathf.RoundToInt(pos.x / _nodeSize);
+        int y = Mathf.RoundToInt(pos.z / _nodeSize);
+        
+        return _grid.GetNode(x, y).IsWalkable;
+    }
+
     /// <summary>
     /// Finds a path between two world positions
     /// </summary>
@@ -319,7 +327,7 @@ public class AStarPathfinding : MonoBehaviour
             if (currentNode == endNode)
             {
                 _currentPath = RetracePath(startNode, endNode);
-                Debug.Log("Found path");
+                //Debug.Log("Found path");
                 return _currentPath;
             }
 

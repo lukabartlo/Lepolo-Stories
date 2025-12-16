@@ -191,11 +191,43 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35968777}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &78193837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 78193838}
+  m_Layer: 6
+  m_Name: EnnemyTypeSphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &78193838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78193837}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 165.08682, y: 0, z: 96.9614}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1890530264}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &112100059
@@ -241,7 +273,7 @@ GameObject:
   - component: {fileID: 118874240}
   - component: {fileID: 118874239}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: TextCurrrentManaValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,17 +286,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118874237}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1254351566}
+  m_Father: {fileID: 1762510531}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.17300001}
-  m_AnchorMax: {x: 0.3, y: 0.3}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 576, y: 137.15997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &118874239
 MonoBehaviour:
@@ -286,7 +318,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: min
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -366,6 +398,108 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118874237}
   m_CullTransparentMesh: 1
+--- !u!1 &485340632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 485340633}
+  - component: {fileID: 485340636}
+  - component: {fileID: 485340635}
+  - component: {fileID: 485340634}
+  m_Layer: 6
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &485340633
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485340632}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.010000001, y: 0.010000001, z: 0.010000001}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 607861547}
+  m_Father: {fileID: 1890530264}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.29999995, y: 0.6}
+  m_SizeDelta: {x: 10, y: 10}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &485340634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485340632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &485340635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485340632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 1
+--- !u!223 &485340636
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 485340632}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &492608209
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,7 +512,7 @@ GameObject:
   - component: {fileID: 492608212}
   - component: {fileID: 492608211}
   - component: {fileID: 492608210}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +612,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &614951076
+--- !u!1 &607861546
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -486,1315 +620,151 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 614951079}
-  - component: {fileID: 614951078}
-  - component: {fileID: 614951077}
-  - component: {fileID: 614951080}
-  - component: {fileID: 614951081}
-  m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!81 &614951077
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614951076}
-  m_Enabled: 1
---- !u!20 &614951078
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614951076}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 1
-  m_FOVAxisMode: 0
-  m_Iso: 200
-  m_ShutterSpeed: 0.005
-  m_Aperture: 16
-  m_FocusDistance: 10
-  m_FocalLength: 50
-  m_BladeCount: 5
-  m_Curvature: {x: 2, y: 11}
-  m_BarrelClipping: 0.25
-  m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 0
-  m_AllowMSAA: 0
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!4 &614951079
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614951076}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 864817094}
-  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
---- !u!114 &614951080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614951076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23c1ce4fb46143f46bc5cb5224c934f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.HighDefinition.Runtime::UnityEngine.Rendering.HighDefinition.HDAdditionalCameraData
-  clearColorMode: 0
-  backgroundColorHDR: {r: 0.025, g: 0.07, b: 0.19, a: 0}
-  clearDepth: 1
-  volumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  volumeAnchorOverride: {fileID: 0}
-  antialiasing: 0
-  SMAAQuality: 2
-  dithering: 0
-  stopNaNs: 0
-  taaSharpenStrength: 0.5
-  TAAQuality: 1
-  taaSharpenMode: 0
-  taaRingingReduction: 0
-  taaHistorySharpening: 0.35
-  taaAntiFlicker: 0.5
-  taaMotionVectorRejection: 0
-  taaAntiHistoryRinging: 0
-  taaBaseBlendFactor: 0.875
-  taaJitterScale: 1
-  physicalParameters:
-    m_Iso: 200
-    m_ShutterSpeed: 0.005
-    m_Aperture: 16
-    m_FocusDistance: 10
-    m_BladeCount: 5
-    m_Curvature: {x: 2, y: 11}
-    m_BarrelClipping: 0.25
-    m_Anamorphism: 0
-  flipYMode: 0
-  xrRendering: 1
-  fullscreenPassthrough: 0
-  allowDynamicResolution: 0
-  customRenderingSettings: 0
-  invertFaceCulling: 0
-  probeLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  hasPersistentHistory: 0
-  screenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
-  screenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
-  allowDeepLearningSuperSampling: 1
-  deepLearningSuperSamplingUseCustomQualitySettings: 0
-  deepLearningSuperSamplingQuality: 0
-  deepLearningSuperSamplingUseCustomAttributes: 0
-  deepLearningSuperSamplingUseOptimalSettings: 1
-  deepLearningSuperSamplingSharpening: 0
-  allowFidelityFX2SuperResolution: 1
-  fidelityFX2SuperResolutionUseCustomQualitySettings: 0
-  fidelityFX2SuperResolutionQuality: 0
-  fidelityFX2SuperResolutionUseCustomAttributes: 0
-  fidelityFX2SuperResolutionUseOptimalSettings: 1
-  fidelityFX2SuperResolutionEnableSharpening: 0
-  fidelityFX2SuperResolutionSharpening: 0
-  fsrOverrideSharpness: 0
-  fsrSharpness: 0.92
-  exposureTarget: {fileID: 0}
-  materialMipBias: 0
-  m_RenderingPathCustomFrameSettings:
-    bitDatas:
-      data1: 5770166122053581
-      data2: 12934340311651418136
-    lodBias: 1
-    lodBiasMode: 0
-    lodBiasQualityLevel: 0
-    maximumLODLevel: 0
-    maximumLODLevelMode: 0
-    maximumLODLevelQualityLevel: 0
-    sssQualityMode: 0
-    sssQualityLevel: 0
-    sssCustomSampleBudget: 20
-    sssCustomDownsampleSteps: 0
-    msaaMode: 1
-    materialQuality: 0
-  renderingPathCustomFrameSettingsOverrideMask:
-    mask:
-      data1: 0
-      data2: 0
-  defaultFrameSettings: 0
-  m_Version: 9
-  m_ObsoleteRenderingPath: 0
-  m_ObsoleteFrameSettings:
-    overrides: 0
-    enableShadow: 0
-    enableContactShadows: 0
-    enableShadowMask: 0
-    enableSSR: 0
-    enableSSAO: 0
-    enableSubsurfaceScattering: 0
-    enableTransmission: 0
-    enableAtmosphericScattering: 0
-    enableVolumetrics: 0
-    enableReprojectionForVolumetrics: 0
-    enableLightLayers: 0
-    enableExposureControl: 1
-    diffuseGlobalDimmer: 0
-    specularGlobalDimmer: 0
-    shaderLitMode: 0
-    enableDepthPrepassWithDeferredRendering: 0
-    enableTransparentPrepass: 0
-    enableMotionVectors: 0
-    enableObjectMotionVectors: 0
-    enableDecals: 0
-    enableRoughRefraction: 0
-    enableTransparentPostpass: 0
-    enableDistortion: 0
-    enablePostprocess: 0
-    enableOpaqueObjects: 0
-    enableTransparentObjects: 0
-    enableRealtimePlanarReflection: 0
-    enableMSAA: 0
-    enableAsyncCompute: 0
-    runLightListAsync: 0
-    runSSRAsync: 0
-    runSSAOAsync: 0
-    runContactShadowsAsync: 0
-    runVolumeVoxelizationAsync: 0
-    lightLoopSettings:
-      overrides: 0
-      enableDeferredTileAndCluster: 0
-      enableComputeLightEvaluation: 0
-      enableComputeLightVariants: 0
-      enableComputeMaterialVariants: 0
-      enableFptlForForwardOpaque: 0
-      enableBigTilePrepass: 0
-      isFptlEnabled: 0
---- !u!114 &614951081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614951076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69f1e2419e06e4649984302d09af996e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CameraTestPerso
-  moveSpeed: 10
-  zoomMin: 5
-  zoomMax: 150
-  zoomSpeed: 5
-  zoomStep: 5
---- !u!1 &696538791
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 696538792}
-  - component: {fileID: 696538793}
-  m_Layer: 0
-  m_Name: Manager
+  - component: {fileID: 607861547}
+  - component: {fileID: 607861549}
+  - component: {fileID: 607861548}
+  m_Layer: 6
+  m_Name: ValueMadness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &696538792
-Transform:
+--- !u!224 &607861547
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696538791}
-  serializedVersion: 2
+  m_GameObject: {fileID: 607861546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.46972, y: 0, z: 11.31323}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 485340633}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &696538793
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &607861548
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696538791}
+  m_GameObject: {fileID: 607861546}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af4d39fe98db87840b294325d28d586f, type: 3}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestBuildManager
-  window: {fileID: 1254351567}
-  _mapSize: {x: 300, y: 150}
-  _mapHeight: 0
-  _allMapableObjects:
-  - objectType: 0
-    objectData:
-      cellsOffsetFromOrigin:
-      - cellState: 1
-        offsetFromOrigin: {x: 0, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: -1}
-      buildObjects:
-      - {fileID: 3705564505504780105, guid: 4c409b6241bf45040a49f0dee28dffbd, type: 3}
-      buildObject: {fileID: 3064025712856020594, guid: 4744477a573e4a94baad5144b5cb7223, type: 3}
-  - objectType: 1
-    objectData:
-      cellsOffsetFromOrigin:
-      - cellState: 1
-        offsetFromOrigin: {x: 0, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: -1}
-      buildObjects:
-      - {fileID: 3705564505504780105, guid: 253a1aba5dcab304088ea03487bdb7b2, type: 3}
-      - {fileID: 3705564505504780105, guid: 0665f4d7d235ac544874c1ed1d782dc8, type: 3}
-      - {fileID: 3705564505504780105, guid: 83a762d6574520a4cb8cbfc4956328a6, type: 3}
-      - {fileID: 3705564505504780105, guid: 6716414964a34de48910d337a77f8e96, type: 3}
-      - {fileID: 3705564505504780105, guid: 5babbeca6370f5f43b7691e7d7d9f1b9, type: 3}
-      - {fileID: 3705564505504780105, guid: e30b9c939179ce9458d5a5096b64fc38, type: 3}
-      buildObject: {fileID: 3705564505504780105, guid: 253a1aba5dcab304088ea03487bdb7b2, type: 3}
-  - objectType: 2
-    objectData:
-      cellsOffsetFromOrigin:
-      - cellState: 1
-        offsetFromOrigin: {x: 0, y: 0}
-      - cellState: 1
-        offsetFromOrigin: {x: -1, y: 0}
-      - cellState: 1
-        offsetFromOrigin: {x: -1, y: 1}
-      - cellState: 1
-        offsetFromOrigin: {x: 0, y: 1}
-      - cellState: 1
-        offsetFromOrigin: {x: 1, y: 1}
-      - cellState: 1
-        offsetFromOrigin: {x: 1, y: 0}
-      - cellState: 1
-        offsetFromOrigin: {x: 1, y: -1}
-      - cellState: 1
-        offsetFromOrigin: {x: 0, y: -1}
-      - cellState: 1
-        offsetFromOrigin: {x: -1, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: -8, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: -8, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: 8}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: 8}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: 8}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 8, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: 8, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: 8, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: -8}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: -8}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: -8}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: -8, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: -11, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: -11, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: -11, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: -11, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: -10, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: -10, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: -10, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: -9, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: -8, y: 8}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: 9}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: 10}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: 10}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: 10}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: 10}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: 11}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: 11}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: 11}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: 11}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: 11}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: 11}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: 11}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: 10}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: 10}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: 10}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: 9}
-      - cellState: 2
-        offsetFromOrigin: {x: 8, y: 8}
-      - cellState: 2
-        offsetFromOrigin: {x: 9, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: 10, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: 10, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: 10, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: 11, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: 11, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 11, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: 11, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: 11, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: 11, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: 11, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: 10, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: 10, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: 10, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: 9, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: 8, y: -8}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: -9}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: -10}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: -10}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: -10}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: -11}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: -11}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: -11}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: -11}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: -11}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: -11}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: -11}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: -10}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: -10}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: -10}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: -9}
-      - cellState: 2
-        offsetFromOrigin: {x: -8, y: -8}
-      - cellState: 2
-        offsetFromOrigin: {x: -9, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: -10, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: -10, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: -10, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: -11, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: -11, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: -11, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: -10, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: -9, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: -10, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: -9, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: -10, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: -9, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: -8, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: -10, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: -9, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: -8, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: -9, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: -8, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: -9, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: -8, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: -9, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: -8, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: -8, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: 8}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: 8}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: 8}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: 8}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: 8}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: 8}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: 9}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: 9}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: 9}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: 9}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: 9}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: 9}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: 9}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: 9}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: 9}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: 9}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: 9}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: 9}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: 9}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: 10}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: 10}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: 10}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: 10}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: 10}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: 10}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: 10}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: 8}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: 8}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: 8}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: 8}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: 8}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: 8}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: 8, y: 7}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: 8, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: 9, y: 6}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: 8, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: 9, y: 5}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: 8, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: 9, y: 4}
-      - cellState: 2
-        offsetFromOrigin: {x: 8, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: 9, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: 10, y: 3}
-      - cellState: 2
-        offsetFromOrigin: {x: 8, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 9, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 10, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 9, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: 10, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: 9, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: 10, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: 9, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: 10, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: 8, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: 9, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: 10, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: 8, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: 9, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: 10, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: 8, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: 9, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: 8, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: 9, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: 8, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: 9, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: 8, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: -8}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: -8}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: -8}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: -8}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: -8}
-      - cellState: 2
-        offsetFromOrigin: {x: 7, y: -8}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: -9}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: -9}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: -9}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: -9}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: -9}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: -9}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: -9}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: -9}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: -9}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: -9}
-      - cellState: 2
-        offsetFromOrigin: {x: 4, y: -9}
-      - cellState: 2
-        offsetFromOrigin: {x: 5, y: -9}
-      - cellState: 2
-        offsetFromOrigin: {x: 6, y: -9}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: -10}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: -10}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: -10}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: -10}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: -10}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: -10}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: -10}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: -8}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: -8}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: -8}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: -8}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: -8}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: -8}
-      - cellState: 2
-        offsetFromOrigin: {x: -8, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: -4, y: -7}
-      - cellState: 2
-        offsetFromOrigin: {x: -9, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: -8, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: -5, y: -6}
-      - cellState: 2
-        offsetFromOrigin: {x: -9, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: -8, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: -6, y: -5}
-      - cellState: 2
-        offsetFromOrigin: {x: -9, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: -8, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: -7, y: -4}
-      - cellState: 2
-        offsetFromOrigin: {x: -10, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: -9, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: -8, y: -3}
-      - cellState: 2
-        offsetFromOrigin: {x: -10, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: -9, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: -8, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: -10, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: -9, y: -1}
-      buildObjects:
-      - {fileID: 3064025712856020594, guid: 6a3dc87353e2ad74e990f47bb8ba3c4f, type: 3}
-      buildObject: {fileID: 3064025712856020594, guid: 6a3dc87353e2ad74e990f47bb8ba3c4f, type: 3}
-  - objectType: 3
-    objectData:
-      cellsOffsetFromOrigin:
-      - cellState: 1
-        offsetFromOrigin: {x: -2, y: 1}
-      - cellState: 1
-        offsetFromOrigin: {x: -1, y: 1}
-      - cellState: 1
-        offsetFromOrigin: {x: 0, y: 1}
-      - cellState: 1
-        offsetFromOrigin: {x: 1, y: 1}
-      - cellState: 1
-        offsetFromOrigin: {x: 2, y: 1}
-      - cellState: 1
-        offsetFromOrigin: {x: 2, y: 0}
-      - cellState: 1
-        offsetFromOrigin: {x: 1, y: 0}
-      - cellState: 1
-        offsetFromOrigin: {x: 0, y: 0}
-      - cellState: 1
-        offsetFromOrigin: {x: -1, y: 0}
-      - cellState: 1
-        offsetFromOrigin: {x: -2, y: 0}
-      - cellState: 1
-        offsetFromOrigin: {x: -2, y: -1}
-      - cellState: 1
-        offsetFromOrigin: {x: -1, y: -1}
-      - cellState: 1
-        offsetFromOrigin: {x: 0, y: -1}
-      - cellState: 1
-        offsetFromOrigin: {x: 1, y: -1}
-      - cellState: 1
-        offsetFromOrigin: {x: 2, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: 2}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: 1}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: 3, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: 2, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: 1, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: 0, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: -1, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: -2, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: -2}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: -1}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: 0}
-      - cellState: 2
-        offsetFromOrigin: {x: -3, y: 1}
-      buildObjects:
-      - {fileID: 3064025712856020594, guid: 397c586c0f689c94c9d145a411af1c6f, type: 3}
-      buildObject: {fileID: 3064025712856020594, guid: 397c586c0f689c94c9d145a411af1c6f, type: 3}
-  - objectType: 4
-    objectData:
-      cellsOffsetFromOrigin:
-      - cellState: 3
-        offsetFromOrigin: {x: 0, y: 0}
-      buildObjects:
-      - {fileID: 3705564505504780105, guid: c4b1a9f22410c864b8535152c1422596, type: 3}
-      - {fileID: 3705564505504780105, guid: 06e6566b0061e9b4fac24507d5f24943, type: 3}
-      - {fileID: 3705564505504780105, guid: cb7ecde32b415eb4a989d493826c87d0, type: 3}
-      - {fileID: 3705564505504780105, guid: 0522b494732abe44f8141d9873d7d476, type: 3}
-      - {fileID: 3705564505504780105, guid: 9b941847e95da9345ae62bd35288a974, type: 3}
-      buildObject: {fileID: 3064025712856020594, guid: 397c586c0f689c94c9d145a411af1c6f, type: 3}
-  _objectsToPregen:
-  - objectType: 2
-    onPreGenAmountToSpawn: 1
-  - objectType: 3
-    onPreGenAmountToSpawn: 1
-  - objectType: 4
-    onPreGenAmountToSpawn: 500
-  - objectType: 1
-    onPreGenAmountToSpawn: 100
-  - objectType: 0
-    onPreGenAmountToSpawn: 100
-  taskManager: {fileID: 1800113261}
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &607861549
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 607861546}
+  m_CullTransparentMesh: 1
+--- !u!20 &614951078 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 173385863627416375, guid: 222354ef739940c4a8a6a8ae8827ece3, type: 3}
+  m_PrefabInstance: {fileID: 6163959981956589080}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &614951081 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6136962471374693693, guid: 222354ef739940c4a8a6a8ae8827ece3, type: 3}
+  m_PrefabInstance: {fileID: 6163959981956589080}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69f1e2419e06e4649984302d09af996e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraTestPerso
 --- !u!1 &807858867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,95 +961,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &864817093
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!224 &858582500 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+  m_PrefabInstance: {fileID: 3084927748239510982}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 864817094}
-  m_Layer: 0
-  m_Name: CameraPivot
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &864817094
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 864817093}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 150, y: 0, z: 50}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 614951079}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &944134069
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 2000401209}
-    m_Modifications:
-    - target: {fileID: 95628040202359716, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
-      propertyPath: m_Name
-      value: Test Agent
-      objectReference: {fileID: 0}
-    - target: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 5.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
 --- !u!1 &1254351562
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,7 +985,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1254351563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2175,8 +1061,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 118874238}
+  - {fileID: 1762510531}
   - {fileID: 807858868}
+  - {fileID: 858582500}
+  - {fileID: 1493947415}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2199,6 +1087,22 @@ MonoBehaviour:
   stateText: {fileID: 118874239}
   textParent: {fileID: 807858868}
   textPrefab: {fileID: 1060922791830098697, guid: 211401ab675021740934acfbcfaa674b, type: 3}
+--- !u!114 &1366224540 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6187907308879279147, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
+  m_PrefabInstance: {fileID: 6674109912722854251}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb2830f2bd83c3a438b6e28d553b88b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+--- !u!224 &1493947415 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+  m_PrefabInstance: {fileID: 7176620995324981263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1605810874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,7 +1343,7 @@ MonoBehaviour:
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
---- !u!1 &1800113260
+--- !u!1 &1762510530
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2447,172 +1351,655 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1800113262}
-  - component: {fileID: 1800113261}
-  m_Layer: 0
-  m_Name: TaskManager
+  - component: {fileID: 1762510531}
+  - component: {fileID: 1762510532}
+  m_Layer: 5
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1800113261
+--- !u!224 &1762510531
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1762510530}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 118874238}
+  m_Father: {fileID: 1254351566}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -672, y: -284.58}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1762510532
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1800113260}
+  m_GameObject: {fileID: 1762510530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04409615a1abef43b1c32fdddfe0c99, type: 3}
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TaskManager
-  adepteList:
-  - {fileID: 2000401206}
-  guerrierList: []
-  pretreList: []
-  blackboard: {fileID: 2000401208}
---- !u!4 &1800113262
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!1 &1890530263
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1890530264}
+  - component: {fileID: 1890530267}
+  - component: {fileID: 1890530266}
+  - component: {fileID: 1890530265}
+  - component: {fileID: 1890530268}
+  m_Layer: 6
+  m_Name: EnnemySphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1890530264
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1800113260}
+  m_GameObject: {fileID: 1890530263}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 297.88553, y: 31.9709, z: 99.2504}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 485340633}
+  m_Father: {fileID: 78193838}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1890530265
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890530263}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1890530266
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890530263}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1890530267
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890530263}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1890530268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890530263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9788f4b4b8a948c4fac800b95a546186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnnemyBehaviour
+  speed: 25
+  currentMadness: 0
+  maxMadness: 100
+  minMadness: 0
+  TMPcurrentMadness: {fileID: 607861548}
+--- !u!1 &1938559671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1938559672}
+  - component: {fileID: 1938559676}
+  - component: {fileID: 1938559675}
+  - component: {fileID: 1938559674}
+  - component: {fileID: 1938559673}
+  m_Layer: 6
+  m_Name: Ennemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1938559672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938559671}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 155.08682, y: 0.5, z: 81.4614}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1887786364 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4444585816494722062, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
-  m_PrefabInstance: {fileID: 944134069}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af582d51c9f9d8249bc63ed3dfaed6e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AgentStateManager
---- !u!4 &1887786369 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6037132450125393885, guid: e66243fbf3fb2ec43b5c2bfcc94d3f8b, type: 3}
-  m_PrefabInstance: {fileID: 944134069}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2000401204
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2000401209}
-  - component: {fileID: 2000401208}
-  - component: {fileID: 2000401207}
-  - component: {fileID: 2000401206}
-  - component: {fileID: 2000401205}
-  m_Layer: 0
-  m_Name: Agents Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2000401205
+--- !u!114 &1938559673
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000401204}
+  m_GameObject: {fileID: 1938559671}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 507cbb55eb8756c4ba2270fab0407986, type: 3}
+  m_Script: {fileID: 11500000, guid: 9788f4b4b8a948c4fac800b95a546186, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TaskIdle
-  taskName: Sleeping
-  priorityCurve: {fileID: 11400000, guid: e34d2182ceec8d64e9d1dc59eeec1e9e, type: 2}
---- !u!114 &2000401206
-MonoBehaviour:
+  m_EditorClassIdentifier: Assembly-CSharp::EnnemyBehaviour
+  speed: 5
+  currentMadness: 0
+  maxMadness: 100
+  minMadness: 0
+  TMPcurrentMadness: {fileID: 0}
+--- !u!65 &1938559674
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000401204}
+  m_GameObject: {fileID: 1938559671}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 748beccefc9cae24cbd1a4bea7a3ff11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TaskEat
-  taskName: Eating
-  priorityCurve: {fileID: 11400000, guid: 6dfea584a6cf27f4bba3c30525f6e221, type: 2}
---- !u!114 &2000401207
-MonoBehaviour:
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1938559675
+MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000401204}
+  m_GameObject: {fileID: 1938559671}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04409615a1abef43b1c32fdddfe0c99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TaskManager
-  adepteList:
-  - {fileID: 2000401206}
-  - {fileID: 2000401205}
-  guerrierList:
-  - {fileID: 2000401206}
-  pretreList:
-  - {fileID: 2000401205}
-  blackboard: {fileID: 2000401208}
---- !u!114 &2000401208
-MonoBehaviour:
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1938559676
+MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000401204}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97dd48c33ff871e4cb19fac73ed365e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Blackboard
-  agents:
-  - {fileID: 1887786364}
---- !u!4 &2000401209
-Transform:
+  m_GameObject: {fileID: 1938559671}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &3084927748239510982
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000401204}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.43671, y: 0.60849, z: -0.21797}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1887786369}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1254351566}
+    m_Modifications:
+    - target: {fileID: 1148768957913197935, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1366224540}
+    - target: {fileID: 5341541303010676441, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_Name
+      value: Button Spell Claw
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -650
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932654690933881176, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cc332efbf52b69b4fbe7d909bff58b61, type: 3}
+--- !u!1001 &6163959981956589080
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6712523105279975337, guid: 222354ef739940c4a8a6a8ae8827ece3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712523105279975337, guid: 222354ef739940c4a8a6a8ae8827ece3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712523105279975337, guid: 222354ef739940c4a8a6a8ae8827ece3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712523105279975337, guid: 222354ef739940c4a8a6a8ae8827ece3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712523105279975337, guid: 222354ef739940c4a8a6a8ae8827ece3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712523105279975337, guid: 222354ef739940c4a8a6a8ae8827ece3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712523105279975337, guid: 222354ef739940c4a8a6a8ae8827ece3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712523105279975337, guid: 222354ef739940c4a8a6a8ae8827ece3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712523105279975337, guid: 222354ef739940c4a8a6a8ae8827ece3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712523105279975337, guid: 222354ef739940c4a8a6a8ae8827ece3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9050156597957435972, guid: 222354ef739940c4a8a6a8ae8827ece3, type: 3}
+      propertyPath: m_Name
+      value: CameraPivot
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 222354ef739940c4a8a6a8ae8827ece3, type: 3}
+--- !u!1001 &6674109912722854251
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2382628541983238924, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
+      propertyPath: m_Name
+      value: Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393887392674652067, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 165.08682
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393887392674652067, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393887392674652067, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 96.9614
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393887392674652067, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393887392674652067, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393887392674652067, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393887392674652067, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393887392674652067, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393887392674652067, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393887392674652067, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6187907308879279147, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
+      propertyPath: TMPcurrentMana
+      value: 
+      objectReference: {fileID: 118874239}
+    - target: {fileID: 6457974344651084427, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
+      propertyPath: window
+      value: 
+      objectReference: {fileID: 1254351567}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
+--- !u!1001 &7176620995324981263
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1254351566}
+    m_Modifications:
+    - target: {fileID: 3951218060229144177, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1366224540}
+    - target: {fileID: 4243334848362942610, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_Name
+      value: Button Spell Catnip
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 160
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -650
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583017404191941855, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6250c10f463bd824cb0c5274f7bae31b, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 864817094}
+  - {fileID: 6163959981956589080}
   - {fileID: 1605810876}
   - {fileID: 492608213}
   - {fileID: 112100060}
-  - {fileID: 696538792}
   - {fileID: 845971406}
+  - {fileID: 78193838}
+  - {fileID: 1938559672}
   - {fileID: 1254351566}
   - {fileID: 35968780}
-  - {fileID: 1800113262}
-  - {fileID: 2000401209}
+  - {fileID: 6674109912722854251}
