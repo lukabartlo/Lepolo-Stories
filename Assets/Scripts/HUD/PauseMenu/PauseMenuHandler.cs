@@ -8,7 +8,7 @@ public class PauseMenuHandler : MonoBehaviour {
     private Coroutine _coroutine;
     [SerializeField] private float closingDuration;
 
-    private bool _isOpen = false;
+    private bool _isOpen = true;
     
     [SerializeField] private MainMenuController mainMenuController;
     

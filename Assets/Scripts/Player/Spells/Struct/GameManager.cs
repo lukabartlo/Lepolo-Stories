@@ -30,5 +30,7 @@ public class GameManager : MonoBehaviour
         if (currentMana > maxMana) {
             currentMana = maxMana;
         }
+        
+        InGameHUD.Instance.SetMana(currentMana, maxMana);
     }
 }

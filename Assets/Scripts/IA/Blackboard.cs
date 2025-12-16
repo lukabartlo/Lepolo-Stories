@@ -13,6 +13,9 @@ public class Blackboard : MonoBehaviour
 
     Dictionary<EDirection, Sprite> sprites = new();
     [SerializeField] private List<SpriteWrapper> listSpriteWrapper;
+    
+    private List<float> _allMadness;
+    private InGameHUD _hud;
 
     private void OnEnable()
     {
@@ -21,6 +24,10 @@ public class Blackboard : MonoBehaviour
 
         OnAddToBlackboard += AddToBlackboard;
         OnRemoveFromBlackboard += RemoveFromBlackboard;
+    }
+
+    private void Start() {
+        _hud = InGameHUD.Instance;
     }
 
     private void OnDisable()
@@ -49,6 +56,7 @@ public class Blackboard : MonoBehaviour
             {
                 agent.agentData.AssignSprites(ref sprites);
                 agents.Add(agent);
+                _hud.SetAdeptCounter(agents.Count, 66);
             }
         }
 
@@ -57,5 +65,11 @@ public class Blackboard : MonoBehaviour
             if (agents.Contains(agent))
                 agents.Remove(agent);
         }
+
+        _allMadness = new List<float>();
+        foreach (var agent in agents) {
+            _allMadness.Add(agent.agentData.GetMadness());
+        }
+        _hud.SetMadness(_allMadness, 100);
     }
 }
