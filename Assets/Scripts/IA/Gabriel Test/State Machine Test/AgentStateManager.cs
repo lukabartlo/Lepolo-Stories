@@ -1,0 +1,181 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AgentStateManager : MonoBehaviour, IDamageable
+{
+    public AgentData agentData = new AgentData();
+
+    #region Variables for Task
+
+    public Task currentTask;
+    public bool isTaskFinished = false;
+    public bool doIdleAfterTask = true;
+
+    [Header("For movement")]
+    private Transform agentTransform;
+    public Transform currentTarget;
+    
+    public Vector3 targetPosition;
+    
+    public List<PathNode> pathNodes = new List<PathNode>();
+    public List<Vector2Int> pathNodesExcluded = new List<Vector2Int>();
+
+    public int pathNodeIndex = 0;
+    public float rangeToTarget = 1f;
+    public bool isTargetReached = false;
+    private Rigidbody rb;
+    public float speed = 7f;
+    public float insanityMultiplier = 1f;
+
+    [Space(20)]
+    [Header("For Timer")]
+    public float timer = 0;
+    public float taskDuration = 1f;
+    public bool isTimerFinished = false;
+    
+    [Space(20)] [Header("For JeoChat")]
+    public GatheringPhase actualGatheringPhase;
+    public Renderer jehochatRenderer;
+    public Color originalColor;
+    public float originalAlpha;
+
+    [Space(20)]
+    [Header("For Debug")]
+    public bool showGizmo = false;
+
+
+    #endregion
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        agentTransform =  GetComponent<Transform>();
+        
+        jehochatRenderer = GetComponent<Renderer>();
+        AddToBlackboard();
+    }
+
+    private void OnEnable()
+    {
+        AddToBlackboard();
+    }
+    private void OnDisable()
+    {
+        RemoveFromBlackboard();
+    }
+
+    void AddToBlackboard()
+    {
+        Blackboard.OnAddToBlackboard?.Invoke(this);
+    }
+    void RemoveFromBlackboard()
+    {
+        Blackboard.OnRemoveFromBlackboard?.Invoke(this);
+    }
+
+    public bool HasAgentReachedTarget(Vector3 position)
+    {
+        isTargetReached = (Vector3.Distance(position, agentTransform.position) <= rangeToTarget);
+        if (isTargetReached)
+        {
+            if (currentTask.taskName == "Praying")
+            {
+                agentData.needToChangeSpriteToPray = true;
+
+               agentData.SetSpriteAction();
+                agentData.needToChangeSpriteToPray = false;
+            }
+        }
+
+        return isTargetReached;
+    }
+
+    public bool MoveTowardPathNode()
+    {
+        if (pathNodeIndex >= pathNodes.Count)
+        {
+            return false;
+        }
+
+        if (pathNodes[pathNodeIndex].IsWalkable
+            || pathNodesExcluded.Contains(new Vector2Int(pathNodes[pathNodeIndex].X, pathNodes[pathNodeIndex].Y)))
+        {
+            Vector3 targetPos = new Vector3(pathNodes[pathNodeIndex].X, agentTransform.position.y, pathNodes[pathNodeIndex].Y); // get direction
+            Vector3 direction = (targetPos - agentTransform.position).normalized;
+
+            //rb.linearVelocity = speed * Time.deltaTime * direction;
+            agentTransform.position += GetActualSpeed() * Time.deltaTime * direction;
+
+            agentData.SetSprite(direction);
+
+            if (Vector3.Distance(agentTransform.position, targetPos) <= 0.2f && pathNodeIndex < pathNodes.Count) pathNodeIndex++;
+
+            return true;
+        }
+        
+        return false;
+    }
+
+    public void UpdateTimer()
+    {
+        timer += Time.deltaTime;
+        if (timer >= taskDuration)
+        {
+            timer -= taskDuration;
+            isTimerFinished = true;
+            return;
+        }
+        isTimerFinished = false;
+    }
+    
+    public bool FindNewPath(MapData mapData, Vector3 targetPosition)
+    {
+        pathNodes = mapData.pathfinding.FindPath(agentTransform.position, targetPosition);
+
+        int x = (int)targetPosition.x;
+        int y = (int)targetPosition.z;
+
+        if (!mapData.IsCoordInMap(x, y))  return false;
+        
+        pathNodesExcluded = mapData.GetConnectedCellsFull((int)targetPosition.x, (int)targetPosition.z);
+        
+        pathNodeIndex = 0;
+        return pathNodes.Count > 0;
+    }
+
+    public bool FindNewTarget(ObjectType objectType, MapData mapData)
+    {
+        GameObject target;
+        if ((target = mapData.GetClosestMapObject(agentTransform.position, objectType)) != null)
+        {
+            currentTarget = target.transform;
+        }
+
+        return target != null;
+    }
+    
+    public float GetActualSpeed()
+    {
+        return speed * insanityMultiplier;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (!showGizmo) return;
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, 5f);
+
+        if (currentTarget != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(currentTarget.position, rangeToTarget);
+        }
+        
+        Gizmos.color = Color.blue;
+        for(int i = 0 ; i < pathNodes.Count - 1; i++) 
+        { 
+            Gizmos.DrawCube(new Vector3(pathNodes[i].X , agentTransform.position.y, pathNodes[i].Y), new Vector3(0.5f, 0.5f, 0.5f));
+        }
+    }
+}

@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-
+using System;
+using Object = UnityEngine.Object;
 
 public class MapData {
     
@@ -11,9 +12,9 @@ public class MapData {
     private Dictionary<ObjectType, List<GameObject>> _allMapObjectsByType =  new Dictionary<ObjectType, List<GameObject>>();
     private float _mapHeight;
     private Transform _objectsParent;
-    private bool isMapGenerated  = false;
-    
-    public CellData[,] Map => _map;
+    public bool isMapGenerated = false;
+    public AStarPathfinding pathfinding;
+    private bool drawGizmo = false;
     
     #endregion
 
@@ -22,7 +23,13 @@ public class MapData {
         this._mapHeight = _mapHeight;
         this._objectsParent = _objectsParent;
         isMapGenerated = true;
+
+        pathfinding = this._objectsParent.AddComponent<AStarPathfinding>();
+        pathfinding.CreateGrid(_sizeX, _sizeY);
+        pathfinding.SetMapDataRef(this);
+
     }
+    
     
     #region Placing On Cells
     
@@ -34,6 +41,11 @@ public class MapData {
                 return false;
             if (_map[coordsAfterOffset.x, coordsAfterOffset.y].cellState == CellState.Full) 
                 return false;
+            if (cell.cellState == CellState.Props) {
+                if(_map[coordsAfterOffset.x, coordsAfterOffset.y].cellState == CellState.Props ||
+                   _map[coordsAfterOffset.x, coordsAfterOffset.y].cellState == CellState.Full)
+                    return false;
+            }
             if (cell.cellState == CellState.Full && _map[coordsAfterOffset.x, coordsAfterOffset.y].cellState == CellState.Padding) 
                 return false;
         }
@@ -45,14 +57,16 @@ public class MapData {
         List<Vector2Int> _cellsToBuild = new List<Vector2Int>();
         Vector2Int _coordCellToBuild = Vector2Int.zero;
 
-        _map[_buildCoord.x, _buildCoord.y].isOrigin = true;
-        
         foreach (BuildingCells cell in _objectData.cellsOffsetFromOrigin) {
             _coordCellToBuild.x = _buildCoord.x + cell.offsetFromOrigin.x;
             _coordCellToBuild.y = _buildCoord.y + cell.offsetFromOrigin.y;
             _cellsToBuild.Add(_coordCellToBuild);
             
             _map[_coordCellToBuild.x,  _coordCellToBuild.y].cellState = cell.cellState;
+            
+            if (cell.cellState == CellState.Full)
+                pathfinding.SetWalkable(_coordCellToBuild.x,  _coordCellToBuild.y, false);
+            
             if (cell.cellState == CellState.Padding)
                 _map[_coordCellToBuild.x, _coordCellToBuild.y].paddingSecurity++;
         }
@@ -60,6 +74,12 @@ public class MapData {
         for (int i = 0; i < _cellsToBuild.Count; i++) {
             ref CellData _cellOnGrid = ref _map[_cellsToBuild[i].x, _cellsToBuild[i].y];
             _cellOnGrid.connectedCells = new List<Vector2Int>();
+
+            if (_cellOnGrid.cellState == CellState.Props) {
+                _cellOnGrid.sceneObject = _objectData.buildObject;
+                _cellOnGrid.sceneObject.transform.position = new Vector3(_buildCoord.x + 0.5f, _mapHeight, _buildCoord.y + 0.5f);
+                continue;
+            }
             
             if (_cellOnGrid.cellState != CellState.Full)
                 continue;
@@ -131,6 +151,18 @@ public class MapData {
     #endregion 
 
     #region Deleting On Cells
+
+    public bool TryDeleteCellByObject(GameObject _object)
+    {
+        int x = (int)_object.transform.position.x;
+        int y = (int)_object.transform.position.z;
+        
+        // Debug.Log($"Trying to remove {_object} wich is in {_object.transform.position.x}, {_object.transform.position.z} ");
+        // Debug.Log($"Try to delete cell : {x},{y}");
+        // Debug.Log($"The celldata contains is {_map[x, y].cellState} and contain : {_map[x, y].sceneObject}");
+        
+        return TryDeleteCell(x,y);
+    }
     
     public bool TryDeleteCell(int _x, int _y)
     {
@@ -144,21 +176,24 @@ public class MapData {
         Object.Destroy(_map[_x, _y].sceneObject);
         
         _map[_x, _y].cellState = CellState.Empty;
-        _map[_x, _y].isOrigin = false;
+        pathfinding.SetWalkable(_x, _y, true);
         
         foreach (Vector2Int _tileCoord in _map[_x, _y].connectedCells)
         {
             if (_map[_tileCoord.x, _tileCoord.y].paddingSecurity > 0) {
                 _map[_tileCoord.x, _tileCoord.y].paddingSecurity--;
-                
+
                 if (_map[_tileCoord.x, _tileCoord.y].paddingSecurity == 0)
+                {
                     _map[_tileCoord.x, _tileCoord.y].cellState = CellState.Empty;
+                    pathfinding.SetWalkable(_tileCoord.x, _tileCoord.y, true);
+                }
                 
                 continue;
             }
             
             _map[_tileCoord.x, _tileCoord.y].cellState = CellState.Empty;
-            _map[_tileCoord.x, _tileCoord.y].isOrigin = false;
+            pathfinding.SetWalkable(_tileCoord.x, _tileCoord.y, true);
         }
         return true;
     }
@@ -178,8 +213,34 @@ public class MapData {
 
         return default;
     }
+
+    public List<Vector2Int> GetConnectedCellsFull(int _x, int _y)
+    {
+        List<Vector2Int> returnList = new List<Vector2Int>();
+
+        if (!IsCoordInMap(_x, _y))
+            return returnList;
+
+        CellData cell = _map[_x, _y];
+        if (cell.connectedCells == null)
+            return returnList;
+
+        returnList.Add(new Vector2Int(_x, _y));
+
+        foreach (Vector2Int pos in cell.connectedCells)
+        {
+            CellData neighbour = GetCellData(pos.x, pos.y);
+            if (neighbour.cellState == CellState.Full)
+                returnList.Add(pos);
+        }
+
+        return returnList;
+    }
+
+    
     public void OnDrawGizmos()
     {
+        if (!drawGizmo) return;
         if (!isMapGenerated) return;
         for (int i = 0; i < _map.GetLength(0); i++) {
             for (int j = 0; j < _map.GetLength(1); j++) {
@@ -211,12 +272,21 @@ public class MapData {
         return _map[_x, _y].cellState;
     }
 
-    private bool IsCoordInMap(int _x, int _y) {
+    public bool IsCoordInMap(int _x, int _y) {
         if (_x < 0 || _y < 0 || _x > _map.GetLength(0) -1 || _y > _map.GetLength(1) -1)
             return false;
         return true;
     }
-    
+    public bool IsCoordInMap(Vector3 target)
+    {
+        int _x = Mathf.RoundToInt(target.x);
+        int _y = Mathf.RoundToInt(target.z);
+
+        if (_x < 0 || _y < 0 || _x > _map.GetLength(0) - 1 || _y > _map.GetLength(1) - 1)
+            return false;
+        return true;
+    }
+
     public GameObject GetClosestMapObject(Vector3 _position, ObjectType _objectType)
     {
         GameObject _objToReturn = null;
@@ -224,6 +294,7 @@ public class MapData {
         if (_allMapObjectsByType.ContainsKey(_objectType) && _allMapObjectsByType[_objectType].Count > 0)
         {
             float _minDistance = Vector3.Distance(_position, _allMapObjectsByType[_objectType][0].transform.position);
+            _objToReturn = _allMapObjectsByType[_objectType][0];
             
             foreach (GameObject _obj in _allMapObjectsByType[_objectType])
             {
@@ -234,7 +305,6 @@ public class MapData {
                 }
             }
         }
-        
         return _objToReturn;
     }
     
