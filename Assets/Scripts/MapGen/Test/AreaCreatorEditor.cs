@@ -1,6 +1,6 @@
 using UnityEditor;
 using UnityEngine;
-
+#if UNITY_EDITOR
 [CustomEditor(typeof(AreaCreator))]
 public class AreaCreatorEditor : Editor {
     public override void OnInspectorGUI() {
@@ -13,3 +13,4 @@ public class AreaCreatorEditor : Editor {
         }
     }
 }
+#endif

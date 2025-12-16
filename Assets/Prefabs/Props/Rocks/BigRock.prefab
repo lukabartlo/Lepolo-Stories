@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7065756048401513526}
   - component: {fileID: 5294251302257191188}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2883461125633106596}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BigRock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4123348167756682427}
   - component: {fileID: 7703936703262920493}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

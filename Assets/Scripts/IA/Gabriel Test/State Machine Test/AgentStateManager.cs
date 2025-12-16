@@ -1,42 +1,57 @@
-using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class AgentStateManager : MonoBehaviour
+public class AgentStateManager : MonoBehaviour, IDamageable
 {
-    public AgentData agentData;
+    public AgentData agentData = new AgentData();
 
     #region Variables for Task
 
     public Task currentTask;
     public bool isTaskFinished = false;
+    public bool doIdleAfterTask = true;
 
-    [Header("For movement")] 
+    [Header("For movement")]
     private Transform agentTransform;
     public Transform currentTarget;
     
+    public Vector3 targetPosition;
+    
     public List<PathNode> pathNodes = new List<PathNode>();
     public List<Vector2Int> pathNodesExcluded = new List<Vector2Int>();
-    
+
     public int pathNodeIndex = 0;
     public float rangeToTarget = 1f;
     public bool isTargetReached = false;
     private Rigidbody rb;
-    public float speed = 5f;
-    
-    [Space(20)] [Header("For Timer")]
+    public float speed = 7f;
+    public float insanityMultiplier = 1f;
+
+    [Space(20)]
+    [Header("For Timer")]
     public float timer = 0;
     public float taskDuration = 1f;
     public bool isTimerFinished = false;
     
+    [Space(20)] [Header("For JeoChat")]
+    public GatheringPhase actualGatheringPhase;
+    public Renderer jehochatRenderer;
+    public Color originalColor;
+    public float originalAlpha;
+
+    [Space(20)]
+    [Header("For Debug")]
+    public bool showGizmo = false;
+
+
     #endregion
 
     private void Start()
     {
-        agentData = new AgentData();
         rb = GetComponent<Rigidbody>();
         agentTransform =  GetComponent<Transform>();
+        
+        jehochatRenderer = GetComponent<Renderer>();
         AddToBlackboard();
     }
 
@@ -58,9 +73,20 @@ public class AgentStateManager : MonoBehaviour
         Blackboard.OnRemoveFromBlackboard?.Invoke(this);
     }
 
-    public bool HasAgentReachedTarget()
+    public bool HasAgentReachedTarget(Vector3 position)
     {
-        isTargetReached = (Vector3.Distance(currentTarget.position, agentTransform.position) <= rangeToTarget);
+        isTargetReached = (Vector3.Distance(position, agentTransform.position) <= rangeToTarget);
+        if (isTargetReached)
+        {
+            if (currentTask.taskName == "Praying")
+            {
+                agentData.needToChangeSpriteToPray = true;
+
+               agentData.SetSpriteAction();
+                agentData.needToChangeSpriteToPray = false;
+            }
+        }
+
         return isTargetReached;
     }
 
@@ -78,17 +104,16 @@ public class AgentStateManager : MonoBehaviour
             Vector3 direction = (targetPos - agentTransform.position).normalized;
 
             //rb.linearVelocity = speed * Time.deltaTime * direction;
-            agentTransform.position += speed * Time.deltaTime * direction;
+            agentTransform.position += GetActualSpeed() * Time.deltaTime * direction;
 
             agentData.SetSprite(direction);
 
             if (Vector3.Distance(agentTransform.position, targetPos) <= 0.2f && pathNodeIndex < pathNodes.Count) pathNodeIndex++;
-            
+
             return true;
-
         }
+        
         return false;
-
     }
 
     public void UpdateTimer()
@@ -103,11 +128,16 @@ public class AgentStateManager : MonoBehaviour
         isTimerFinished = false;
     }
     
-    public bool FindNewPath(MapData mapData)
+    public bool FindNewPath(MapData mapData, Vector3 targetPosition)
     {
-        pathNodes = mapData.pathfinding.FindPath(agentTransform.position, currentTarget.position);
+        pathNodes = mapData.pathfinding.FindPath(agentTransform.position, targetPosition);
+
+        int x = (int)targetPosition.x;
+        int y = (int)targetPosition.z;
+
+        if (!mapData.IsCoordInMap(x, y))  return false;
         
-        pathNodesExcluded = mapData.GetConnectedCellsFull((int)currentTarget.position.x, (int)currentTarget.position.z);
+        pathNodesExcluded = mapData.GetConnectedCellsFull((int)targetPosition.x, (int)targetPosition.z);
         
         pathNodeIndex = 0;
         return pathNodes.Count > 0;
@@ -120,19 +150,31 @@ public class AgentStateManager : MonoBehaviour
         {
             currentTarget = target.transform;
         }
-        
+
         return target != null;
+    }
+    
+    public float GetActualSpeed()
+    {
+        return speed * insanityMultiplier;
     }
 
     private void OnDrawGizmos()
     {
-        if (currentTarget == null ) return;
+        if (!showGizmo) return;
+        
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(currentTarget.position, rangeToTarget);
+        Gizmos.DrawWireSphere(transform.position, 5f);
+
+        if (currentTarget != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(currentTarget.position, rangeToTarget);
+        }
         
         Gizmos.color = Color.blue;
-        for(int i = 0 ; i < pathNodes.Count - 1; i++)
-        {
+        for(int i = 0 ; i < pathNodes.Count - 1; i++) 
+        { 
             Gizmos.DrawCube(new Vector3(pathNodes[i].X , agentTransform.position.y, pathNodes[i].Y), new Vector3(0.5f, 0.5f, 0.5f));
         }
     }

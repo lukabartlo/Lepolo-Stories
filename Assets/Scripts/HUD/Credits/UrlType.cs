@@ -1,0 +1,16 @@
+public enum UrlType {
+    None,
+    Instagram,
+    Itch,
+    Twitter,
+    Facebook,
+    Discord,
+    CvTec,
+    Github,
+    Linkedin,
+    Indeed,
+    Youtube,
+    Twitch,
+    Pinterest,
+    Behance,
+}
