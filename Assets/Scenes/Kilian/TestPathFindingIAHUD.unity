@@ -571,7 +571,7 @@ PrefabInstance:
     - target: {fileID: 6457974344651084427, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
       propertyPath: '_allMapableObjects.Array.data[5].objectData.buildObjects.Array.data[0]'
       value: 
-      objectReference: {fileID: 3064025712856020594, guid: 6a3dc87353e2ad74e990f47bb8ba3c4f, type: 3}
+      objectReference: {fileID: 3365171828822143949, guid: 83fdb4183ad7c1a4f863f95733530d30, type: 3}
     - target: {fileID: 6457974344651084427, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
       propertyPath: '_allMapableObjects.Array.data[5].objectData.buildObjects.Array.data[1]'
       value: 
