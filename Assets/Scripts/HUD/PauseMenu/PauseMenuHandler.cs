@@ -3,29 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenuTestManager : MonoBehaviour {
-    public static MainMenuTestManager Instance;
+public class PauseMenuHandler : MonoBehaviour {
+    private List<CanvasGroup> _openCanvas = new List<CanvasGroup>();
+    private Coroutine _coroutine;
+    [SerializeField] private float closingDuration;
+
+    private bool _isOpen = false;
     
     [SerializeField] private MainMenuController mainMenuController;
     
-    [SerializeField] private float closingDuration;
+    private void Start() {
+        mainMenuController.acquireCancelInput += HandleEscape;
+    }
     
-    private List<CanvasGroup> _openCanvas = new List<CanvasGroup>();
-    private Coroutine _coroutine;
+    public void OpenScene(string _levelName) {
+        SceneManager.LoadScene(_levelName);
+    }
 
-    private void Awake() {
-        if (Instance == null) {
-            Instance = this;
+    private void HandleEscape() {
+        if (!_isOpen)
+        {
+            OnOpenClosePanel(GetComponent<CanvasGroup>(), 1f, closingDuration, true);
+            _isOpen = true;
+        }
+        else {
+            ClosePanel();
         }
     }
-
-    private void Start() {
-        mainMenuController.acquireCancelInput += ClosePanel;
-    }
-
+    
     public void ClosePanel() {
         if(_openCanvas.Count > 0)
             OnOpenClosePanel(_openCanvas[^1], 0, closingDuration,false);
+        
+        if(_openCanvas.Count == 0) _isOpen = false;
     }
     
     public void OnOpenClosePanel(CanvasGroup _canvasGroup, float _endValue, float _duration, bool _activate) {
@@ -37,14 +47,6 @@ public class MainMenuTestManager : MonoBehaviour {
         } else {
             _openCanvas.Remove(_canvasGroup);
         }
-    }
-
-    public void StartGame(string _levelName) {
-        SceneManager.LoadScene(_levelName);
-    }
-    
-    public void CloseGame() {
-        Application.Quit();
     }
     
     private IEnumerator FadeCanvas(CanvasGroup _canvasGroup, float _endValue, float _duration, bool _activate) {
