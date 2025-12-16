@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour {
     public static UIManager Instance;
     
     [SerializeField] private float closingDuration;
+    [SerializeField] private CanvasGroup pausePanel;
     
     private List<CanvasGroup> _openCanvas = new List<CanvasGroup>();
     private Coroutine _coroutine;
@@ -16,8 +17,13 @@ public class UIManager : MonoBehaviour {
     }
     
     public void HandleEscape() {
-        if (_openCanvas.Count == 0) return;
-            ClosePanel();
+        if (_openCanvas.Count == 0) {
+            if(pausePanel)
+                OnOpenClosePanel(pausePanel, 1, closingDuration,true);
+            return;
+        }
+        
+        ClosePanel();
     }
     
     public void ClosePanel() {

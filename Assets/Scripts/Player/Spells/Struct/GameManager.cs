@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
-    [SerializeField] private TextMeshProUGUI TMPcurrentMana;
-
     private void Awake()
     {
         Instance = this;
@@ -19,8 +17,6 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        TMPcurrentMana.text = Mathf.Round(currentMana) + "/" + maxMana;
-
         if (currentMana < minMana) {
             currentMana = minMana;
         }

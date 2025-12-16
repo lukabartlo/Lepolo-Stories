@@ -13,14 +13,14 @@ public class InGameHUD : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI adeptCounterText;
     
     [SerializeField] private CanvasGroup tuto;
-    [SerializeField] private PauseMenuHandler pauseMenu;
+    
 
     private void Awake() {
         Instance = this;
     }
 
     private void Start() {
-        pauseMenu.OnOpenClosePanel(tuto, 1, 0.3f, true);
+        UIManager.Instance.OnOpenClosePanel(tuto, 1, 0.3f, true);
     }
 
     public void SetMadness(List<float> _allMadness, float _maxMadness) {
