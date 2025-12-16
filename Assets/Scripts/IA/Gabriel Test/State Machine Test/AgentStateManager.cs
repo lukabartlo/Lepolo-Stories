@@ -25,6 +25,7 @@ public class AgentStateManager : MonoBehaviour, IDamageable
     public bool isTargetReached = false;
     private Rigidbody rb;
     public float speed = 7f;
+    public float insanityMultiplier = 1f;
 
     [Space(20)]
     [Header("For Timer")]
@@ -103,14 +104,13 @@ public class AgentStateManager : MonoBehaviour, IDamageable
             Vector3 direction = (targetPos - agentTransform.position).normalized;
 
             //rb.linearVelocity = speed * Time.deltaTime * direction;
-            agentTransform.position += speed * Time.deltaTime * direction;
+            agentTransform.position += GetActualSpeed() * Time.deltaTime * direction;
 
             agentData.SetSprite(direction);
 
             if (Vector3.Distance(agentTransform.position, targetPos) <= 0.2f && pathNodeIndex < pathNodes.Count) pathNodeIndex++;
 
             return true;
-
         }
         
         return false;
@@ -152,6 +152,11 @@ public class AgentStateManager : MonoBehaviour, IDamageable
         }
 
         return target != null;
+    }
+    
+    public float GetActualSpeed()
+    {
+        return speed * insanityMultiplier;
     }
 
     private void OnDrawGizmos()

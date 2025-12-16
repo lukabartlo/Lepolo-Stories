@@ -7,6 +7,7 @@ public class TaskInsanity : Task
     [SerializeField] private Vector2Int _minMaxRange =  new Vector2Int(3, 10); // correspond au nombre de déplacement
     [SerializeField] private float _targetRange = 0.25f;
     [SerializeField] private float _insanityvalue = 0.15f;
+    [SerializeField, Range(1,2)] private float _insanitySpeedMult = 1.5f;
     [SerializeField] private LayerMask _layerMask;
     
 
@@ -14,7 +15,8 @@ public class TaskInsanity : Task
     public override float GetPriority(AgentData agentData)
     {
         if(agentData.madness >= 100f)
-        { 
+        {
+            
             return 1.2f;
         }
         
@@ -74,6 +76,7 @@ public class TaskInsanity : Task
     public override void OnStart(AgentStateManager agent)
     {
         agent.rangeToTarget = _targetRange;
+        agent.insanityMultiplier = _insanitySpeedMult;
         
         // chercher un endroit random ou aller 
         agent.targetPosition = GetARandomTargetPosition(agent);
@@ -102,7 +105,6 @@ public class TaskInsanity : Task
         {
             if (agent.pathNodes.Count == 0)
             {
-                Debug.Log("agent.pathNodes.Count == 0");
                 if (!agent.FindNewPath(mapData, agent.targetPosition))
                 {
                     agent.isTaskFinished = true;
@@ -112,7 +114,6 @@ public class TaskInsanity : Task
             
             if (!agent.MoveTowardPathNode())
             {
-                Debug.Log("!agent.MoveTowardPathNode()");
                 if (!agent.FindNewPath(mapData, agent.targetPosition) && !agent.HasAgentReachedTarget(agent.targetPosition))
                 {
                     agent.isTaskFinished = true;
@@ -121,7 +122,6 @@ public class TaskInsanity : Task
             }
         }
     }
-
 
     public override void OnStop(AgentStateManager agent)
     {

@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25244a52-a82d-4b0d-8b9a-1f3daea93ab3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/IA/Gabriel Test/State Machine Test/TaskInsanity.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/IA/Gabriel Test/State Machine Test/TaskInsanity.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/IA/Gabriel Test/Utility Test/Insanity.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/IA/Gabriel Test/Utility Test/Insanity.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Lepelo Stories/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Lepelo Stories/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IA/AgentData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IA/AgentData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/IA/Gabriel Test/State Machine Test/AgentStateManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IA/Gabriel Test/State Machine Test/AgentStateManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/IA/Gabriel Test/State Machine Test/TaskInsanity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/IA/Gabriel Test/State Machine Test/TaskInsanity.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
