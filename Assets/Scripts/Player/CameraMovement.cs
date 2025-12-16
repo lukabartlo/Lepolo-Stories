@@ -19,11 +19,12 @@ public class CameraTestPerso : MonoBehaviour
     private Coroutine _zoomCoroutine;
     private float _zoomDirection;
     private Vector3 _desiredLocalPosition;
+    private Vector2 _bounds;
 
-    void Start()
-    {
+    void Start() {
         _cameraPivot = transform.parent;
-        _desiredLocalPosition = transform.localPosition;
+        _desiredLocalPosition = new Vector3(0, 35, -50);
+        _bounds = TestBuildManager.Instance.MapSize;
     }
     private void Update()
     {
@@ -36,7 +37,12 @@ public class CameraTestPerso : MonoBehaviour
     {
         _cameraDesiredDirection.x = _cameraInput.x;
         _cameraDesiredDirection.z = _cameraInput.y;
-        _cameraPivot.position = Vector3.Lerp(_cameraPivot.position, _cameraPivot.position + _cameraDesiredDirection, moveSpeed * Time.fixedDeltaTime);
+
+        Vector3 _cameraDesiredPosition = _cameraPivot.position + _cameraDesiredDirection;
+        _cameraDesiredPosition.x = Mathf.Clamp(_cameraDesiredPosition.x, 0, _bounds.x);
+        _cameraDesiredPosition.z = Mathf.Clamp(_cameraDesiredPosition.z, 0, _bounds.y);
+        
+        _cameraPivot.position = Vector3.Lerp(_cameraPivot.position, _cameraDesiredPosition, moveSpeed * Time.fixedDeltaTime);
     }
 
     private void CameraZoom()

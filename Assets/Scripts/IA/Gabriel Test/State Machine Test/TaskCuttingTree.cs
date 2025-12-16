@@ -6,8 +6,8 @@ public class TaskCuttingTree : Task
     public float taskDuration = 5f;
     public float taskDetectionRadius = 2f;
     public ObjectType tree = ObjectType.Tree;
-
-
+    
+    
     #region Function to Use with TaskManager
     public override float GetPriority(AgentData agentData)
     {
@@ -20,12 +20,9 @@ public class TaskCuttingTree : Task
     }
     #endregion
 
-    private void PlayCuttingAnimation(AgentStateManager agent)
+    private void PlayCuttingAnimation()
     {
         // lance l'animation de pray
-
-        //new line
-        agent.CutTreeSound(true);
     }
 
     private void CutTree(GameObject target)
@@ -41,6 +38,7 @@ public class TaskCuttingTree : Task
         agent.timer = 0;
         agent.taskDuration = taskDuration;
         agent.isTaskFinished = false;
+        agent.doIdleAfterTask = true;
 
         if (!agent.FindNewTarget(tree, mapData))
         {
@@ -48,10 +46,10 @@ public class TaskCuttingTree : Task
             return;
         }
 
-        if (!agent.HasAgentReachedTarget())
+        if (!agent.HasAgentReachedTarget(agent.currentTarget.position))
         {
-            Debug.Log("!agent.HasAgentReachedTarget()");
-            agent.FindNewPath(mapData);
+            //Debug.Log("!agent.HasAgentReachedTarget()");
+            agent.FindNewPath(mapData, agent.currentTarget.position);
         }
 
     }
@@ -68,16 +66,13 @@ public class TaskCuttingTree : Task
             }
         }
 
-        if (agent.HasAgentReachedTarget())
+        if (agent.HasAgentReachedTarget(agent.currentTarget.position))
         {
             agent.UpdateTimer();
-            PlayCuttingAnimation(agent);
+            PlayCuttingAnimation();
             if (agent.isTimerFinished)
             {
-                //new line
-                agent.CutTreeSound(false);
-
-                Debug.Log("Cut");
+                //Debug.Log("Cut");
                 CutTree(agent.currentTarget.gameObject);
                 agent.isTaskFinished = true;
             }
@@ -86,8 +81,8 @@ public class TaskCuttingTree : Task
         {
             if (agent.pathNodes.Count == 0)
             {
-                Debug.Log("agent.pathNodes.Count == 0");
-                if (!agent.FindNewPath(mapData))
+                //Debug.Log("agent.pathNodes.Count == 0");
+                if (!agent.FindNewPath(mapData, agent.currentTarget.position))
                 {
                     agent.isTaskFinished = true;
                     return;
@@ -96,8 +91,8 @@ public class TaskCuttingTree : Task
 
             if (!agent.MoveTowardPathNode())
             {
-                Debug.Log("!agent.MoveTowardPathNode()");
-                if (!agent.FindNewPath(mapData) && !agent.HasAgentReachedTarget())
+                //Debug.Log("!agent.MoveTowardPathNode()");
+                if (!agent.FindNewPath(mapData, agent.currentTarget.position) && !agent.HasAgentReachedTarget(agent.currentTarget.position))
                 {
                     agent.isTaskFinished = true;
                     return;

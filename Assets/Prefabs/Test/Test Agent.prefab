@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1080890957521584881}
   - component: {fileID: 3526301370017994069}
   - component: {fileID: 4444585816494722062}
-  - component: {fileID: 7412308772218725217}
   m_Layer: 6
   m_Name: Test Agent
   m_TagString: Untagged
@@ -113,7 +112,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.5
   m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: -0.3, z: 0}
@@ -159,12 +158,16 @@ MonoBehaviour:
   agentData:
     health: 5
     maxHealth: 5
-    spriteRenderer: {fileID: 0}
+    spriteRenderer: {fileID: 4827444042479703297}
     madness: 0
-    role: 1
+    lastDirection: {x: 0, y: 0, z: 0}
+    needToChangeSpriteToPray: 0
+    role: 0
   currentTask: {fileID: 0}
   isTaskFinished: 0
+  doIdleAfterTask: 1
   currentTarget: {fileID: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
   pathNodesExcluded: []
   pathNodeIndex: 0
   rangeToTarget: 1
@@ -173,103 +176,11 @@ MonoBehaviour:
   timer: 0
   taskDuration: 1
   isTimerFinished: 0
---- !u!82 &7412308772218725217
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95628040202359716}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 5acb3d80e14bbc346ae6a7c54e0b3ed9, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  actualGatheringPhase: 0
+  jehochatRenderer: {fileID: 0}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
+  originalAlpha: 0
+  showGizmo: 0
 --- !u!1 &2959796917443233447
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +259,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ccf64eb445da69b4d940485627e08f81, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -6,4 +6,5 @@ public struct SpriteWrapper
 {
     public EDirection direction;
     public Sprite sprite;
+
 }
