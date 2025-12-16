@@ -34,7 +34,7 @@ public class AgentData
     {
         lastDirection = direction;
 
-        if (madness < 0.5f)
+        if (madness < 50f)
         {
             if (direction.x > -0.5 && direction.x < 0.5 && direction.z < 0) {
                 spriteRenderer.sprite = sprites[EDirection.South];
@@ -52,7 +52,7 @@ public class AgentData
         }
         else
         {
-            if ( madness > 0.99f)
+            if ( madness >99f)
             {
               
                 if (direction.x > -0.5 && direction.x < 0.5 && direction.z < 0)
