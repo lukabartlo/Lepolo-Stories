@@ -26,7 +26,9 @@ public class ChangeRole : SingleSpell
 
         if (asm != null && agentData.role != data.roles)
         {
+            agentData.spriteRendererRef.sprite = data.roleSprite;
             agentData.role = data.roles; 
+            
         }
     }
 }

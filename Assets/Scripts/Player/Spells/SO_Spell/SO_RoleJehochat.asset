@@ -22,4 +22,5 @@ MonoBehaviour:
   aoeRadius: 0
   aoePreviewPrefab: {fileID: 0}
   roles: 3
+  roleSprite: {fileID: 21300000, guid: 74ac39491c28b864eabc5236c0baa5ea, type: 3}
   obj: 0
