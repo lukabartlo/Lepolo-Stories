@@ -46,6 +46,8 @@ public class AgentStateManager : MonoBehaviour, IDamageable
 
     #endregion
 
+    public AudioSource audioSource;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();

@@ -1,5 +1,5 @@
 public enum SoundOrigin
 {
-    Spatialized,
+    Spatial,
     Global
 }

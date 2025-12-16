@@ -26,11 +26,17 @@ public class SoundManager : MonoBehaviour
     [Header("Audio Sources")]
     [SerializeField] private List<AudioSourceByType> audioList;
 
+    [Header("Pooling")]
+    [SerializeField] private int maxGlobalSources = 10;
+    [SerializeField] private GameObject audioContainer;
+
     private Dictionary<SoundName, AudioClip> soundDict;
     private Dictionary<SoundOrigin, List<AudioSource>> audioDict;
 
     public static Action<SoundName> OnSoundPlayed;
     public static Action<SoundName, AudioSource> OnSoundSpatializedPlayed;
+
+    #region Unity LifeCycle
 
     private void Awake()
     {
@@ -47,6 +53,22 @@ public class SoundManager : MonoBehaviour
         InitializeDictionaries();
     }
 
+    private void OnEnable()
+    {
+        OnSoundPlayed += PlaySoundGlobal;
+        OnSoundSpatializedPlayed += PlaySoundSpatialized;
+    }
+
+    private void OnDisable()
+    {
+        OnSoundPlayed -= PlaySoundGlobal;
+        OnSoundSpatializedPlayed -= PlaySoundSpatialized;
+    }
+
+    #endregion
+
+    #region Initialization
+
     private void InitializeDictionaries()
     {
         soundDict = new Dictionary<SoundName, AudioClip>();
@@ -61,31 +83,61 @@ public class SoundManager : MonoBehaviour
         foreach (var audio in audioList)
         {
             if (!audioDict.ContainsKey(audio.origin))
-                audioDict.Add(audio.origin, audio.sources);
+                audioDict.Add(audio.origin, new List<AudioSource>(audio.sources));
         }
     }
 
-    private void OnEnable()
+    #endregion
+
+    #region Audio Factory
+
+    /// <summary>
+    /// Factory centralisée pour créer des AudioSource cohérentes
+    /// </summary>
+    private AudioSource CreateAudioSource(
+        SoundOrigin origin,
+        bool spatialized,
+        float volume = 1f
+    )
     {
-        OnSoundPlayed += PlaySoundGlobal;
-        OnSoundSpatializedPlayed += PlaySoundSpatialized;
+        AudioSource source = audioContainer.AddComponent<AudioSource>();
+
+        source.playOnAwake = false;
+        source.loop = false;
+        source.volume = volume;
+        source.pitch = 1f;
+
+        if (spatialized)
+        {
+            source.spatialBlend = 1f;
+            source.rolloffMode = AudioRolloffMode.Linear;
+            source.minDistance = 1f;
+            source.maxDistance = 15f;
+        }
+        else
+        {
+            source.spatialBlend = 0f;
+        }
+
+        return source;
     }
 
-    private void OnDisable()
-    {
-        OnSoundPlayed -= PlaySoundGlobal;
-        OnSoundSpatializedPlayed -= PlaySoundSpatialized;
-    }
+    #endregion
+
+    #region Play Sounds
 
     private void PlaySoundGlobal(SoundName sound)
     {
         if (!soundDict.TryGetValue(sound, out AudioClip clip))
         {
-            Debug.LogWarning($"Sound {sound} not found");
+            Debug.LogWarning($"[SoundManager] Sound {sound} not found");
             return;
         }
 
-        AudioSource source = GetAvailableAudioSource();
+        AudioSource source = GetAvailableAudioSource(SoundOrigin.Global);
+
+        // Petit pitch aléatoire clean
+        source.pitch = UnityEngine.Random.Range(0.90f, 1.1f);
         source.PlayOneShot(clip);
     }
 
@@ -96,16 +148,40 @@ public class SoundManager : MonoBehaviour
 
         if (!soundDict.TryGetValue(sound, out AudioClip clip))
         {
-            Debug.LogWarning($"Sound {sound} not found");
+            Debug.LogWarning($"[SoundManager] Sound {sound} not found");
             return;
         }
 
+        source.pitch = UnityEngine.Random.Range(0.90f, 1.1f);
         source.PlayOneShot(clip);
     }
 
-    private AudioSource GetAvailableAudioSource() //       <================= A CHANGER
+    #endregion
+
+    #region Pooling
+
+    private AudioSource GetAvailableAudioSource(SoundOrigin origin)
     {
-        // Simple fallback : premier AudioSource global
-        return audioDict[SoundOrigin.Global][0];
+        List<AudioSource> sources = audioDict[origin];
+
+        // 1️⃣ Cherche une source libre
+        foreach (AudioSource source in sources)
+        {
+            if (!source.isPlaying)
+                return source;
+        }
+
+        // 2️⃣ Crée une nouvelle si possible
+        if (origin == SoundOrigin.Global && sources.Count < maxGlobalSources)
+        {
+            AudioSource newSource = CreateAudioSource(origin, spatialized: false);
+            sources.Add(newSource);
+            return newSource;
+        }
+
+        // 3️⃣ Fallback (coupe le plus ancien)
+        return sources[0];
     }
+
+    #endregion
 }
