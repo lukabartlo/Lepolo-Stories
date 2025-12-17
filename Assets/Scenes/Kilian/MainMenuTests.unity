@@ -1092,6 +1092,63 @@ CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 1070510271097240753, guid: b65ff70416e2aba4b8937343829a2b90, type: 3}
   m_PrefabInstance: {fileID: 2112758644534066766}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &704150835
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 410691337114167745, guid: e450a7010b880b14b9e7533ad5005b01, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 34.51142
+      objectReference: {fileID: 0}
+    - target: {fileID: 410691337114167745, guid: e450a7010b880b14b9e7533ad5005b01, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410691337114167745, guid: e450a7010b880b14b9e7533ad5005b01, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 45.28202
+      objectReference: {fileID: 0}
+    - target: {fileID: 410691337114167745, guid: e450a7010b880b14b9e7533ad5005b01, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 410691337114167745, guid: e450a7010b880b14b9e7533ad5005b01, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410691337114167745, guid: e450a7010b880b14b9e7533ad5005b01, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410691337114167745, guid: e450a7010b880b14b9e7533ad5005b01, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410691337114167745, guid: e450a7010b880b14b9e7533ad5005b01, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410691337114167745, guid: e450a7010b880b14b9e7533ad5005b01, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 410691337114167745, guid: e450a7010b880b14b9e7533ad5005b01, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4761007783503735035, guid: e450a7010b880b14b9e7533ad5005b01, type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e450a7010b880b14b9e7533ad5005b01, type: 3}
 --- !u!1 &806515577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,6 +1828,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
   closingDuration: 0.2
+  pausePanel: {fileID: 0}
 --- !u!225 &1483538614 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 1533685206368710538, guid: 0e0010f76cd98e840a0bf37237aa4535, type: 3}
@@ -3290,3 +3348,4 @@ SceneRoots:
   - {fileID: 210281938}
   - {fileID: 6842025638059307673}
   - {fileID: 2112758644534066766}
+  - {fileID: 704150835}
