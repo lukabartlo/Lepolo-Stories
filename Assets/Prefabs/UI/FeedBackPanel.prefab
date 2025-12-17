@@ -250,7 +250,7 @@ MonoBehaviour:
   spellTitleText: {fileID: 716245742853582331}
   spellDescriptionText: {fileID: 2352596808560970713}
   contentSizeFitter: {fileID: 5976825300887364031}
-  timeToActivate: 1.5
+  timeToActivate: 0.5
   fadeDuration: 0.3
   yOffset: 150
 --- !u!114 &3017235716538732879
