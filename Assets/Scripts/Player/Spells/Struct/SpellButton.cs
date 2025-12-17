@@ -10,6 +10,11 @@ public class SpellButton : MonoBehaviour
     
     [SerializeField] private SpellPanelFeedback feedBackPanel;
 
+    private Color offColor;
+    private Color onColor;
+    [SerializeField] private string offColorText;
+    [SerializeField] private string onColorText;
+    
     void Start()
     {
         GetComponent<Button>().onClick.AddListener(OnClick);
@@ -29,17 +34,17 @@ public class SpellButton : MonoBehaviour
         }
     }
 
-    public void OnClick()
+    public void FeedBack(bool _doFeedback)
     {
-        SpellManager.Instance.ActivateSpell(spellData);
-    }
-
-    public void FeedBack(bool _doFeedback) {
-        if (!_doFeedback) {
+        if (!_doFeedback)
+        {
             feedBackPanel.CloseFeedbackPanel();
             return;
         }
-        
-        feedBackPanel.OpenFeedbackPanel(spellData.spellName,  spellData.spellDescription, transform.position);
+    }
+
+    public void OnClick()
+    {
+        SpellManager.Instance.ActivateSpell(spellData);
     }
 }
