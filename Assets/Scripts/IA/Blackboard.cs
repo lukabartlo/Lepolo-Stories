@@ -17,6 +17,12 @@ public class Blackboard : MonoBehaviour
     private List<float> _allMadness;
     private InGameHUD _hud;
     
+    [SerializeField] private int winCondition;
+    [SerializeField] private CanvasGroup winPanel;
+    [SerializeField] private int loseCondition;
+    [SerializeField] private CanvasGroup losePanel;
+    [SerializeField] private UIController uiController;
+    
     private void OnEnable()
     {
         foreach (var item in listSpriteWrapper)
@@ -80,5 +86,17 @@ public class Blackboard : MonoBehaviour
             _allMadness.Add(agent.agentData.GetMadness());
         }
         _hud.SetMadness(_allMadness, 100);
+        CheckWinCondition();
+    }
+
+    private void CheckWinCondition() {
+        if (agents.Count >= winCondition) {
+            UIManager.Instance.OnOpenClosePanel(winPanel, 1f, 0.3f, true);
+            uiController.EnableInputs(false);
+        }
+        else if (agents.Count <= loseCondition) {
+            UIManager.Instance.OnOpenClosePanel(losePanel, 1f, 0.3f, true);
+            uiController.EnableInputs(false);
+        }
     }
 }

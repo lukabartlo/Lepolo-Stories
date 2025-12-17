@@ -10,7 +10,18 @@ public class TaskPraying : Task
     #region Function to Use with TaskManager
     public override float GetPriority(AgentData agentData)
     {
-        return 1f;
+        if (agentData.lastExecutedTask == this)
+        {
+            if (agentData.numberOfExecutedTasks > maxNbOfTasksInARaw)
+            {
+                agentData.numberOfExecutedTasks = 1;
+                return 0f;
+            }
+            agentData.numberOfExecutedTasks++;
+            return 2f;
+        }
+        
+        return 1f; // change for the UtilityCurve instead
     }
 
     public override bool CanDoTask(AgentData agentData)
@@ -21,7 +32,6 @@ public class TaskPraying : Task
 
     private void Pray()
     {
-        // lance l'animation de pray
 
     }
     
@@ -33,7 +43,10 @@ public class TaskPraying : Task
         agent.timer = 0;
         agent.taskDuration = taskDuration;
         agent.isTaskFinished = false;
-        agent.doIdleAfterTask = true;
+        
+        agent.agentData.lastExecutedTask = this;
+        
+        agent.doIdleAfterTask = Random.Range(0, 2) == 0; // a une chance sur 2 de faire l'idle à la fin de la tache
 
         if (!agent.FindNewTarget(chatpelle, mapData))
         {
@@ -46,7 +59,6 @@ public class TaskPraying : Task
             //Debug.Log("!agent.HasAgentReachedTarget()");
             agent.FindNewPath(mapData, agent.currentTarget.position);
         }
-
     }
 
     public override void OnUpdate(AgentStateManager agent)

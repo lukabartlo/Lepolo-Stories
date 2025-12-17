@@ -9,6 +9,10 @@ public class AgentData
     [SerializeField] private int maxHealth;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] Dictionary<EDirection, Sprite> sprites;
+    
+    [Header("For Tasks")]
+    public Task lastExecutedTask;
+    public int numberOfExecutedTasks;
 
     [Range(0f, 100f)]   
     public float madness;
