@@ -166,8 +166,8 @@ public class AgentStateManager : MonoBehaviour, IDamageable
     {
         if (!showGizmo) return;
         
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 5f);
+        // Gizmos.color = Color.red;
+        // Gizmos.DrawWireSphere(transform.position, 5f);
 
         if (currentTarget != null)
         {

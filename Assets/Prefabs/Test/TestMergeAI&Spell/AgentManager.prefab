@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaskPraying
   taskName: Praying
-  maxNbOfTasksInARaw: 1
+  maxNbOfTasksInARaw: 2
   priorityCurve: {fileID: 11400000, guid: 59d0dbd319dc5884485ee01d7f59e3d3, type: 2}
   taskDuration: 5
   taskDetectionRadius: 3
@@ -207,6 +207,11 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 8ed7ec40241edac4cbb85791b289e13e, type: 3}
   - direction: 12
     sprite: {fileID: 21300000, guid: 74ac39491c28b864eabc5236c0baa5ea, type: 3}
+  winCondition: 0
+  winPanel: {fileID: 0}
+  loseCondition: 0
+  losePanel: {fileID: 0}
+  uiController: {fileID: 0}
 --- !u!114 &8403472103631578857
 MonoBehaviour:
   m_ObjectHideFlags: 0
