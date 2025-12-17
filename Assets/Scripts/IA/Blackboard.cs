@@ -90,7 +90,8 @@ public class Blackboard : MonoBehaviour
         
         _allMadness = new List<float>();
         foreach (var agent in agents) {
-            _allMadness.Add(agent.agentData.GetMadness());
+            if (agent.agentData.role != Roles.Jehochat)
+                _allMadness.Add(agent.agentData.GetMadness());
         }
         _hud.SetMadness(_allMadness, 100);
         CheckWinCondition();
