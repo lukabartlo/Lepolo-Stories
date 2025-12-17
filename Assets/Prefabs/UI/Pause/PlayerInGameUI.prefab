@@ -245,10 +245,10 @@ RectTransform:
   - {fileID: 2108079463638484325}
   m_Father: {fileID: 8831461784847796074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -103.172485}
-  m_SizeDelta: {x: 368.1689, y: 206.34497}
+  m_AnchorMin: {x: 0.4214792, y: 0.84159267}
+  m_AnchorMax: {x: 0.5792083, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6208552027828067668
 CanvasRenderer:
@@ -385,7 +385,7 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2124683234019797361}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.18384627}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -453,9 +453,9 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 115
+  m_characterSpacing: 82
   m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -1222,6 +1222,7 @@ GameObject:
   - component: {fileID: 4783241067542594810}
   - component: {fileID: 2589157315413305335}
   - component: {fileID: 645894593585426913}
+  - component: {fileID: 7148315099856146767}
   m_Layer: 5
   m_Name: PopUpPanel
   m_TagString: Untagged
@@ -1315,6 +1316,8 @@ MonoBehaviour:
   popUpText: {fileID: 870020794215672124}
   maxPage: 4
   closeButton: {fileID: 275910537218234049}
+  eventTrigger: {fileID: 7844042993891388274}
+  buttonText: {fileID: 161888129706780653}
 --- !u!114 &645894593585426913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1328,6 +1331,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Mask
   m_ShowMaskGraphic: 1
+--- !u!95 &7148315099856146767
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2166561253077046142}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce60618e6f6bbdf4799d08540cbddd73, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2512146558636413346
 GameObject:
   m_ObjectHideFlags: 0
