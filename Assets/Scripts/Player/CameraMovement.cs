@@ -33,16 +33,29 @@ public class CameraTestPerso : MonoBehaviour
         CameraMove();
     }
 
+
     private void CameraMove()
     {
         _cameraDesiredDirection.x = _cameraInput.x;
         _cameraDesiredDirection.z = _cameraInput.y;
 
         Vector3 _cameraDesiredPosition = _cameraPivot.position + _cameraDesiredDirection;
+
+
         _cameraDesiredPosition.x = Mathf.Clamp(_cameraDesiredPosition.x, 0, _bounds.x);
-        _cameraDesiredPosition.z = Mathf.Clamp(_cameraDesiredPosition.z, 0, _bounds.y);
-        
-        _cameraPivot.position = Vector3.Lerp(_cameraPivot.position, _cameraDesiredPosition, moveSpeed * Time.fixedDeltaTime);
+
+    
+        Transform cam = transform; 
+
+        float cameraLocalZ = cam.localPosition.z; 
+        float zoomOffsetZ = -cameraLocalZ * 0.65f; 
+
+        float minZ = zoomOffsetZ;
+        float maxZ = _bounds.y ;
+
+        _cameraDesiredPosition.z = Mathf.Clamp(_cameraDesiredPosition.z,minZ,maxZ);
+
+        _cameraPivot.position = Vector3.Lerp(_cameraPivot.position,_cameraDesiredPosition,moveSpeed * Time.fixedDeltaTime);
     }
 
     private void CameraZoom()
@@ -55,7 +68,9 @@ public class CameraTestPerso : MonoBehaviour
 
             _desiredLocalPosition = transform.forward * -_cameraDistanceAfterZoom;
         }
+        CameraMove();
         transform.localPosition = Vector3.Lerp(transform.localPosition, _desiredLocalPosition, zoomSpeed * Time.deltaTime);
+        
     }
 
     public void AcquireCameraMoveInputs(InputAction.CallbackContext _ctx)
