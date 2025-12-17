@@ -61,6 +61,7 @@ public class TaskGatherAdepts : Task
             );
             
             Vector3 spawnPosition = agent.transform.position + spawnOffset;
+            if (!mapData.IsCoordInMap(spawnPosition)) spawnPosition = agent.transform.position;
             
             // Instantiate the Adept prefab if available
             if (adeptPrefab != null)
