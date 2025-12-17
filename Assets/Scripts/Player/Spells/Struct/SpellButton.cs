@@ -7,9 +7,17 @@ public class SpellButton : MonoBehaviour
     [SerializeField] private GameManager gm;
     [SerializeField] private Button button;
     private Image buttonBackground;
+    
+    [SerializeField] private SpellPanelFeedback feedBackPanel;
 
+    private Color offColor;
+    private Color onColor;
+    [SerializeField] private string offColorText;
+    [SerializeField] private string onColorText;
+    
     void Start()
     {
+        gm = GameManager.Instance;
         GetComponent<Button>().onClick.AddListener(OnClick);
         buttonBackground = GetComponent<Image>();
     }
@@ -19,12 +27,31 @@ public class SpellButton : MonoBehaviour
         if (gm.currentMana <= spellData.spellCost)
         {
             button.interactable = false;
-            buttonBackground.color = Color.darkGray;
-        } else
+
+            ColorUtility.TryParseHtmlString(offColorText, out offColor);
+
+            ColorBlock colors = button.colors;
+            colors.disabledColor = offColor;
+            button.colors = colors;
+        }
+        else
         {
             button.interactable = true;
-            buttonBackground.color = Color.white;
+
+            ColorUtility.TryParseHtmlString(onColorText, out onColor);
+            buttonBackground.color = onColor;
         }
+    }
+
+    public void FeedBack(bool _doFeedback)
+    {
+        if (!_doFeedback)
+        {
+            feedBackPanel.CloseFeedbackPanel();
+            return;
+        }
+        
+        feedBackPanel.OpenFeedbackPanel(spellData.spellName, spellData.spellDescription, transform.position);
     }
 
     public void OnClick()

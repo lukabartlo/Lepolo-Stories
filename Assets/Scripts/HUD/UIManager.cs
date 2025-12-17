@@ -34,9 +34,9 @@ public class UIManager : MonoBehaviour {
     public void OnOpenClosePanel(CanvasGroup _canvasGroup, float _endValue, float _duration, bool _activate) {
         if (_coroutine != null) return;
         
-        _canvasGroup.TryGetComponent(out UICanvas canvas);
-        canvas?.OnCanvasOpen();
-
+        if(_canvasGroup.TryGetComponent(out UICanvas canvas))
+            canvas?.OnCanvasOpen();
+        
         _coroutine = StartCoroutine(FadeCanvas(_canvasGroup, _endValue, _duration, _activate));
 
         if (_activate) {
