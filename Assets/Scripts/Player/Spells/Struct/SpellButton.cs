@@ -7,6 +7,8 @@ public class SpellButton : MonoBehaviour
     [SerializeField] private GameManager gm;
     [SerializeField] private Button button;
     private Image buttonBackground;
+    
+    [SerializeField] private SpellPanelFeedback feedBackPanel;
 
     void Start()
     {
@@ -30,5 +32,14 @@ public class SpellButton : MonoBehaviour
     public void OnClick()
     {
         SpellManager.Instance.ActivateSpell(spellData);
+    }
+
+    public void FeedBack(bool _doFeedback) {
+        if (!_doFeedback) {
+            feedBackPanel.CloseFeedbackPanel();
+            return;
+        }
+        
+        feedBackPanel.OpenFeedbackPanel(spellData.spellName,  spellData.spellDescription, transform.position);
     }
 }
