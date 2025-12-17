@@ -31,7 +31,7 @@ public class MapGenerationSystem {
         #region Static Pregen
         if (_objectsToPregen[0].objectType == ObjectType.Altar) {
             if (_buildingSystem.TryBuild(_objectsToPregen[0].objectType,
-                    new Vector2Int(_mapSize.x / 2, _mapSize.y / 2)) == false) {
+                    new Vector2Int(30, 33)) == false) {
                 Debug.LogError("Center Autel Generation Failed Atrociously");
             }
         }
@@ -40,7 +40,7 @@ public class MapGenerationSystem {
         
         if (_objectsToPregen[1].objectType == ObjectType.Chatpelle) {
             if (_buildingSystem.TryBuild(_objectsToPregen[1].objectType,
-                    new Vector2Int(_mapSize.x / 2, _mapSize.y / 2 + _firstGenChatpelleOffset)) == false) {
+                    new Vector2Int(52, 25)) == false) {
                 Debug.LogError("Center Autel Generation Failed Atrociously");
             }
         }
@@ -49,12 +49,12 @@ public class MapGenerationSystem {
         
         if (_objectsToPregen[2].objectType == ObjectType.MiniAltar) {
             if (_buildingSystem.TryBuild(_objectsToPregen[2].objectType,
-                    new Vector2Int(_mapSize.x / 4, _mapSize.y / 2 + _miniAltarOffsets[0])) == false) {
+                    new Vector2Int(17, 20)) == false) {
                 Debug.LogError("Center Autel Generation Failed Atrociously");
             }
             
             if (_buildingSystem.TryBuild(_objectsToPregen[2].objectType,
-                    new Vector2Int(_mapSize.x / 5 * 4, _mapSize.y / 2 + _miniAltarOffsets[1])) == false) {
+                    new Vector2Int(49, 56)) == false) {
                 Debug.LogError("Center Autel Generation Failed Atrociously");
             }
         }

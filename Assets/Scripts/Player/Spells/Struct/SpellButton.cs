@@ -1,5 +1,3 @@
-using EasyTextEffects.Editor.MyBoxCopy.Extensions;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,16 +7,19 @@ public class SpellButton : MonoBehaviour
     [SerializeField] private GameManager gm;
     [SerializeField] private Button button;
     private Image buttonBackground;
+    
+    [SerializeField] private SpellPanelFeedback feedBackPanel;
+
     private Color offColor;
     private Color onColor;
     [SerializeField] private string offColorText;
     [SerializeField] private string onColorText;
-
-
+    
     void Start()
     {
+        gm = GameManager.Instance;
         GetComponent<Button>().onClick.AddListener(OnClick);
-        buttonBackground = GetComponent<Image>();        
+        buttonBackground = GetComponent<Image>();
     }
 
     private void Update()
@@ -42,6 +43,16 @@ public class SpellButton : MonoBehaviour
         }
     }
 
+    public void FeedBack(bool _doFeedback)
+    {
+        if (!_doFeedback)
+        {
+            feedBackPanel.CloseFeedbackPanel();
+            return;
+        }
+        
+        feedBackPanel.OpenFeedbackPanel(spellData.spellName, spellData.spellDescription, transform.position);
+    }
 
     public void OnClick()
     {
