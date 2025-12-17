@@ -1,0 +1,234 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &430366730889378842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8707364668354006485}
+  - component: {fileID: 108041446402135366}
+  - component: {fileID: 5762890026629931133}
+  - component: {fileID: 5463938169011767625}
+  - component: {fileID: 5112625827463731825}
+  - component: {fileID: 9117102595482572121}
+  m_Layer: 0
+  m_Name: Task Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8707364668354006485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430366730889378842}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8511789132846651279}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &108041446402135366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430366730889378842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507cbb55eb8756c4ba2270fab0407986, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaskIdle
+  taskName: Relaxing
+  maxNbOfTasksInARaw: 3
+  priorityCurve: {fileID: 11400000, guid: e34d2182ceec8d64e9d1dc59eeec1e9e, type: 2}
+  minMaxRange: {x: 3, y: 6}
+  targetRange: 0.25
+  minMaxWait: {x: 3, y: 8}
+--- !u!114 &5762890026629931133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430366730889378842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3514b0096a8c4a49887348798d285e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaskPraying
+  taskName: Praying
+  maxNbOfTasksInARaw: 1
+  priorityCurve: {fileID: 11400000, guid: 59d0dbd319dc5884485ee01d7f59e3d3, type: 2}
+  taskDuration: 5
+  taskDetectionRadius: 3
+  chatpelle: 3
+--- !u!114 &5463938169011767625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430366730889378842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a0c71256e17934c9825fb476118a95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaskCuttingTree
+  taskName: Recolting Wood
+  maxNbOfTasksInARaw: 3
+  priorityCurve: {fileID: 11400000, guid: 0297d5fada2c77648a9059fdd1d576e7, type: 2}
+  taskDuration: 5
+  taskDetectionRadius: 2
+  tree: 1
+--- !u!114 &5112625827463731825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430366730889378842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d5eee0e483569e4d87c8a15252ecd79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaskGatherAdepts
+  taskName: Gather Adepts
+  maxNbOfTasksInARaw: 3
+  priorityCurve: {fileID: 11400000, guid: f25c9868457c3234a8df92af2e930a8f, type: 2}
+  fadeDuration: 2
+  adeptPrefab: {fileID: 95628040202359716, guid: 93249584b622bfe4e93498ef836fa49d, type: 3}
+  spawnRadius: 3
+  cooldownDuration: 2
+--- !u!114 &9117102595482572121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430366730889378842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ee9fe61300f93346a701b9f456bc465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaskInsanity
+  taskName: Task Insanity
+  maxNbOfTasksInARaw: 3
+  priorityCurve: {fileID: 0}
+  _minMaxRange: {x: 3, y: 10}
+  _targetRange: 0.25
+  _insanityvalue: 0.15
+  _insanitySpeedMult: 1.5
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!1 &6168969091045592000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8511789132846651279}
+  - component: {fileID: 4887201938427460341}
+  - component: {fileID: 8403472103631578857}
+  m_Layer: 0
+  m_Name: AgentManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8511789132846651279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168969091045592000}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8707364668354006485}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4887201938427460341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168969091045592000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97dd48c33ff871e4cb19fac73ed365e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Blackboard
+  agents: []
+  agentsToAddAtNextFrame: []
+  agentsToRemoveAtNextFrame: []
+  listSpriteWrapper:
+  - direction: 0
+    sprite: {fileID: 21300000, guid: b162344d4fe34a94bb9d6150932d6f13, type: 3}
+  - direction: 2
+    sprite: {fileID: 21300000, guid: ccf64eb445da69b4d940485627e08f81, type: 3}
+  - direction: 1
+    sprite: {fileID: 21300000, guid: dae6f51ba75df7849ab8571aa7c26457, type: 3}
+  - direction: 3
+    sprite: {fileID: 21300000, guid: 4cc6e6409a5d41f4b91c2f4415bd19ac, type: 3}
+  - direction: 4
+    sprite: {fileID: 21300000, guid: cbb61248ecf9c594fa15b6ca76842848, type: 3}
+  - direction: 5
+    sprite: {fileID: 21300000, guid: c4068f65fbad1e041953eb0b88f52f55, type: 3}
+  - direction: 6
+    sprite: {fileID: 21300000, guid: ae5243ae0a5d85f448a130ffff11d45d, type: 3}
+  - direction: 7
+    sprite: {fileID: 21300000, guid: 85e7c322531e12a4ca8fdbcd985ec5da, type: 3}
+  - direction: 8
+    sprite: {fileID: 21300000, guid: d78fd16c9a13f8a4496bd0ecc83a8de2, type: 3}
+  - direction: 9
+    sprite: {fileID: 21300000, guid: 6c39376045c3b1b44a85b447de98a19f, type: 3}
+  - direction: 10
+    sprite: {fileID: 21300000, guid: e45d0e645f49418408523b98922322e3, type: 3}
+  - direction: 11
+    sprite: {fileID: 21300000, guid: 8ed7ec40241edac4cbb85791b289e13e, type: 3}
+  - direction: 12
+    sprite: {fileID: 21300000, guid: 74ac39491c28b864eabc5236c0baa5ea, type: 3}
+--- !u!114 &8403472103631578857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168969091045592000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c04409615a1abef43b1c32fdddfe0c99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaskManager
+  adepteList:
+  - {fileID: 5463938169011767625}
+  - {fileID: 5762890026629931133}
+  - {fileID: 9117102595482572121}
+  guerrierList:
+  - {fileID: 108041446402135366}
+  pretreList:
+  - {fileID: 5762890026629931133}
+  - {fileID: 9117102595482572121}
+  jehochatList:
+  - {fileID: 5112625827463731825}
+  idleTask: {fileID: 108041446402135366}
+  blackboard: {fileID: 4887201938427460341}
