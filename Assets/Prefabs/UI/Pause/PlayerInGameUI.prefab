@@ -1222,6 +1222,7 @@ GameObject:
   - component: {fileID: 4783241067542594810}
   - component: {fileID: 2589157315413305335}
   - component: {fileID: 645894593585426913}
+  - component: {fileID: 7148315099856146767}
   m_Layer: 5
   m_Name: PopUpPanel
   m_TagString: Untagged
@@ -1330,6 +1331,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Mask
   m_ShowMaskGraphic: 1
+--- !u!95 &7148315099856146767
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2166561253077046142}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce60618e6f6bbdf4799d08540cbddd73, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2512146558636413346
 GameObject:
   m_ObjectHideFlags: 0

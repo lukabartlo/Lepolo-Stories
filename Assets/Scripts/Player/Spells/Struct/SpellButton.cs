@@ -17,6 +17,7 @@ public class SpellButton : MonoBehaviour
     
     void Start()
     {
+        gm = GameManager.Instance;
         GetComponent<Button>().onClick.AddListener(OnClick);
         buttonBackground = GetComponent<Image>();
     }
@@ -26,11 +27,19 @@ public class SpellButton : MonoBehaviour
         if (gm.currentMana <= spellData.spellCost)
         {
             button.interactable = false;
-            buttonBackground.color = Color.darkGray;
-        } else
+
+            ColorUtility.TryParseHtmlString(offColorText, out offColor);
+
+            ColorBlock colors = button.colors;
+            colors.disabledColor = offColor;
+            button.colors = colors;
+        }
+        else
         {
             button.interactable = true;
-            buttonBackground.color = Color.white;
+
+            ColorUtility.TryParseHtmlString(onColorText, out onColor);
+            buttonBackground.color = onColor;
         }
     }
 
@@ -41,6 +50,8 @@ public class SpellButton : MonoBehaviour
             feedBackPanel.CloseFeedbackPanel();
             return;
         }
+        
+        feedBackPanel.OpenFeedbackPanel(spellData.spellName, spellData.spellDescription, transform.position);
     }
 
     public void OnClick()

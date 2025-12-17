@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 3593629629784747009}
   - component: {fileID: 1182094951242206719}
   - component: {fileID: 1377039829266964331}
+  - component: {fileID: 2395200881586273446}
   m_Layer: 5
   m_Name: Button Spell Empty
   m_TagString: Untagged
@@ -397,7 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -443,8 +444,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: fae58c9ac58d92043b39cd06b1e1fecf, type: 2}
   gm: {fileID: 0}
   button: {fileID: 1182094951242206719}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E3B31'
+--- !u!114 &2395200881586273446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441809913325195955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1377039829266964331}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1377039829266964331}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &530423599358358091
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,7 +581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -789,6 +836,7 @@ GameObject:
   - component: {fileID: 7417894734888736181}
   - component: {fileID: 6945748819873971319}
   - component: {fileID: 578978603363412081}
+  - component: {fileID: 6315555004708140818}
   m_Layer: 5
   m_Name: "Button Spell (\xC0 venir)"
   m_TagString: Untagged
@@ -867,7 +915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -913,8 +961,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: fae58c9ac58d92043b39cd06b1e1fecf, type: 2}
   gm: {fileID: 0}
   button: {fileID: 6945748819873971319}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E372E'
+--- !u!114 &6315555004708140818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959518933498007037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 578978603363412081}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 578978603363412081}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1069915541201748746
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,6 +1137,7 @@ GameObject:
   - component: {fileID: 773213436965217673}
   - component: {fileID: 9075073589810399429}
   - component: {fileID: 5604744680869223178}
+  - component: {fileID: 5752543327613667598}
   m_Layer: 5
   m_Name: Button Spell Empty
   m_TagString: Untagged
@@ -1121,7 +1216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1167,8 +1262,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: fae58c9ac58d92043b39cd06b1e1fecf, type: 2}
   gm: {fileID: 0}
   button: {fileID: 9075073589810399429}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E372E'
+--- !u!114 &5752543327613667598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256517200745877790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5604744680869223178}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5604744680869223178}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1299607488333078465
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,6 +2152,7 @@ GameObject:
   - component: {fileID: 8874476979208494003}
   - component: {fileID: 4641450998074344005}
   - component: {fileID: 7405129982256518676}
+  - component: {fileID: 8839672091245817226}
   m_Layer: 5
   m_Name: Button Spell Empty
   m_TagString: Untagged
@@ -2089,7 +2231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2135,8 +2277,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: fae58c9ac58d92043b39cd06b1e1fecf, type: 2}
   gm: {fileID: 0}
   button: {fileID: 4641450998074344005}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E372E'
+--- !u!114 &8839672091245817226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962379917088180698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7405129982256518676}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7405129982256518676}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1966803901977916711
 GameObject:
   m_ObjectHideFlags: 0
@@ -2225,6 +2413,7 @@ GameObject:
   - component: {fileID: 2131673546665533851}
   - component: {fileID: 1590431344181718897}
   - component: {fileID: 4140501752443661988}
+  - component: {fileID: 8968088459973299019}
   m_Layer: 5
   m_Name: Button Spell Jehocat
   m_TagString: Untagged
@@ -2303,7 +2492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2349,8 +2538,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: 7dc1493b98056074ab8e990d6333272c, type: 2}
   gm: {fileID: 0}
   button: {fileID: 1590431344181718897}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E372E'
+--- !u!114 &8968088459973299019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970109428169775915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4140501752443661988}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4140501752443661988}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2151467455909590607
 GameObject:
   m_ObjectHideFlags: 0
@@ -2667,6 +2902,7 @@ GameObject:
   - component: {fileID: 6122297356913477778}
   - component: {fileID: 2712333355816214263}
   - component: {fileID: 7737839584907796861}
+  - component: {fileID: 4900894736905872130}
   m_Layer: 5
   m_Name: Button Spell SpawnTree
   m_TagString: Untagged
@@ -2745,7 +2981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2791,8 +3027,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: 5fc14a97e249bde4c8a4bfd8d7cea0b3, type: 2}
   gm: {fileID: 0}
   button: {fileID: 2712333355816214263}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E372E'
+--- !u!114 &4900894736905872130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2340111446334742302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7737839584907796861}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7737839584907796861}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2355135971632861526
 GameObject:
   m_ObjectHideFlags: 0
@@ -2956,6 +3238,7 @@ GameObject:
   - component: {fileID: 3827745581377422859}
   - component: {fileID: 2529821171893247329}
   - component: {fileID: 377162960675114948}
+  - component: {fileID: 7917935521514597587}
   m_Layer: 5
   m_Name: "Button Spell (\xC0 venir)"
   m_TagString: Untagged
@@ -3034,7 +3317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3080,8 +3363,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: fae58c9ac58d92043b39cd06b1e1fecf, type: 2}
   gm: {fileID: 0}
   button: {fileID: 2529821171893247329}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E3B31'
+--- !u!114 &7917935521514597587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2773040746905147744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 377162960675114948}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 377162960675114948}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3023323325859286471
 GameObject:
   m_ObjectHideFlags: 0
@@ -3095,6 +3424,7 @@ GameObject:
   - component: {fileID: 4992444541058219291}
   - component: {fileID: 4736904689317683970}
   - component: {fileID: 4408833878678705558}
+  - component: {fileID: 3946496673692056775}
   m_Layer: 5
   m_Name: Button Spell Empty
   m_TagString: Untagged
@@ -3173,7 +3503,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3219,8 +3549,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: fae58c9ac58d92043b39cd06b1e1fecf, type: 2}
   gm: {fileID: 0}
   button: {fileID: 4736904689317683970}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E3B31'
+--- !u!114 &3946496673692056775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3023323325859286471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4408833878678705558}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4408833878678705558}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3184162299267230122
 GameObject:
   m_ObjectHideFlags: 0
@@ -3234,6 +3610,7 @@ GameObject:
   - component: {fileID: 6364816184380711094}
   - component: {fileID: 2373187734727924714}
   - component: {fileID: 3683870639369278673}
+  - component: {fileID: 6299022379543317650}
   m_Layer: 5
   m_Name: Button Spell Empty
   m_TagString: Untagged
@@ -3312,7 +3689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3358,8 +3735,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: fae58c9ac58d92043b39cd06b1e1fecf, type: 2}
   gm: {fileID: 0}
   button: {fileID: 2373187734727924714}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E372E'
+--- !u!114 &6299022379543317650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3184162299267230122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3683870639369278673}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3683870639369278673}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3347479542756287063
 GameObject:
   m_ObjectHideFlags: 0
@@ -3411,6 +3834,7 @@ GameObject:
   - component: {fileID: 1171093458649228365}
   - component: {fileID: 4785496061685930525}
   - component: {fileID: 3097614919405406469}
+  - component: {fileID: 2887053093127869717}
   m_Layer: 5
   m_Name: Button Spell Catnip
   m_TagString: Untagged
@@ -3489,7 +3913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3535,8 +3959,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: 556f38be168cdc241b8f159a7dc0d4c2, type: 2}
   gm: {fileID: 0}
   button: {fileID: 4785496061685930525}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E372E'
+--- !u!114 &2887053093127869717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3439959787178133349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3097614919405406469}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3097614919405406469}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &3442013440857605494
 GameObject:
   m_ObjectHideFlags: 0
@@ -3701,6 +4171,7 @@ GameObject:
   - component: {fileID: 1982534618504307974}
   - component: {fileID: 5347477948245191817}
   - component: {fileID: 2118241203147465369}
+  - component: {fileID: 3670712963252040669}
   m_Layer: 5
   m_Name: Button Spell Empty
   m_TagString: Untagged
@@ -3779,7 +4250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -3825,8 +4296,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: fae58c9ac58d92043b39cd06b1e1fecf, type: 2}
   gm: {fileID: 0}
   button: {fileID: 5347477948245191817}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E372E'
+--- !u!114 &3670712963252040669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3895197895016699769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2118241203147465369}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2118241203147465369}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4043639268971460307
 GameObject:
   m_ObjectHideFlags: 0
@@ -3915,6 +4432,7 @@ GameObject:
   - component: {fileID: 682782623907459824}
   - component: {fileID: 5788461504727157086}
   - component: {fileID: 3255371945380124526}
+  - component: {fileID: 1389916360783915678}
   m_Layer: 5
   m_Name: Button Spell Empty
   m_TagString: Untagged
@@ -3993,7 +4511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4039,8 +4557,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: fae58c9ac58d92043b39cd06b1e1fecf, type: 2}
   gm: {fileID: 0}
   button: {fileID: 5788461504727157086}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E372E'
+--- !u!114 &1389916360783915678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4314217398869131943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3255371945380124526}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3255371945380124526}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4440124714458017010
 GameObject:
   m_ObjectHideFlags: 0
@@ -4130,6 +4694,7 @@ GameObject:
   - component: {fileID: 2693454867646157035}
   - component: {fileID: 6891686492714778942}
   - component: {fileID: 6360431780534880042}
+  - component: {fileID: 646070503194405045}
   m_Layer: 5
   m_Name: Button Spell ChangeRole
   m_TagString: Untagged
@@ -4208,7 +4773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4254,8 +4819,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: fae58c9ac58d92043b39cd06b1e1fecf, type: 2}
   gm: {fileID: 0}
   button: {fileID: 6891686492714778942}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E372E'
+--- !u!114 &646070503194405045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4599107208908991534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6360431780534880042}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6360431780534880042}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4656770533426197781
 GameObject:
   m_ObjectHideFlags: 0
@@ -4648,7 +5259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -4891,6 +5502,7 @@ GameObject:
   - component: {fileID: 5301313465703358660}
   - component: {fileID: 1176528117075179145}
   - component: {fileID: 2281500678655115190}
+  - component: {fileID: 2650126242015596351}
   m_Layer: 5
   m_Name: Button Spell Empty
   m_TagString: Untagged
@@ -4969,7 +5581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5015,8 +5627,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: fae58c9ac58d92043b39cd06b1e1fecf, type: 2}
   gm: {fileID: 0}
   button: {fileID: 1176528117075179145}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E3B31'
+--- !u!114 &2650126242015596351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5530161770043565773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2281500678655115190}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2281500678655115190}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &5542907934433966077
 GameObject:
   m_ObjectHideFlags: 0
@@ -5123,6 +5781,7 @@ RectTransform:
   m_Children:
   - {fileID: 5000334177498330080}
   - {fileID: 4281170970217620399}
+  - {fileID: 8889651174713477290}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
@@ -5523,6 +6182,7 @@ GameObject:
   - component: {fileID: 6112759381093849765}
   - component: {fileID: 1674567698986097626}
   - component: {fileID: 4746179484317300660}
+  - component: {fileID: 8874543659688664290}
   m_Layer: 5
   m_Name: "Button Spell (\xC0 venir)"
   m_TagString: Untagged
@@ -5601,7 +6261,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5647,8 +6307,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: fae58c9ac58d92043b39cd06b1e1fecf, type: 2}
   gm: {fileID: 0}
   button: {fileID: 1674567698986097626}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E372E'
+--- !u!114 &8874543659688664290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6403894645985953703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4746179484317300660}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4746179484317300660}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6453681096413912545
 GameObject:
   m_ObjectHideFlags: 0
@@ -5662,6 +6368,7 @@ GameObject:
   - component: {fileID: 5937469477428784402}
   - component: {fileID: 8247871202927224250}
   - component: {fileID: 1201252356686835421}
+  - component: {fileID: 8060741097875178140}
   m_Layer: 5
   m_Name: Button Spell Empty
   m_TagString: Untagged
@@ -5740,7 +6447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -5786,8 +6493,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: fae58c9ac58d92043b39cd06b1e1fecf, type: 2}
   gm: {fileID: 0}
   button: {fileID: 8247871202927224250}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E372E'
+--- !u!114 &8060741097875178140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6453681096413912545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1201252356686835421}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1201252356686835421}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6992733991086328179
 GameObject:
   m_ObjectHideFlags: 0
@@ -6107,6 +6860,7 @@ GameObject:
   - component: {fileID: 8700074812412774999}
   - component: {fileID: 3923332810745683688}
   - component: {fileID: 503419443546066603}
+  - component: {fileID: 3448796094984882056}
   m_Layer: 5
   m_Name: "Button Spell (\xC0 venir)"
   m_TagString: Untagged
@@ -6185,7 +6939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -6231,8 +6985,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: fae58c9ac58d92043b39cd06b1e1fecf, type: 2}
   gm: {fileID: 0}
   button: {fileID: 3923332810745683688}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E372E'
+--- !u!114 &3448796094984882056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7348006853242055974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 503419443546066603}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 503419443546066603}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &7447578631304911544
 GameObject:
   m_ObjectHideFlags: 0
@@ -6552,6 +7352,7 @@ GameObject:
   - component: {fileID: 1627395225591762648}
   - component: {fileID: 4948259463729472082}
   - component: {fileID: 6051627360695206188}
+  - component: {fileID: 5062797858327192308}
   m_Layer: 5
   m_Name: Button Spell Empty
   m_TagString: Untagged
@@ -6630,7 +7431,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -6676,8 +7477,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: fae58c9ac58d92043b39cd06b1e1fecf, type: 2}
   gm: {fileID: 0}
   button: {fileID: 4948259463729472082}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E372E'
+--- !u!114 &5062797858327192308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7756598691802277378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6051627360695206188}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6051627360695206188}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8141568761932221691
 GameObject:
   m_ObjectHideFlags: 0
@@ -6768,7 +7615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -6949,7 +7796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -7204,6 +8051,7 @@ GameObject:
   - component: {fileID: 6869533684992369523}
   - component: {fileID: 6309092047583384757}
   - component: {fileID: 4301289153493718220}
+  - component: {fileID: 4977069172152453209}
   m_Layer: 5
   m_Name: Button Spell Predicator
   m_TagString: Untagged
@@ -7282,7 +8130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -7328,8 +8176,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: fae58c9ac58d92043b39cd06b1e1fecf, type: 2}
   gm: {fileID: 0}
   button: {fileID: 6309092047583384757}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E372E'
+--- !u!114 &4977069172152453209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8469830145587485574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301289153493718220}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4301289153493718220}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8638220581783899060
 GameObject:
   m_ObjectHideFlags: 0
@@ -7343,6 +8237,7 @@ GameObject:
   - component: {fileID: 1391776404929819219}
   - component: {fileID: 7705716849202160587}
   - component: {fileID: 5152881271210740414}
+  - component: {fileID: 5114559090264968460}
   m_Layer: 5
   m_Name: Button Spell Claw Slashes
   m_TagString: Untagged
@@ -7421,7 +8316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -7467,8 +8362,54 @@ MonoBehaviour:
   spellData: {fileID: 11400000, guid: 9adb3f6a21ba70143964967fc9b1996b, type: 2}
   gm: {fileID: 0}
   button: {fileID: 7705716849202160587}
+  feedBackPanel: {fileID: 6223752905378273477}
   offColorText: '#29483D'
   onColorText: '#1E3B31'
+--- !u!114 &5114559090264968460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8638220581783899060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5152881271210740414}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5152881271210740414}
+          m_TargetAssemblyTypeName: SpellButton, Assembly-CSharp
+          m_MethodName: FeedBack
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8692698855819522618
 GameObject:
   m_ObjectHideFlags: 0
@@ -7484,7 +8425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4044253004038996017
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7750,7 +8691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -8129,3 +9070,184 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1001 &8215207406094951825
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4891197022699830070}
+    m_Modifications:
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 42.25305
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -96.66797
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 687318215244565827, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 687318215244565827, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 687318215244565827, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 687318215244565827, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 687318215244565827, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3279520349084038025, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_Name
+      value: FeedBackPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205688295263789531, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205688295263789531, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205688295263789531, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205688295263789531, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205688295263789531, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 70.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205688295263789531, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519437239328656265, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519437239328656265, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519437239328656265, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519437239328656265, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519437239328656265, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 70.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 7519437239328656265, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+--- !u!114 &6223752905378273477 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2620375726340324692, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+  m_PrefabInstance: {fileID: 8215207406094951825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1ec23fc29c7014f9dce9070f70be38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpellPanelFeedback
+--- !u!224 &8889651174713477290 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 674454969895415099, guid: c12d90064f3d15047a4e239c8f61c34b, type: 3}
+  m_PrefabInstance: {fileID: 8215207406094951825}
+  m_PrefabAsset: {fileID: 0}
