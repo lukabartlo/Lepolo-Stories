@@ -23,7 +23,7 @@ public class CameraTestPerso : MonoBehaviour
 
     void Start() {
         _cameraPivot = transform.parent;
-        _desiredLocalPosition = new Vector3(0, 35, -50);
+        _desiredLocalPosition = new Vector3(0, 10, -15);
         _bounds = TestBuildManager.Instance.MapSize;
     }
     private void Update()
