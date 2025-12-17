@@ -255,6 +255,7 @@ public class AStarPathfinding : MonoBehaviour
 
     public bool IsTargetWalkable(Vector3 pos)
     {
+        
         int x = Mathf.RoundToInt(pos.x / _nodeSize);
         int y = Mathf.RoundToInt(pos.z / _nodeSize);
         
