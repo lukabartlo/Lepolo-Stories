@@ -1,3 +1,5 @@
+using EasyTextEffects.Editor.MyBoxCopy.Extensions;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,11 +9,16 @@ public class SpellButton : MonoBehaviour
     [SerializeField] private GameManager gm;
     [SerializeField] private Button button;
     private Image buttonBackground;
+    private Color offColor;
+    private Color onColor;
+    [SerializeField] private string offColorText;
+    [SerializeField] private string onColorText;
+
 
     void Start()
     {
         GetComponent<Button>().onClick.AddListener(OnClick);
-        buttonBackground = GetComponent<Image>();
+        buttonBackground = GetComponent<Image>();        
     }
 
     private void Update()
@@ -19,13 +26,22 @@ public class SpellButton : MonoBehaviour
         if (gm.currentMana <= spellData.spellCost)
         {
             button.interactable = false;
-            buttonBackground.color = Color.darkGray;
-        } else
+
+            ColorUtility.TryParseHtmlString(offColorText, out offColor);
+
+            ColorBlock colors = button.colors;
+            colors.disabledColor = offColor;
+            button.colors = colors;
+        }
+        else
         {
             button.interactable = true;
-            buttonBackground.color = Color.white;
+
+            ColorUtility.TryParseHtmlString(onColorText, out onColor);
+            buttonBackground.color = onColor;
         }
     }
+
 
     public void OnClick()
     {
