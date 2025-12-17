@@ -7095,6 +7095,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 438051663544661772, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 973629205735623653, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7111,8 +7115,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2647410974132594122, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+    - target: {fileID: 1190951810375065157, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1190951810375065157, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1764940732786692622, guid: c44eee24d3395db41b7021c5327019d6, type: 3}
+      propertyPath: canvasGroup
       value: 
       objectReference: {fileID: 501038482}
     - target: {fileID: 2647410974132594122, guid: c44eee24d3395db41b7021c5327019d6, type: 3}

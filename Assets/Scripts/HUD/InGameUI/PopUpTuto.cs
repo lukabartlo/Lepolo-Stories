@@ -1,3 +1,4 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,6 +6,9 @@ using UnityEngine.UI;
 public class PopUpTuto : MonoBehaviour {
     [SerializeField] private TextMeshProUGUI popUpText;
     [SerializeField] private int maxPage;
+    
+    [SerializeField] private float textDuration;
+    [SerializeField] private CanvasGroup buttonGroup;
     
     [SerializeField] private Button closeButton;
     
@@ -16,5 +20,12 @@ public class PopUpTuto : MonoBehaviour {
     public void PassPage(int _increment) {
         popUpText.pageToDisplay = Mathf.Clamp(popUpText.pageToDisplay + _increment, 1, maxPage);
         closeButton.interactable = popUpText.pageToDisplay == maxPage;
+    }
+
+    public void ShowText() {
+        popUpText.DOFade(1f, textDuration);
+        buttonGroup.DOFade(1f, textDuration);
+        buttonGroup.interactable = true;
+        buttonGroup.blocksRaycasts = true;
     }
 }
