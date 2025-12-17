@@ -56,6 +56,8 @@ public class Blackboard : MonoBehaviour
 
     public void UpdateAgentsList()
     {
+        bool hasCountChanged =  false;
+        
         for (int i = 0; i < agentsToAddAtNextFrame.Count; i++)
         {
             AgentStateManager agent = agentsToAddAtNextFrame[i];
@@ -65,21 +67,26 @@ public class Blackboard : MonoBehaviour
                 agent.agentData.AssignSprites(ref sprites);
                 agent.agentData.SetSprite(agent.agentData.lastDirection);
                 agents.Add(agent);
-                _hud.SetAdeptCounter(agents.Count, 66);
             }
+            hasCountChanged = true;
+            agentsToAddAtNextFrame.Remove(agent);
         }
 
         for (int i = 0; i < agentsToRemoveAtNextFrame.Count; i++)
         {
             AgentStateManager agent = agentsToRemoveAtNextFrame[i];
 
-            if (!agents.Contains(agent)) continue;
-
-            agents.Remove(agent);
-            
-            if(agent)
-                Destroy(agent.gameObject);
+            if (agents.Contains(agent))
+            {
+                agents.Remove(agent);
+                if(agent)
+                    Destroy(agent.gameObject);
+            }
+            hasCountChanged = true;
+            agentsToAddAtNextFrame.Remove(agent);
         }
+        
+        if (hasCountChanged) _hud.SetAdeptCounter(agents.Count, 66);
         
         _allMadness = new List<float>();
         foreach (var agent in agents) {
