@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpellData
   spellID: 2
   spellName: Change Role To Jehochat
-  spellDescription: A Jeochat is someone that provides \nnew inhabitant for your
-    colony
   type: 2
   spellCost: 10
   madnessValue: 0

@@ -26,16 +26,16 @@ public class TaskIdle : Task
         
         Vector3 target = agent.transform.position;
         target = GetATargetByDirection(target, dir, moveOpportunity);
-        if (mapData.pathfinding.IsTargetWalkable(mapData,target)) return target;   
+        if (mapData.pathfinding.IsTargetWalkable(target) && mapData.IsCoordInMap(target)) return target;   
         
-        while (!mapData.pathfinding.IsTargetWalkable(mapData ,target))
+        while (!mapData.pathfinding.IsTargetWalkable(target))
         {
             for (int i = 0; i < 4; i++)
             {
                 dir++;
                 if (dir > 3) dir = 0;
                 target = GetATargetByDirection(agent.transform.position, dir, moveOpportunity);
-                if (mapData.pathfinding.IsTargetWalkable(mapData ,target)) return target;
+                if (mapData.IsCoordInMap(target) && mapData.pathfinding.IsTargetWalkable(target)) return target;
             }
 
             moveOpportunity++;

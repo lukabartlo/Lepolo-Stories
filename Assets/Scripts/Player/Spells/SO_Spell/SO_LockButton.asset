@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpellData
   spellID: 3
   spellName: Empty
-  spellDescription: Feature not \nimplemented yet
   type: 0
   spellCost: 1000000
   madnessValue: 0
@@ -23,5 +22,3 @@ MonoBehaviour:
   aoeRadius: 0
   aoePreviewPrefab: {fileID: 0}
   roles: 0
-  roleSprite: {fileID: 0}
-  obj: 0

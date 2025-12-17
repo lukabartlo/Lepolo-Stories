@@ -17,12 +17,6 @@ public class Blackboard : MonoBehaviour
     private List<float> _allMadness;
     private InGameHUD _hud;
     
-    [SerializeField] private int winCondition;
-    [SerializeField] private CanvasGroup winPanel;
-    [SerializeField] private int loseCondition;
-    [SerializeField] private CanvasGroup losePanel;
-    [SerializeField] private UIController uiController;
-    
     private void OnEnable()
     {
         foreach (var item in listSpriteWrapper)
@@ -56,8 +50,6 @@ public class Blackboard : MonoBehaviour
 
     public void UpdateAgentsList()
     {
-        bool hasCountChanged =  false;
-        
         for (int i = 0; i < agentsToAddAtNextFrame.Count; i++)
         {
             AgentStateManager agent = agentsToAddAtNextFrame[i];
@@ -67,43 +59,26 @@ public class Blackboard : MonoBehaviour
                 agent.agentData.AssignSprites(ref sprites);
                 agent.agentData.SetSprite(agent.agentData.lastDirection);
                 agents.Add(agent);
+                _hud.SetAdeptCounter(agents.Count, 66);
             }
-            hasCountChanged = true;
-            agentsToAddAtNextFrame.Remove(agent);
         }
 
         for (int i = 0; i < agentsToRemoveAtNextFrame.Count; i++)
         {
             AgentStateManager agent = agentsToRemoveAtNextFrame[i];
 
-            if (agents.Contains(agent))
-            {
-                agents.Remove(agent);
-                if(agent)
-                    Destroy(agent.gameObject);
-            }
-            hasCountChanged = true;
-            agentsToAddAtNextFrame.Remove(agent);
+            if (!agents.Contains(agent)) continue;
+
+            agents.Remove(agent);
+            
+            if(agent)
+                Destroy(agent.gameObject);
         }
-        
-        if (hasCountChanged) _hud.SetAdeptCounter(agents.Count, 66);
         
         _allMadness = new List<float>();
         foreach (var agent in agents) {
             _allMadness.Add(agent.agentData.GetMadness());
         }
         _hud.SetMadness(_allMadness, 100);
-        CheckWinCondition();
-    }
-
-    private void CheckWinCondition() {
-        if (agents.Count >= winCondition) {
-            UIManager.Instance.OnOpenClosePanel(winPanel, 1f, 0.3f, true);
-            uiController.EnableInputs(false);
-        }
-        else if (agents.Count <= loseCondition) {
-            UIManager.Instance.OnOpenClosePanel(losePanel, 1f, 0.3f, true);
-            uiController.EnableInputs(false);
-        }
     }
 }

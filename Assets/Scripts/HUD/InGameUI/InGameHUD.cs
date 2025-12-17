@@ -9,6 +9,7 @@ public class InGameHUD : MonoBehaviour {
     [SerializeField] private Image madnessBar;
     [SerializeField] private Image manaBar;
     
+    [SerializeField] private Image adeptCounterImage;
     [SerializeField] private TextMeshProUGUI adeptCounterText;
     
     [SerializeField] private CanvasGroup tuto;
@@ -36,10 +37,7 @@ public class InGameHUD : MonoBehaviour {
     }
 
     public void SetAdeptCounter(int _currentAdeptCounter, int _maxAdeptCounter) {
-        string _staticString = "0";
-        if (_currentAdeptCounter < 10)
-            _staticString += "0";
-        
-        adeptCounterText.text = _staticString + _currentAdeptCounter;
+        adeptCounterText.text = _currentAdeptCounter.ToString();
+        adeptCounterImage.fillAmount = (float)_currentAdeptCounter / _maxAdeptCounter;
     }
 }

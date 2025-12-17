@@ -11,9 +11,6 @@ public class SpellData : ScriptableObject
 
     [Tooltip("Displayed name of the spell")]
     public string spellName;
-    
-    [Tooltip("Displayed description of the spell")]
-    public string spellDescription;
 
     [Tooltip("Type/category of the spell")]
     public SpellEnum type;
