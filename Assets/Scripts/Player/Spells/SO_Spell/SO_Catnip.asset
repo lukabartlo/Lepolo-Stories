@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpellData
   spellID: 1
   spellName: Catnip
+  spellDescription: Catnip helps reducing \ncats madness
   type: 1
   spellCost: 5
   madnessValue: 25
@@ -22,4 +23,5 @@ MonoBehaviour:
   aoeRadius: 3
   aoePreviewPrefab: {fileID: 735195259951271565, guid: eb739d02bc313b04e9af36b97580cb0d, type: 3}
   roles: 0
+  roleSprite: {fileID: 0}
   obj: 0

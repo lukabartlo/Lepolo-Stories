@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpellData
   spellID: 4
   spellName: Spawn Tree
+  spellDescription: Well, spawns a tree.
   type: 3
   spellCost: 5
   madnessValue: 0
@@ -22,4 +23,5 @@ MonoBehaviour:
   aoeRadius: 0
   aoePreviewPrefab: {fileID: 0}
   roles: 0
+  roleSprite: {fileID: 0}
   obj: 1

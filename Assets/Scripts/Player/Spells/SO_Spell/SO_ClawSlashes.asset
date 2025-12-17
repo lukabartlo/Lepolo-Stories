@@ -13,8 +13,15 @@ MonoBehaviour:
   m_Name: SO_ClawSlashes
   m_EditorClassIdentifier: Assembly-CSharp::SpellData
   spellID: 0
-  spellCost: 3
   spellName: Claw Slashes
+  spellDescription: A powerfull claw slash \nmeant to kill enemies
   type: 0
+  spellCost: 3
+  madnessValue: 0
   spellEffectPrefab: {fileID: 8307060409358143758, guid: 8f767d0b23c8e3b4cb2ead5380b1074d, type: 3}
   cursorTexture: {fileID: 2800000, guid: e9c90f0d80ba4034fbf4a2509273d0da, type: 3}
+  aoeRadius: 0
+  aoePreviewPrefab: {fileID: 0}
+  roles: 0
+  roleSprite: {fileID: 0}
+  obj: 0
