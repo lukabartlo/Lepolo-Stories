@@ -69,10 +69,17 @@ public class TaskCuttingTree : Task
         if (agent.HasAgentReachedTarget(agent.currentTarget.position))
         {
             agent.UpdateTimer();
-            PlayCuttingAnimation();
+
+            if (!agent.isPlayingSound)
+            {
+                agent.isPlayingSound = true;
+                SoundManager.OnSoundSpatializedPlayed?.Invoke(SoundName.CuttingTree, agent.audioSource); // lance le son une première fois
+            }
+            
             if (agent.isTimerFinished)
             {
-                //Debug.Log("Cut");
+                agent.audioSource.Stop(); // arrete le son
+                agent.isPlayingSound = false;
                 CutTree(agent.currentTarget.gameObject);
                 agent.isTaskFinished = true;
             }
@@ -104,6 +111,7 @@ public class TaskCuttingTree : Task
     public override void OnStop(AgentStateManager agent)
     {
         agent.timer = 0;
+        agent.isPlayingSound =  false;
         agent.currentTarget = null;
         agent.isTaskFinished = false;
     }
@@ -111,6 +119,7 @@ public class TaskCuttingTree : Task
     public override void OnCancel(AgentStateManager agent)
     {
         agent.timer = 0;
+        agent.isPlayingSound =  false;
         agent.currentTarget = null;
         agent.isTaskFinished = false;
     }

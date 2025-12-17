@@ -107,6 +107,12 @@ public class TaskGatherAdepts : Task
         switch (agent.actualGatheringPhase)
         {
             case GatheringPhase.FadingOut:
+                
+                if (!agent.isPlayingSound)
+                {
+                    agent.isPlayingSound = true;
+                    SoundManager.OnSoundSpatializedPlayed?.Invoke(SoundName.JehoChatLeaving, agent.audioSource); // lance le son une première fois
+                }
                 // Gradually fade out the Jehochat
                 agent.timer += Time.deltaTime;
                 float fadeOutProgress = Mathf.Clamp01(agent.timer / fadeDuration);
@@ -115,6 +121,9 @@ public class TaskGatherAdepts : Task
                 
                 if (fadeOutProgress >= 1f)
                 {
+                    agent.audioSource.Stop(); // arrete le son
+                    agent.isPlayingSound = false;
+                    
                     // Transition to waiting phase
                     agent.actualGatheringPhase = GatheringPhase.Waiting;
                     agent.timer = 0f;
@@ -137,6 +146,12 @@ public class TaskGatherAdepts : Task
                 break;
                 
             case GatheringPhase.FadingIn:
+                
+                if (!agent.isPlayingSound)
+                {
+                    agent.isPlayingSound = true;
+                    SoundManager.OnSoundSpatializedPlayed?.Invoke(SoundName.JehoChatComingBack, agent.audioSource); // lance le son une première fois
+                }
                 // Gradually fade in the Jehochat
                 agent.timer += Time.deltaTime;
                 float fadeInProgress = Mathf.Clamp01(agent.timer / fadeDuration);
@@ -145,6 +160,9 @@ public class TaskGatherAdepts : Task
                 
                 if (fadeInProgress >= 1f)
                 {
+                    agent.audioSource.Stop(); // arrete le son
+                    agent.isPlayingSound = false;
+                    
                     // Transition to spawning phase
                     agent.actualGatheringPhase = GatheringPhase.SpawningAdepts;
                 }
@@ -177,6 +195,7 @@ public class TaskGatherAdepts : Task
     {
         // Reset values and restore original alpha
         agent.timer = 0;
+        agent.isPlayingSound =  false;
         agent.currentTarget = null;
         agent.isTaskFinished = false;
         
@@ -189,6 +208,7 @@ public class TaskGatherAdepts : Task
     {
         // Reset values and restore original alpha
         agent.timer = 0;
+        agent.isPlayingSound =  false;
         agent.currentTarget = null;
         agent.isTaskFinished = false;
         _currentPhase = GatheringPhase.FadingOut;
