@@ -119,6 +119,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &31061763 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5762890026629931133, guid: 3bbf0ba765c241b48b3a94111e58f077, type: 3}
+  m_PrefabInstance: {fileID: 1244250071}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3514b0096a8c4a49887348798d285e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaskPraying
+--- !u!114 &31061764 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5463938169011767625, guid: 3bbf0ba765c241b48b3a94111e58f077, type: 3}
+  m_PrefabInstance: {fileID: 1244250071}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40a0c71256e17934c9825fb476118a95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TaskCuttingTree
 --- !u!1 &35968777
 GameObject:
   m_ObjectHideFlags: 0
@@ -6276,7 +6298,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6037132450125393885, guid: 93249584b622bfe4e93498ef836fa49d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.35
+      value: 35.440002
       objectReference: {fileID: 0}
     - target: {fileID: 6037132450125393885, guid: 93249584b622bfe4e93498ef836fa49d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6323,6 +6345,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test Agent
       objectReference: {fileID: 0}
+    - target: {fileID: 4444585816494722062, guid: 93249584b622bfe4e93498ef836fa49d, type: 3}
+      propertyPath: agentData.role
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6037132450125393885, guid: 93249584b622bfe4e93498ef836fa49d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 34.42025
@@ -6333,7 +6359,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6037132450125393885, guid: 93249584b622bfe4e93498ef836fa49d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 25.71
+      value: 31.8
       objectReference: {fileID: 0}
     - target: {fileID: 6037132450125393885, guid: 93249584b622bfe4e93498ef836fa49d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6824,7 +6850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4495819134992896537, guid: b65ff70416e2aba4b8937343829a2b90, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 4766306128186363060, guid: b65ff70416e2aba4b8937343829a2b90, type: 3}
       propertyPath: m_AnchorMax.y
@@ -7445,7 +7471,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6037132450125393885, guid: 93249584b622bfe4e93498ef836fa49d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.42
+      value: 35.510002
       objectReference: {fileID: 0}
     - target: {fileID: 6037132450125393885, guid: 93249584b622bfe4e93498ef836fa49d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7508,6 +7534,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AgentManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8403472103631578857, guid: 3bbf0ba765c241b48b3a94111e58f077, type: 3}
+      propertyPath: 'adepteList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 31061763}
+    - target: {fileID: 8403472103631578857, guid: 3bbf0ba765c241b48b3a94111e58f077, type: 3}
+      propertyPath: 'adepteList.Array.data[1]'
+      value: 
+      objectReference: {fileID: 31061764}
     - target: {fileID: 8511789132846651279, guid: 3bbf0ba765c241b48b3a94111e58f077, type: 3}
       propertyPath: m_LocalPosition.x
       value: 168.2638
@@ -7950,6 +7984,10 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 1700066508}
+    - target: {fileID: 5369285677146634695, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: spellData
+      value: 
+      objectReference: {fileID: 11400000, guid: 9adb3f6a21ba70143964967fc9b1996b, type: 2}
     - target: {fileID: 6485773749310534155, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
       propertyPath: gm
       value: 
@@ -8092,7 +8130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6037132450125393885, guid: 93249584b622bfe4e93498ef836fa49d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 26.67
+      value: 32.760002
       objectReference: {fileID: 0}
     - target: {fileID: 6037132450125393885, guid: 93249584b622bfe4e93498ef836fa49d, type: 3}
       propertyPath: m_LocalRotation.w

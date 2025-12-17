@@ -85,6 +85,48 @@ public class TaskGatherAdepts : Task
     {
         agent.agentData.SetNewAlpha(alpha);
     }
+
+    private Vector3 GetClosestMapBorder(AgentStateManager agent)
+    {
+        Vector3 closestMapBorder = Vector3.positiveInfinity;
+        Vector3 posChecked;
+        float closestDistance = float.MaxValue;
+        Transform agentTransform = agent.transform;
+        
+        Vector2 maxXY = mapData.GetMaxXY();
+
+        for (int direction = 0; direction < 4; direction++)
+        {
+            switch (direction)
+            {
+                case 0: // right
+                    posChecked = new Vector3(maxXY.x, agentTransform.position.y, agentTransform.position.z);
+                    break;
+                case 1: // down
+                    posChecked = new Vector3(agentTransform.position.x, agentTransform.position.y, 1);
+                    break;
+                case 2: // left
+                    posChecked = new Vector3(1 ,agentTransform.position.y, agentTransform.position.z);
+                    Vector3.Distance(agentTransform.position, new Vector3(0,agentTransform.position.y, agentTransform.position.z));
+                    break;
+                case 3: // up
+                    posChecked = new Vector3(agentTransform.position.x, agentTransform.position.y, maxXY.y);
+                    break;
+                default:
+                    posChecked = agentTransform.position;
+                    break;
+            }
+            
+            float disChecked = Vector3.Distance(agentTransform.position, posChecked);
+            if (disChecked < closestDistance)
+            {
+                closestMapBorder = posChecked;
+                closestDistance = disChecked;
+            }
+        }
+
+        return closestMapBorder;
+    }
     
     #region State Machine Basic Functions
     
@@ -99,39 +141,70 @@ public class TaskGatherAdepts : Task
 
         agent.originalColor = agent.agentData.spriteRendererRef.color;
         agent.originalAlpha = agent.originalColor.a;
+
+        agent.targetPosition = GetClosestMapBorder(agent);
+        Debug.Log($"jehochat pos : {agent.transform.position} , {agent.targetPosition}");
+        agent.FindNewPath(mapData, agent.targetPosition); // aller a cette position
+        Debug.Log($"jehochat pathnode count : {agent.pathNodes.Count}");
     }
 
     public override void OnUpdate(AgentStateManager agent)
     {
         if (agent.isTaskFinished) return;
+
+        float fadeOutProgress;
+        float currentAlpha;
         
         switch (agent.actualGatheringPhase)
         {
             case GatheringPhase.FadingOut:
-                
-                if (!agent.isPlayingSound)
+                if (agent.HasAgentReachedTarget(agent.targetPosition))
                 {
-                    agent.isPlayingSound = true;
-                    SoundManager.OnSoundSpatializedPlayed?.Invoke(SoundName.JehoChatLeaving, agent.audioSource); // lance le son une première fois
-                }
-                // Gradually fade out the Jehochat
-                agent.timer += Time.deltaTime;
-                float fadeOutProgress = Mathf.Clamp01(agent.timer / fadeDuration);
-                float currentAlpha = Mathf.Lerp(agent.originalAlpha, 0f, fadeOutProgress);
-                UpdateJehochatAlpha(agent,currentAlpha);
-                
-                if (fadeOutProgress >= 1f)
-                {
-                    agent.audioSource.Stop(); // arrete le son
-                    agent.isPlayingSound = false;
+                    if (!agent.isPlayingSound)
+                    {
+                        agent.isPlayingSound = true;
+                        SoundManager.OnSoundSpatializedPlayed?.Invoke(SoundName.JehoChatLeaving, agent.audioSource); // lance le son une première fois
+                    }
                     
-                    // Transition to waiting phase
-                    agent.actualGatheringPhase = GatheringPhase.Waiting;
-                    agent.timer = 0f;
-                    agent.taskDuration = _expeditionDuration;
+                    // Gradually fade out the Jehochat
+                    agent.timer += Time.deltaTime; 
+                    fadeOutProgress = Mathf.Clamp01(agent.timer / fadeDuration);
+                    currentAlpha = Mathf.Lerp(agent.originalAlpha, 0f, fadeOutProgress);
+                    UpdateJehochatAlpha(agent,currentAlpha);
+                
+                    if (fadeOutProgress >= 1f)
+                    {
+                        agent.audioSource.Stop(); // arrete le son
+                        agent.isPlayingSound = false;
+                    
+                        // Transition to waiting phase
+                        agent.actualGatheringPhase = GatheringPhase.Waiting;
+                        agent.timer = 0f;
+                        agent.taskDuration = _expeditionDuration;
+                    }
+                }
+                else
+                {
+                    if (agent.pathNodes.Count == 0)
+                    {
+                        Debug.Log("jehochat : agent.pathNodes.Count == 0");
+                        if (!agent.FindNewPath(mapData, agent.targetPosition))
+                        {
+                            return;
+                        }
+                    }
+            
+                    if (!agent.MoveTowardPathNode())
+                    {
+                        Debug.Log("jehochat : !agent.MoveTowardPathNode()");
+                        if (!agent.FindNewPath(mapData, agent.targetPosition) && !agent.HasAgentReachedTarget(agent.targetPosition))
+                        {
+                            return;
+                        }
+                    }
                 }
                 break;
-                
+            
             case GatheringPhase.Waiting:
                 // Wait for the task duration
                 agent.UpdateTimer();

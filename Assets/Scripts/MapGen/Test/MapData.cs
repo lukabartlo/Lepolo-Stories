@@ -214,6 +214,11 @@ public class MapData {
         return default;
     }
 
+    public Vector2 GetMaxXY()
+    {
+        return new Vector2(_map.GetLength(0) - 1, _map.GetLength(1) - 1);
+    }
+
     public List<Vector2Int> GetConnectedCellsFull(int _x, int _y)
     {
         List<Vector2Int> returnList = new List<Vector2Int>();
@@ -236,7 +241,6 @@ public class MapData {
 
         return returnList;
     }
-
     
     public void OnDrawGizmos()
     {
