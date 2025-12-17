@@ -253,8 +253,9 @@ public class AStarPathfinding : MonoBehaviour
         return _grid;
     }
 
-    public bool IsTargetWalkable(Vector3 pos)
+    public bool IsTargetWalkable(MapData mapData,Vector3 pos)
     {
+        if (!mapData.IsCoordInMap(pos)) return false;
         
         int x = Mathf.RoundToInt(pos.x / _nodeSize);
         int y = Mathf.RoundToInt(pos.z / _nodeSize);

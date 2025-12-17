@@ -11,7 +11,18 @@ public class TaskCuttingTree : Task
     #region Function to Use with TaskManager
     public override float GetPriority(AgentData agentData)
     {
-        return 1f;
+        if (agentData.lastExecutedTask == this)
+        {
+            if (agentData.numberOfExecutedTasks > maxNbOfTasksInARaw)
+            {
+                agentData.numberOfExecutedTasks = 1;
+                return 0f;
+            }
+            agentData.numberOfExecutedTasks++;
+            return 2f;
+        }
+        
+        return 1f; // change for the UtilityCurve instead
     }
 
     public override bool CanDoTask(AgentData agentData)
@@ -19,11 +30,6 @@ public class TaskCuttingTree : Task
         return true;
     }
     #endregion
-
-    private void PlayCuttingAnimation()
-    {
-        // lance l'animation de pray
-    }
 
     private void CutTree(GameObject target)
     {
@@ -39,6 +45,10 @@ public class TaskCuttingTree : Task
         agent.taskDuration = taskDuration;
         agent.isTaskFinished = false;
         agent.doIdleAfterTask = true;
+        
+        agent.agentData.lastExecutedTask = this;
+        
+        agent.doIdleAfterTask = Random.Range(0, 2) == 0; // a une chance sur 2 de faire l'idle à la fin de la tache
 
         if (!agent.FindNewTarget(tree, mapData))
         {

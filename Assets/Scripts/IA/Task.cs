@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class Task : MonoBehaviour
 {
     public string taskName;
+    public int maxNbOfTasksInARaw = 3;
     
     public MapData mapData;
     
