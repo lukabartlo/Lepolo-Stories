@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1540857615603661839}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 5289525040285824054}
   - component: {fileID: 7098746297269095000}
   - component: {fileID: 1148408691844847313}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Candle_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +293,7 @@ GameObject:
   - component: {fileID: 6871519415164000228}
   - component: {fileID: 4529576243079939554}
   - component: {fileID: 2046748671862822029}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Candle_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -644,7 +644,7 @@ GameObject:
   - component: {fileID: 6289066611155620931}
   - component: {fileID: 2154988457079433132}
   - component: {fileID: 7666655842558553757}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light_L_Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -884,7 +884,7 @@ GameObject:
   - component: {fileID: 3695942792864743843}
   - component: {fileID: 6564781272743432112}
   - component: {fileID: 5237048286507051076}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Candle_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1124,7 +1124,7 @@ GameObject:
   - component: {fileID: 3274798773868442563}
   - component: {fileID: 2789789313186575605}
   - component: {fileID: 5514611558163102086}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Candle_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1398,7 +1398,7 @@ GameObject:
   - component: {fileID: 3336037087427210140}
   - component: {fileID: 8823062192894617382}
   - component: {fileID: 3419229861629868360}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light_Cross
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1637,7 +1637,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1579213095921748906}
   - component: {fileID: 5644766110480283948}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BigAltar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1728,7 +1728,7 @@ GameObject:
   - component: {fileID: 2719043098237313432}
   - component: {fileID: 236320581884344188}
   - component: {fileID: 5354704742012991015}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Candle_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2089,7 +2089,7 @@ GameObject:
   - component: {fileID: 5259825029849303403}
   - component: {fileID: 124386934293673094}
   - component: {fileID: 4914196917949239027}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Candle_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2329,7 +2329,7 @@ GameObject:
   - component: {fileID: 8078847678734685030}
   - component: {fileID: 3695508188447125795}
   - component: {fileID: 4204704031336995655}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Candle_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2569,7 +2569,7 @@ GameObject:
   - component: {fileID: 5679225269463052640}
   - component: {fileID: 5890865372503949059}
   - component: {fileID: 1183980267525860315}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light_R_Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2809,7 +2809,7 @@ GameObject:
   - component: {fileID: 5840406591630195401}
   - component: {fileID: 7899058039320885014}
   - component: {fileID: 3930235034966637082}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Candle_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

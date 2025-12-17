@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7054608676645717109}
   - component: {fileID: 6908398184100178042}
   - component: {fileID: 831456992454502482}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   m_Component:
   - component: {fileID: 457809687684248775}
   - component: {fileID: 1034069157417058494}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2485557343483777301}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Candle_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2367985744427554058}
   - component: {fileID: 1069299675304949960}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

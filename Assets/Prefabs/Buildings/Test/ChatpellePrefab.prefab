@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3129261429434646319}
   - component: {fileID: 6479242501182104941}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8417814244517498013}
   - component: {fileID: 7474630809403070125}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Candle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7795058177502622915}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Candle_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 340454094174746409}
   - component: {fileID: 2047307633273217036}
   - component: {fileID: 2588401231171865364}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Candle_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 4766104628611331258}
   - component: {fileID: 5702763648138535267}
   - component: {fileID: 6999096891537784775}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -861,7 +861,7 @@ GameObject:
   - component: {fileID: 7357539039160693345}
   - component: {fileID: 2339187408480681702}
   - component: {fileID: 3056895347000350402}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point Light (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1100,7 +1100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6225388400908708078}
   - component: {fileID: 9136224613082904031}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Church
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1190,7 +1190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 754544334632405969}
   - component: {fileID: 5110275276583456029}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RockPath2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1281,7 +1281,7 @@ GameObject:
   - component: {fileID: 3812182791466848198}
   - component: {fileID: 5611189012697965090}
   - component: {fileID: 8484845959492884531}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Candle_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1520,7 +1520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4453697444158856494}
   - component: {fileID: 2449956043228117386}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Candle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1610,7 +1610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3108744170620446982}
   - component: {fileID: 8836252197581462036}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RockPath1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1700,7 +1700,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5436272940998843574}
   - component: {fileID: 2786659087312286402}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RockPath3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1790,7 +1790,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3312331459326273029}
   - component: {fileID: 2734939509791691388}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1880,7 +1880,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8707813322973253003}
   - component: {fileID: 7374226738123906129}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1933,7 +1933,7 @@ GameObject:
   m_Component:
   - component: {fileID: 824566551361587144}
   - component: {fileID: 2700856813311846922}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1985,7 +1985,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3730633913448451797}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Candle_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2022,7 +2022,7 @@ GameObject:
   - component: {fileID: 4503416268832404626}
   - component: {fileID: 6187558579407235874}
   - component: {fileID: 4500550522458953557}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2260,7 +2260,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 708135696278111191}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Candle_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2296,7 +2296,7 @@ GameObject:
   - component: {fileID: 6095230100855992238}
   - component: {fileID: 4733296450820191182}
   - component: {fileID: 4286330676147189151}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2536,7 +2536,7 @@ GameObject:
   - component: {fileID: 5353290818809747127}
   - component: {fileID: 8390834056725936824}
   - component: {fileID: 2316074168167922320}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2775,7 +2775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7650741085142249122}
   - component: {fileID: 1160453641670461531}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2866,7 +2866,7 @@ GameObject:
   - component: {fileID: 6780489585790378817}
   - component: {fileID: 7528524037732636769}
   - component: {fileID: 797074246636987021}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point Light (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3105,7 +3105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 807164954652096189}
   - component: {fileID: 6210278446747959869}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HitBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
