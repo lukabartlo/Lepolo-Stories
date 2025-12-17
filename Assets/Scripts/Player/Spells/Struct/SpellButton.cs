@@ -9,11 +9,6 @@ public class SpellButton : MonoBehaviour
     private Image buttonBackground;
     
     [SerializeField] private SpellPanelFeedback feedBackPanel;
-
-    private Color offColor;
-    private Color onColor;
-    [SerializeField] private string offColorText;
-    [SerializeField] private string onColorText;
     
     void Start()
     {
@@ -27,19 +22,10 @@ public class SpellButton : MonoBehaviour
         if (gm.currentMana <= spellData.spellCost)
         {
             button.interactable = false;
-
-            ColorUtility.TryParseHtmlString(offColorText, out offColor);
-
-            ColorBlock colors = button.colors;
-            colors.disabledColor = offColor;
-            button.colors = colors;
         }
         else
         {
             button.interactable = true;
-
-            ColorUtility.TryParseHtmlString(onColorText, out onColor);
-            buttonBackground.color = onColor;
         }
     }
 
