@@ -8164,6 +8164,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69f1e2419e06e4649984302d09af996e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraTestPerso
+--- !u!114 &1700066508 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6187907308879279147, guid: 6ddbc91a7b282ac47b64a6e6d245b80f, type: 3}
+  m_PrefabInstance: {fileID: 182739127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb2830f2bd83c3a438b6e28d553b88b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
 --- !u!1001 &1768233508
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8172,6 +8183,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1254351566}
     m_Modifications:
+    - target: {fileID: 247030925166569426, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 255381198736329569, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 797363943642375149, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 994826459455623383, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 1281760926213903466, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 1721377890988768617, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 2880911828884470753, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
     - target: {fileID: 2939666350455697923, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -8268,6 +8307,74 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2999289841270968194, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 3030486512747449424, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 3372910831970352767, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 4197190654237216871, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 4793348601025361782, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 5231212076831718538, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 5369285677146634695, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 6485773749310534155, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 6622298414973897363, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 7084330806161323670, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 7099176889444084776, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 7753847636098725592, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
+    - target: {fileID: 8544906604862361285, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8544906604862361285, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8544906604862361285, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: m_RaycastPadding.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8544906604862361285, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8586531509124119756, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 1700066508}
     - target: {fileID: 8852780323434868823, guid: 08b8c95c06bb0204482e0f1da926bc66, type: 3}
       propertyPath: m_Name
       value: LastVersionSpellPanel
