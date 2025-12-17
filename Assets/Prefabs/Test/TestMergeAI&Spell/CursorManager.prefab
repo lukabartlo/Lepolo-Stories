@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cecb807cd251a744290a04bec4304a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CursorManager
-  cursorNormal: {fileID: 0}
-  cursorClicked: {fileID: 0}
+  cursorNormal: {fileID: 2800000, guid: d81e5a7aec971e64b99e98105c30f657, type: 3}
+  cursorClicked: {fileID: 2800000, guid: a7253653781abc04f9e74c040c700675, type: 3}
   cursorMode: 0
