@@ -353,6 +353,138 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &833265207437836568
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9190284176432680746}
+  - component: {fileID: 2369599629886691786}
+  - component: {fileID: 3169223201121930623}
+  - component: {fileID: 4988936792676794572}
+  - component: {fileID: 6983887186863333636}
+  - component: {fileID: 3971350561240675976}
+  m_Layer: 5
+  m_Name: Script
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &9190284176432680746
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833265207437836568}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1190951810375065157}
+  m_Father: {fileID: 5186296157855381958}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.06847917, y: 0.012444448}
+  m_AnchorMax: {x: 0.9315209, y: 0.98811114}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &2369599629886691786
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833265207437836568}
+  m_CullTransparentMesh: 1
+--- !u!114 &3169223201121930623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833265207437836568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 0a1ccaffb4ddca64eabaad7e1f412fa5, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!95 &4988936792676794572
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833265207437836568}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14226e0b91bfc4845a0ecf52230d8597, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6983887186863333636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833265207437836568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02ef2e0f3da7d3b45bc8c3c81c18fc96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PopUpTuto
+  popUpText: {fileID: 870020794215672124}
+  maxPage: 5
+  textDuration: 0.5
+  buttonGroup: {fileID: 148252533644147203}
+  closeButton: {fileID: 275910537218234049}
+  eventTrigger: {fileID: 7844042993891388274}
+  buttonText: {fileID: 161888129706780653}
+--- !u!225 &3971350561240675976
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833265207437836568}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1435852318651287455
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +881,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2589157315413305335}
+      - m_Target: {fileID: 6983887186863333636}
         m_TargetAssemblyTypeName: PopUpTuto, Assembly-CSharp
         m_MethodName: PassPage
         m_Mode: 3
@@ -1220,9 +1352,7 @@ GameObject:
   - component: {fileID: 8869340048402812172}
   - component: {fileID: 7766362282738433849}
   - component: {fileID: 4783241067542594810}
-  - component: {fileID: 2589157315413305335}
-  - component: {fileID: 645894593585426913}
-  - component: {fileID: 7148315099856146767}
+  - component: {fileID: 4667261845721312670}
   m_Layer: 5
   m_Name: PopUpPanel
   m_TagString: Untagged
@@ -1242,14 +1372,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1190951810375065157}
+  - {fileID: 9190284176432680746}
   - {fileID: 3367621544551106473}
   m_Father: {fileID: 8831461784847796074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.09431251, y: 0.053000003}
-  m_AnchorMax: {x: 0.90522915, y: 0.94733346}
-  m_AnchoredPosition: {x: 0.5, y: 0}
-  m_SizeDelta: {x: 0.26708984, y: -0.6060791}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8869340048402812172
 CanvasRenderer:
@@ -1272,14 +1402,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.7254902}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 587879826, guid: 3a37eecfe141bbe448a8505966fb1f15, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2972e81ea7ddc1d41b7d135b7e975210, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1297,28 +1427,11 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2166561253077046142}
   m_Enabled: 1
-  m_Alpha: 0
-  m_Interactable: 0
-  m_BlocksRaycasts: 0
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &2589157315413305335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2166561253077046142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02ef2e0f3da7d3b45bc8c3c81c18fc96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PopUpTuto
-  popUpText: {fileID: 870020794215672124}
-  maxPage: 4
-  closeButton: {fileID: 275910537218234049}
-  eventTrigger: {fileID: 7844042993891388274}
-  buttonText: {fileID: 161888129706780653}
---- !u!114 &645894593585426913
+--- !u!114 &4667261845721312670
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1331,28 +1444,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Mask
   m_ShowMaskGraphic: 1
---- !u!95 &7148315099856146767
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2166561253077046142}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ce60618e6f6bbdf4799d08540cbddd73, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2512146558636413346
 GameObject:
   m_ObjectHideFlags: 0
@@ -2803,7 +2894,7 @@ MonoBehaviour:
   madnessBar: {fileID: 4847090340810413053}
   manaBar: {fileID: 8848647083915368804}
   adeptCounterText: {fileID: 1113881086551911572}
-  tuto: {fileID: 4783241067542594810}
+  tuto: {fileID: 3971350561240675976}
 --- !u!223 &7153631181857003407
 Canvas:
   m_ObjectHideFlags: 0
@@ -3136,6 +3227,7 @@ GameObject:
   - component: {fileID: 3367621544551106473}
   - component: {fileID: 1027337135236648316}
   - component: {fileID: 4943813894008716224}
+  - component: {fileID: 148252533644147203}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -3160,9 +3252,9 @@ RectTransform:
   - {fileID: 5994171493609629130}
   m_Father: {fileID: 5186296157855381958}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.33935782, y: 0.089}
-  m_AnchorMax: {x: 0.6913579, y: 0.15150364}
-  m_AnchoredPosition: {x: 0, y: -13}
+  m_AnchorMin: {x: 0.33935782, y: 0.105885595}
+  m_AnchorMax: {x: 0.69358647, y: 0.165}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1027337135236648316
@@ -3205,6 +3297,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
   m_HorizontalFit: 2
   m_VerticalFit: 0
+--- !u!225 &148252533644147203
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800633114017878017}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &5839112379667574456
 GameObject:
   m_ObjectHideFlags: 0
@@ -4072,10 +4176,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5186296157855381958}
+  m_Father: {fileID: 9190284176432680746}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.04}
-  m_AnchorMin: {x: 0.22157836, y: 0.23342443}
-  m_AnchorMax: {x: 0.7773579, y: 0.7571439}
+  m_AnchorMin: {x: 0.23600002, y: 0.23342443}
+  m_AnchorMax: {x: 0.77425367, y: 0.80500007}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4110,25 +4214,25 @@ MonoBehaviour:
   m_text: "Catan, the Hell\u2019s king, gave you a very important mission. Open a
     gate between Earth and Hell to let the cat-demons take over the world. Your goal
     is now to bring a lot of new believers, the Catan\u2019s advocates, into your
-    cult to obtain power. Their prayers give you Devotion Flames, a diabolic energy
+    cult to obtain power. Their prayers give you Devotion Flames, a diabolical energy
     that allows you to use your spells.\r\n\r\nHere, you can give roles to the cats
     for them to help you do multiple tasks. But be careful ! The cats can become
     crazy, driving the others crazy ! To prevent that, you can give them catnip or
-    just kill the problematic ones. \n\r\n\r\nUse Z, Q, S, D to move on the map and
-    you can select your spells on the panel in the bottom-right corner. On the other
-    side, you can see how much Devotion Flames you have and you can also follow the
-    average craziness of your cult. \n\r\n\r\nOnce you reach 66 cats, you will have
-    enough power to open the gate to Hell ! Good luck !"
+    just kill the problematic ones. \nUse Z, Q, S, D to move on the map and you can
+    select your spells on the panel in the bottom-right corner. On the other side,
+    you can see how much Devotion Flames you have and you can also follow the average
+    craziness of your cult. \r\nOnce you reach 66 cats, you will have enough power
+    to open the gate to Hell ! Good luck !"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b76d2a08d99ec20438823f854263c79b, type: 2}
-  m_sharedMaterial: {fileID: 4613311074221950498, guid: b76d2a08d99ec20438823f854263c79b, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5d6f99158510451448acf90fb7dbb546, type: 2}
+  m_sharedMaterial: {fileID: -3328578435477266464, guid: 5d6f99158510451448acf90fb7dbb546, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 0
+  m_fontColor: {r: 0, g: 0, b: 0, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4145,14 +4249,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 48
-  m_fontSizeBase: 48
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 2
-  m_HorizontalAlignment: 1
+  m_fontStyle: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4183,7 +4287,7 @@ MonoBehaviour:
   m_IsTextObjectScaleStatic: 0
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 4
+  m_pageToDisplay: 1
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -4616,7 +4720,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2589157315413305335}
+      - m_Target: {fileID: 6983887186863333636}
         m_TargetAssemblyTypeName: PopUpTuto, Assembly-CSharp
         m_MethodName: PassPage
         m_Mode: 3
@@ -4795,9 +4899,9 @@ RectTransform:
   m_Father: {fileID: 8182680893429666662}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17047916, y: 0.22140738}
-  m_AnchorMax: {x: 0.8258125, y: 0.7814074}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.8258125, y: 0.84340745}
+  m_AnchoredPosition: {x: 0, y: -33.5}
+  m_SizeDelta: {x: 0, y: -67}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7429443752722886801
 CanvasRenderer:
@@ -5253,6 +5357,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: BackButton, Assembly-CSharp
         m_MethodName: OnBackButton
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2166561253077046142}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
