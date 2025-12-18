@@ -9,6 +9,7 @@ public enum SoundName
     CuttingTree,
     SpawningTree,
     JehoChatLeaving,
-    JehoChatComingBack
+    JehoChatComingBack,
+    mainMusic
         
 }

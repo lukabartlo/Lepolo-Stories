@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
   soundList:
-  - SoundName: 0
-    audioClip: {fileID: 8300000, guid: 6c1de43e64c0ef5449d83a6c96e18f53, type: 3}
+  - SoundName: 10
+    audioClip: {fileID: 8300000, guid: a87e04cec293d57458321f8288472131, type: 3}
   - SoundName: 1
     audioClip: {fileID: 8300000, guid: ffe1c107c389bd84db83265f540d2c64, type: 3}
   - SoundName: 2

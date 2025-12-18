@@ -57,7 +57,7 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        //PlaySoundGlobal(SoundName.Wind, true);
+        PlaySoundGlobal(SoundName.mainMusic, true);
     }
 
     private void OnEnable()
