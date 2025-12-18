@@ -12,9 +12,12 @@ public class SpawnRessources : InteractionMapSpell
     {
         if (gm.currentMana < data.spellCost)
             return;
-
-        ConsumeMana(gm);
         
-        buildingSystem.TryBuild(data.obj, coords);
+        if (buildingSystem.TryBuild(data.obj, coords))
+        {
+            ConsumeMana(gm);
+
+            buildingSystem.TryBuild(data.obj, coords);
+        }
     }
 }
