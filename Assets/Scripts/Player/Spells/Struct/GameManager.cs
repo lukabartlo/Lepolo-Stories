@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        currentMana = minMana;
+        currentMana = maxMana/2;
     }
 
     private void Update()
