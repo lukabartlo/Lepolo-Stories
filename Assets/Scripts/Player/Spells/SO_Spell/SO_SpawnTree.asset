@@ -19,7 +19,7 @@ MonoBehaviour:
   spellCost: 5
   madnessValue: 0
   spellEffectPrefab: {fileID: 0}
-  cursorTexture: {fileID: 2800000, guid: e9c90f0d80ba4034fbf4a2509273d0da, type: 3}
+  cursorTexture: {fileID: 0}
   aoeRadius: 0
   aoePreviewPrefab: {fileID: 0}
   roles: 0
